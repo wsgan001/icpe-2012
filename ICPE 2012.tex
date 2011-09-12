@@ -1,0 +1,246 @@
+% THIS IS SIGPROC-SP.TEX - VERSION 3.1
+% WORKS WITH V3.2SP OF ACM_PROC_ARTICLE-SP.CLS
+% APRIL 2009
+%
+% It is an example file showing how to use the 'acm_proc_article-sp.cls' V3.2SP
+% LaTeX2e document class file for Conference Proceedings submissions.
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V3.2SP) *DOES NOT* produce:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) Page numbering
+% ---------------------------------------------------------------------------------------------------------------
+% It is an example which *does* use the .bib file (from which the .bbl file
+% is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission,
+% you need to 'insert'  your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% Questions regarding SIGS should be sent to
+% Adrienne Griscti ---> griscti@acm.org
+%
+% Questions/suggestions regarding the guidelines, .tex and .cls files, etc. to
+% Gerald Murray ---> murray@hq.acm.org
+%
+% For tracking purposes - this is V3.1SP - APRIL 2009
+
+\documentclass{acm_proc_article-sp}
+
+\begin{document}
+
+\title{Refactoring access control policies for performance improvement}
+
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+%\numberofauthors{5} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\numberofauthors{5}
+\author{
+\alignauthor Donia El Kateb \\
+ \affaddr{University of Luxembourg} \\
+ \affaddr{6 rue Coudenhove-Kalergi 
+L-1359 Luxembourg } \\
+ \email{donia.elkateb@uni.lu}
+\alignauthor Tejeddine Mouelhi \\
+ \affaddr{University of Luxembourg} \\
+ \affaddr{6 rue Coudenhove-Kalergi 
+L-1359 Luxembourg } \\
+ \email{tejeddine.mouelhi@uni.lu}
+\alignauthor Yves Le Traon \\
+ \affaddr{University of Luxembourg} \\
+ \affaddr{6 rue Coudenhove-Kalergi 
+L-1359 Luxembourg } \\
+ \email{yves.letraon@uni.lu}
+\and
+\alignauthor JeeHyun Hwang \\
+\affaddr{Dept. of Computer Science, 
+} \\
+\affaddr{North Carolina State University} \\
+ \affaddr {Raleigh, NC 27695, U.S.A} \\
+ \email{jhwang4@ncsu.edu}
+\alignauthor Tao Xie \\
+\affaddr{Dept. of Computer Science, 
+} \\
+\affaddr{North Carolina State University} \\
+ \affaddr {Raleigh, NC 27695, U.S.A} \\
+ \email{xie@csc.ncsu.edu}
+}
+
+
+
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+Modern access control architectures tend to separate the business logic from access control policy specification for the sake of easing authorization 
+manageability. Thus, request evaluation is processed by a Policy Decision Point (PDP) that encapsulates the access control policy and interacts with the
+ business logic through Policy Enforcement Points (PEPs). Such architectures may engender a performance bottleneck due to the number of rules that have to be 
+evaluated by a single PDP at decision making time.
+In this paper, we propose to optimize the decision-making process by splitting the PDP into smaller decision points. We conducted studies on XACML 
+(eXtensible Access Control Markup Language) to identify the best PDP splitting configuration. Our evaluation results show that the best splitting criterion 
+is the one that preserves the initial architectural model in terms of interaction between the business logic and the decision engine and enables
+ to reduce the time of request evaluation time by up to 9 times.
+\end{abstract}
+\keywords{Performance, Optimization, Access Control Policies, PEP, PDP, XACML} % NOT required for Proceedings
+
+
+% A category with the (minimum) three required fields
+%\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+%\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+%\terms{Theory}
+
+
+%\section{Acknowledgments}
+%This section is optional; it is a location for you
+%to acknowledge grants, funding, editing assistance and
+%what have you.  In the present case, for example, the
+%authors would like to thank Gerald Murray of ACM for
+%his help in codifying this \textit{Author's Guide}
+%and the \textbf{.cls} and \textbf{.tex} files that it describes.
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+
+
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+%\appendix
+%Appendix A
+
+
+\input{intro}
+%\input{background}
+%\input{approach}
+%\input{experiment}
+%\input{related}
+%\input{conclusion}
+\nocite{*}
+\begin{thebibliography}{1}
+
+\bibitem{oasis}
+{OASIS eXtensible Access Control Markup Language (XACML)}.
+{http://www.oasis-open.org/committees/xacml/}, 2005.
+
+\bibitem{sunxacml}
+{Sun's XACML implementation}.
+{http://sunxacml.sourceforge.net/}, 2005.
+
+\bibitem{policymanagement}
+J.~Chaudhry, T.~Palpanas, P.~Andritsos, and A.~Mana.
+ Entity lifecycle management for okkam.
+In {\em Proc. 1st IRSW2008 International Workshop on Tenerife}, 2008.
+
+\bibitem{scalabilityaccesscontrol}
+A.~D. Keromytis and J.~M. Smith.
+ Requirements for scalable access control and security management
+  architectures.
+ {\em ACM Trans. Internet Technol.}, 7, May 2007.
+
+\bibitem{Xengine}
+A.~X. Liu, F.~Chen, J.~Hwang, and T.~Xie.
+ Xengine: A fast and scalable {XACML} policy evaluation engine.
+ In {\em Proc. International Conference on Measurement and Modeling of
+  Computer Systems}, pages 265--276, 2008.
+
+\bibitem{acp}
+P.~Samarati and S.~D. C.~d. Vimercati.
+ Access control: Policies, models, and mechanisms.
+ In {\em Revised versions of lectures given during the IFIP WG 1.7
+  International School on Foundations of Security Analysis and Design on
+  Foundations of Security Analysis and Design: Tutorial Lectures}, pages
+  137--196, 2001.
+
+\bibitem{separation}
+R.~Yavatkar, D.~Pendarakis, and R.~Guerin.
+ A framework for policy-based admission control.
+ RFC Editor, 2000.
+
+\bibitem{dac}
+B. Lampson,
+    Protection,
+Proceedings of the 5th Princeton Conference on Information Sciences and Systems, 
+1971.
+
+
+\bibitem{mac} 
+Bell, E. D. and La Padula, J. L.,
+Secure computer system: Unified exposition and Multics interpretation,
+Mitre Corporation,
+1976.
+
+
+\bibitem{rbac}
+David F. Ferraiolo and Ravi Sandhu and Serban Gavrila and D. Richard Kuhn and Ramaswamy Chandramouli,
+Proposed NIST Standard for Role-Based Access Control,
+2001.
+
+
+\bibitem{rbac1}
+Ravi Sandhu and Edward Coyne and Hal Feinstein and Charles Youman,
+Role-Based Access Control Models,
+IEEE Computer,
+29,
+2,   
+1996,
+38--4.
+
+\bibitem{orbac}
+Anas Abou El Kalam and
+               Salem Benferhat and
+               Alexandre Mi{\`e}ge and
+               Rania El Baida and
+               Fr{\'e}d{\'e}ric Cuppens and
+               Claire Saurel and
+               Philippe Balbiani and
+               Yves Deswarte and
+               Gilles Trouessin,
+Organization based access contro,
+POLICY,
+2003.
+
+\end{thebibliography}
+
+\balancecolumns
+% That's all folks!
+\end{document}
