@@ -27,10 +27,15 @@
 % For tracking purposes - this is V3.1SP - APRIL 2009
 
 \documentclass{acm_proc_article-sp}
-
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage[table]{xcolor}
+\usepackage{subfloat}
+\usepackage{subfloat}
 \begin{document}
 
 \title{Refactoring access control policies for performance improvement}
+
 
 %
 % You need the command \numberofauthors to handle the 'placement
@@ -93,7 +98,7 @@ L-1359 Luxembourg } \\
  \email{xie@csc.ncsu.edu}
 }
 
-
+\maketitle
 
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
@@ -104,7 +109,6 @@ L-1359 Luxembourg } \\
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
 
-\maketitle
 \begin{abstract}
 Modern access control architectures tend to separate the business logic from access control policy specification for the sake of easing authorization 
 manageability. Thus, request evaluation is processed by a Policy Decision Point (PDP) that encapsulates the access control policy and interacts with the
@@ -151,7 +155,7 @@ is the one that preserves the initial architectural model in terms of interactio
 
 \input{intro}
 \input{background}
-%\input{approach}
+\input{approach}
 %\input{experiment}
 %\input{related}
 %\input{conclusion}
