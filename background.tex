@@ -1,21 +1,15 @@
 \section{Context/Problem Statement} \label{sec:context}
 
-In this section, we first present the flow model for access control data, which depicts the relationships between the PDP and the PEPs.
-We next present the performance issues in XACML access control policies and the synergy property that we aim to preserve in our automated process 
-of refactoring.
+The present section clarifies the motivation for the work presented in this paper and introduces the synergy requirement that we aim to 
+maintain while reasoning about performance requirements for access control policies.
 
-\subsection{Flow Model for Access Control Data}
-
-Most access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component
- encapsulated in a PDP, which interacts with the business logic through the PEP that deals wirh access control requests. 
-Figure \ref{pep-pdp} illustrates that the PEP in turn calls the PDP to retrieve an authorization decision based on the PDP encapsulated
-policy. This authorization decision is made through the evaluation of rules in the policy. 
-Subsequently, an authorization decision is returned to the PEP.
+\subsection{Synergy requirement related to the considered Access Control Architecture}
+Most access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component 
+encapsulated in a PDP. Figure \ref{pep-pdp} illustrates the interactions between the PEPs and the PDP: the PEP calls the PDP to 
+retrieve an authorization decision based on the PDP encapsulated policy. This authorization decision is made through the evaluation of rules in the policy. 
+Subsequently, an authorization decision (permit/deny) is returned to the PEP.
 The separation between the PEP and the PDP in access control systems simplifies policy management across many heterogeneous systems and enables to avoid
  potential risks arising from incorrect policy implementation, when the policy is hardcoded inside the business logic.
-\\
-In this paper, we focus on access control decision making for policies expressed in XACML.
-XACML \cite{sunxacml} is a standard policy specification language that defines a syntax of access control policies in XML.
 
 \begin{figure}[!h]
 \begin{center}
@@ -25,17 +19,39 @@ XACML \cite{sunxacml} is a standard policy specification language that defines a
 \end{center}
 \end{figure}
 
+Managing access control policies is one of the most challenging issues faced by organizations. 
+Frequent changes in access control systems may be required to meet business needs. An access control system has to handle some specific 
+requirements like role swap when employees are given temporary assignments, changes in the policies and procedures, 
+new assets, users and job positions in the organization.
+All these facts make access control architectures very difficult to manage, and plead in favor of a 
+simple access control architecture that can easily handle changes in access control systems. 
+Along with the reasoning about performance, we propose to maintain the simplicity of the access control architecture whose model 
+is presented in Figure \ref{model}. In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic 
+which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP interacts 
+with one single PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a given PEP. 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height=4.3cm,width=8cm]{model}
+\caption{The Access Control Model}
+\label{model}
+\end{center}
+\end{figure}
+
+Considering a single XACML policy file for each initiating PEP enables to ease policies management and to maintain a simple architecture 
+in which a given PEP is mapped to a fixed PDP at each decision making process. We define the synergy requirement in the access control 
+architecture by specialization of access control policies to be used for a particular PEP before deployment. The goal behind maintaing a single 
+policy related to each PEP in the system is to keep a strong traceability between what has been specified by the policy and the internal 
+security mechanisms enforcing this policy at the business logic level. In such setting, when the access control policy rules are updated or removed, 
+the related PEPs can be easily located and removed and thus the application is updated in a synchronous way with the policy changes. 
+
 \subsection{XACML Access Control Policies and Performance Issues}
-%\begin{figure}[!h]
-%\begin{center}
-%\includegraphics[width=12cm, height=10cm]{optimisation.jpeg}
-%\caption{\label{XACML Architecture}XACML Architecture}
-%\end{center}
-%\end{figure}
+In this paper, we focus on access control decision making for policies expressed in XACML.
+XACML \cite{sunxacml} is a standard policy specification language that defines a syntax of access control policies in XML.
 In the XACML paradigm, a policy set is a sequence of policies, a combining algorithm and
  a target. A policy element is expressed through a target, a set of rules and a rule combining algorithm. 
 The target defines the set of resources, subjects and actions to which a rule is applicable. The rule element consists of a 
-target, a condition, and an effect. The condition is a boolean expression that specifies restrictions (e.g., time and location restrictions) on the elements in the target. It represents 
+target, a condition, and an effect. The condition is a boolean expression that specifies restrictions (e.g., time and location restrictions)
+ on the elements in the target. It represents 
 the environmental context in which the rule applies. Finally, the effect element is either permit or deny. 
 When more than one rule is applicable to a given request, the combining algorithm enables selecting which rule to choose.
 For example, given two rules, which are applicable to the same request and provide different decisions,
@@ -58,7 +74,7 @@ Figure \ref{figur1} shows a simple XACML policy that denies subject Bob to borro
 \end{figure}
 
 The XACML request encapsulates attributes that define which subject is requested to take an action on which protected resource in a system.
-It can also include a condition. A request, which satisfies both target and condition in a rule, is evaluated
+This can be under/not a condition. A request, which satisfies both target and condition in a rule, is evaluated
 to decision specified in the rule's effect element. If the request does not satisfy target and condition elements in any rule, its response yields ``NotApplicable'' decision.
 \\XACML enables administrators to externalize access control policies for the sake of interoperability since access control policies can be designed 
 independently from the underlying programming language or platform. Such flexibility enables to easily update the access control policy to support new requirements.
@@ -72,7 +88,7 @@ independently from the underlying programming language or platform. Such flexibi
 
 However, the increasing complexity of organizations in term of structure, relationships, activities, and access control requirements has impacted 
 access control policy design. This has led to deal with access control policies where the number of rules depicting the associations between resources, 
-users and actions is huge. Moreover, the policy is usually centralized in a single point PDP, which 
+users and actions is in continuous increase. Moreover, the policy is usually centralized in a single point PDP, which 
 has to manage multiple access control requests.
 
 These observations raise performance concerns related to request evaluation time for XACML access control policies. 
@@ -91,38 +107,3 @@ from policies is also considered as a potential evaluation time latency.
 be built from an arbitrary nesting of non-boolean functions and attributes. 
 \end{itemize}
 
-\subsection{Preserving The Access Control Architecture}
-Managing access control policies is one of the most challenging issues faced by organizations. 
-Frequent changes in access control systems may be required to meet business needs. An access control system has to handle some specific 
-requirements like role swap when employees are given temporary assignments, changes in the policies and procedures, 
-new assets, users and job positions in the organization.
-All these facts make access control architectures very difficult to manage, and plead in favor of a 
-simple access control architecture that can easily handle changes in access control systems. 
-Along with the reasoning about performance, we propose to maintain the simplicity of the access control architecture whose model 
-is presented in Figure \ref{model}.
-
-In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic which is enforced 
-by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP interacts 
-with one PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a PEP. 
-
-Considering a single XACML policy file for each initiating PEP enables to:
-\begin{itemize}
- \item Ease policies management.
-\item  Maintain a simple architecture where suitable decision points are triggered by a PEP for given requests.
-\end{itemize}
-
-For this sake, we propose to preserve the cardinality based property between the PEP and the PDP.
-In such configuration, a PEP triggers always the same PDP encapsulating the policy related to that PEP requests. 
-One of the advantages of such architecture is that when there is a bug in a given PEP in the system, it is 
-easy to localize the corresponding policy and to check the problem. 
-Therefore, We aim at proposing a strategy that increases request evaluation performance and that preserves this property, 
-which holds for the initial architecture. The next section describes our approach and gives an insight of the process supporting it.
-
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[height=4.5cm,width=8cm]{model}
-\caption{The Access Control Model}
-\label{model}
-\end{center}
-\end{figure}
