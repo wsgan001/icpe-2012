@@ -1,30 +1,20 @@
 
 
-
-
 \section{Approach} \label{sec:approach}
-This section describes our approach and gives an insight of the process supporting it. In the first step, we show how to improve the performance of the 
-decision making process by reducing the number of access control rules that have to be considered at the evaluation time. Secondly, we show how to select 
-the splitting criterion that preserves the synergy requirement in the access control architecture.
+This section describes our approach and gives an insight of the process supporting it. In the first step, we show how performance improvement can be achieved by
+reducing the number of access control rules that have to be considered at the evaluation time, through the definition of policy based splitting criteria. 
+Secondly, we show how to select the splitting criterion that preserves the synergy requirement in the access control architecture.
 
 \subsection{XACML Policy Refactoring Process}
 What happens in a request evaluation process is that for a given access control request, some rules are evaluated in the global policy whereas some of those rules are not
- applicable to the request. Starting from this observation, we propose a scenario in which only the relevant rules for a given request will be evaluated
- in the decision making process, this scenario is based on a refactoring operation that consists in automating the policy splitting 
-into smaller policies based on attribute values combination. We transform a policy P into smaller policies \normalsize $P_{SC_{w}}$ where each policy
- conforms to a Splitting Criteria $SC_{w}$.
-An $SC_{w}$ defines the set of attributes that can be considered to classify all the rules into sets having the 
-same attribute values. $w$ denotes the number of attributes that have to be considered conjointly for aggregating rules into
- a unified set based on specific attribute elements selection.
-
-An XACML policy can be refactored considering one attribute element. In this case a policy can be split into a set of policies where the 
-rules have the same subject, resource, or action. Rules can also be aggregated considering two attributes like $<Subject, Action>$ or
- $<Action, Resource>$, in this setting, a policy will be transformed into a set of smaller policies where rules in the resulting policies have the same 
-couple of attribute elements. 
-We can go further in our grouping strategy when using $P_{SC_{w}}$ whose 
+ applicable to the request. Starting from this observation, we propose to evaluate only the relevant rules for a given request in the decision making process. 
+We propose to split the initial policy into smaller policies based on attribute values combination. We transform the policy \normalsize $P$ into smaller 
+policies \normalsize $P_{SC_{w}}$ where each policy conforms to a Splitting Criteria $SC_{w}$. An $SC_{w}$ defines the set of attributes that are considered 
+to classify all the rules into subsets having the same attribute values. $w$ denotes the number of attributes that have to be considered conjointly for aggregating rules into
+ a unified set based on specific attribute elements selection. A policy can be split into a set of policies where the rules have the same subject, resource, or action. 
+Rules can also be aggregated considering two attributes like $<Subject, Action>$ or $<Action, Resource>$, in this setting, a policy will be transformed into a set of smaller 
+policies where rules in the resulting policies have the same couple of attribute elements. We can go further in our grouping strategy when using $P_{SC_{w}}$ whose 
 rules match a specific triplet of resource, action and subject. Table I shows all splitting criteria categories according to the attribute elements combination.
-
-
 \begin{table}[h!]
 \centering
 \setlength{\extrarowheight}{6 pt}
@@ -39,24 +29,18 @@ $SC_{2}$& {$<Subject,Action>, <Subject,Resource>$}\\&{$<Resource,Action>$}\\  \h
 $SC_{3}$& {$<Subject,Resource,Action>$}\\ \hline
 \end{tabular}
 \caption{Splitting Criteria}
-
 \label{table1}\end{table}
 
-We propose an access control architecture built with multiple (PDPs), where each PDP enforces
-a policy that complies with a certain splitting criterion. 
-
+Once the splitting process is performed, the access control architecture will include one or more (PDPs) that comply with a certain splitting criterion.
+ 
 \subsection{Architecture Model Preservation: PEP-PDP Synergy}
 We consider the different splitting criteria that we have identified in the previous section and we propose to select the splitting 
-criteria that enables preserving the synergy property in the access control architecture.
-The selected splitting criteria should enable to have multiple policies encapsulated in several PDPs 
-where each PDP is mapped to a single PEP.
-A PEP-PDP mapping is observable through the code at application level. In fact, a deep analysis of the PEPs and 
-the corresponding triggered rules, enables to explicitly describe this mapping. At the application level, every PEP is mapped to a 
-service implementation through a system method call that triggers a decision making process by activating some specific rules in a single 
-PDP.
-
-The code below is taken from \cite{legacy}, this code excerpt shows an example of a PEP which is implemented by the method 
-checkSecurity, this method calls the class SecurityPolicyService that initiates the PDP component.
+criterion that enables to preserve the synergy requirement in the access control architecture. This splitting criterion respects how PEPs are organized 
+at the application level and how they are linked to their corresponding PDPs.
+A deep analysis of the PEPs at the application enables to observe the mapping between the PEPs and the PDP. At the application level, the PEP
+is represented by a method call that triggers a decision making process by activating some specific rules in the PDP.
+The code below is taken from \cite{legacy}, this code excerpt shows an example of a PEP represented by the method 
+checkSecurity which calls the class SecurityPolicyService that initiates the PDP component.
 \begin{algorithmic}
 \begin{algorithm}[!h]
 %\caption{System security function that describes a PEP enforcement}
@@ -75,37 +59,30 @@ checkSecurity, this method calls the class SecurityPolicyService that initiates 
 \end{algorithm}
 \end{algorithmic}
 
-An analysis of this code reflects that this function will trigger exclusively all the rules organized by the couple (Action, Resource) for 
-the subject given as input parameter. This is due to the call of the following methods: LibrarySecurityModel.BORROWBOOK\_METHOD and 
+An analysis of this code reflects that this PEP will trigger exclusively all the rules organized by the couple (Action, Resource) for 
+the subject user given as input parameter. This is due to the call of the following methods: LibrarySecurityModel.BORROWBOOK\_METHOD and 
 LibrarySecurityModel.BOOK\_VIEW.
+Thus the splitting process that will preserve the mapping between the PEPs and the PDP will be $SC_{2}=<Resource,Action>$ in this case.
+Depending on the application, establishing this mapping may require to identify all the enforcements points in an application, and to 
+track the different method calls triggered from these specific enforcement calls to map them to the relevant access control rules.
 
-%%%%%
-Conceptually, we propose to transform the global policy into subsets of rules where each subset can be mapped to a PEP.
-In this setting, each single request initiated by a specific PEP will have its corresponding evaluating PDP conforming to the PEP-PDP matching. 
-This implies that the different method calls initiated by PEPs are identified at the code level at the decision making time and mapped to their 
-corresponding PDPs. A mapping table is used to establish the link between each PEP implementation and the corresponding rules 
-encapsulated in a given PDP. A general schema for this approach is presented in Figure \ref{decomposition}.b.
 
-Figure \ref{synergy} synthesizes the concept of synergy between PEPs and corresponding PDPs. In the worse case, splitting the initial PDP into multi-PDPs may lead to a non-synergic system: a PEP may send its requests to several PDPs. The PDP, which receives a request is only known at runtime. Such a resulting architecture breaks the PEP-PDP synergy and the conceptual 
-simplicity of the initial architecture model. The splitting criteria which lead to such a non-synergic architecture is not a valid refactoring: 
-the complexity induced by the splitting, makes the maintenance and evolution of the system more difficult to manage.
+In the worse case, splitting the initial PDP into multi-PDPs may lead to a non-synergic system: a PEP may send its requests to several PDPs. 
+The PDP, which receives a request is only known at runtime. Such a resulting architecture breaks the PEP-PDP synergy and the conceptual 
+simplicity of the initial architecture model. 
 In the best case, the refactoring preserves the simplicity of the initial architecture, by keeping a many-to-one association from PEPs to PDPs. A given request evaluation 
 triggered by one PEP will always be handled by the same PDP. Operationally, the request evaluation process will involve 
 one XACML policy file. In this case, the refactoring is valid, since its does not impact the conceptual architecture of the system.
 
-Depending on the system architecture, establishing this mapping may require to identify all the enforcements points in an application, and to 
-track the different method calls 
-triggered from these specific enforcement calls to map them to the relevant access control rules.  
-In this work, we analyze the best splitting criteria in our empirical studies, for these empirical studies, we know in advance our different PEPs and their corresponding relevant rules. 
+  
+
 %We propose to identify automatically the different PEPs in a future work, however for this work, we can identify easily the different PEPs as we know in
 % advance that system functions are implemented through the consideration of (Resource, Action) target elements thus a policy refactoring according 
 %to system function is assimilated to policy refactoring according to the splitting criteria SC$_{1}=<$Action,Resource$>$. 
 
 Our empirical results, presented in section~\ref{sec:experiment}, have shown that adopting a policy refactoring based on system functions, as a refactoring strategy, enables to 
-reduce the decision making time. 
-%Our empirical results have constantly shown that adopting a policy refactoring based on system functions, as a refactoring strategy, enables to reduce the decision making time. 
-This strategy takes into consideration how the PEPs interact with the PDPs, how the rules are activated across the system, and preserve
-the architectue 	since we preserve the cardinality relation between PEPs and PDPs.
+have the best splitting criterion. 
+
  
 As depicted in Figure \ref{overallprocess}, the refactoring process is automated and starts by specifying and creating the XACML file which 
 will be split by our tool according to a specified SC that can be chosen by an access control stakeholder. Afterwards, the policies are included in the 
