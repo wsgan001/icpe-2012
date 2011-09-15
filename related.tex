@@ -1,0 +1,22 @@
+\section{Related Work} \label{sec:related}
+Some previous contributions have addressed access control policies performance issues, In \cite{clustering}, the authors have proposed an approach for policy evaluation based on a 
+clustering algorithm that reorders rules and policies within the policy set so that the access to applicable policies is faster, their categorization is based on
+ the subject target element. Their technique requires identifying the rules that are frequently used. Our approach follows a different strategy and does not require knowing which 
+rules are used the most. In addition, the rule reordering is tightly related to specific systems. If the PDP is shared between several
+ systems, their approach could not be applicable since the most ``used'' rules may vary between systems. \\
+In \cite{decomposition}, 
+the authors decomposed the global XACML policy into local policies related to collaborating parties, the local policies 
+are sent to corresponding PDPs. The request evaluation is based on local policies by considering the relationships among local
+ policies. In their approach, the optimization is based on storing the effect of each rule and each local policy for 
+a given request. Caching decisions results is then used to optimize evaluation time for an incoming request. However the authors have 
+not provided experimental results to measure the efficiency of their approach when compared to the traditional architecture.  
+
+While the previous approaches have focused on the PDP component to optimize the request evaluation, The authors in 
+\cite{XACMLstructure}, addressed this problem by analyzing rule location on XACML policy and requests at design level so that the relevant rules for the request are 
+accessed faster on evaluation time. \\
+The current contribution brings new dimensions to our previous work on access control \cite{Xengine} \cite{testcase} \cite{models}.
+We have focused particularly in \cite{Xengine} on performance issues addressed with XACML policies evaluation and we have proposed an 
+alternative solution to brute force searching based on an XACML policy conversion to a tree structure to minimize the request evaluation time. 
+Our previous approach involves a refactoring process that transforms the global policy into a decision diagram converted into 
+forwarding tables. In the current contribution, we introduce a new refactoring process that involves splitting the policy into smaller sub-policies. Our 
+two refactoring processes can be combined to dramatically decrease the evaluation time. 
