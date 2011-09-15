@@ -28,16 +28,25 @@
 % For tracking purposes - this is V3.1SP - APRIL 2009
 
 \documentclass{acm_proc_article-sp}
+\usepackage{subfloat}
+\usepackage{ifpdf}
+\usepackage{multicol}
 \usepackage{algorithmic}
 \usepackage{algorithm}
-\usepackage[table]{xcolor}
-\usepackage{subfloat}
-\usepackage{subfloat}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{graphicx}
+\pagenumbering{roman}
+\usepackage[table]{xcolor}	%%%%xcoloer install
+%\usepackage[font=footnotesize]{subfig} %%%% subfig install
+
+
+
 \begin{document}
 
 \title{Refactoring access control policies for performance improvement}
 
-
+\maketitle
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -99,7 +108,8 @@ L-1359 Luxembourg } \\
  \email{xie@csc.ncsu.edu}
 }
 
-\maketitle
+
+
 
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
@@ -157,95 +167,137 @@ is the one that preserves the initial architectural model in terms of interactio
 \input{intro}
 \input{background}
 \input{approach}
-%\input{experiment}
-%\input{related}
-%\input{conclusion}
-\nocite{*}
+\input{experiment}
+\input{related}
+\input{conclusion}
+
+
+
+
 \begin{thebibliography}{1}
 
-\bibitem{oasis}
-{OASIS eXtensible Access Control Markup Language (XACML)}.
-{http://www.oasis-open.org/committees/xacml/}, 2005.
-
-\bibitem{sunxacml}
-{Sun's XACML implementation}.
-{http://sunxacml.sourceforge.net/}, 2005.
 
 \bibitem{policymanagement}
-J.~Chaudhry, T.~Palpanas, P.~Andritsos, and A.~Mana.
- Entity lifecycle management for okkam.
-In {\em Proc. 1st IRSW2008 International Workshop on Tenerife}, 2008.
+Junaid Chaudhry and Themis Palpanas and Periklis Andritsos and Antonio
+	Mana,
+Entity Lifecycle Management for OKKAM,
+Proc. 1st IRSW2008 International Workshop on Tenerife,
+2008
+
+\bibitem{codec}
+Fisler, Kathi and Krishnamurthi, Shriram and Meyerovich, Leo A. and
+	Tschantz, Michael Carl,
+Verification and change-impact analysis of access-control policies,
+Proc. 27th International Conference on Software Engineering,
+2005,
+196--205
 
 \bibitem{scalabilityaccesscontrol}
-A.~D. Keromytis and J.~M. Smith.
- Requirements for scalable access control and security management
-  architectures.
- {\em ACM Trans. Internet Technol.}, 7, May 2007.
+Keromytis, Angelos D. and Smith, Jonathan M.,
+Requirements for scalable access control and security management
+	architectures,
+ACM Trans. Internet Technol,
+2007,
+7,
+May,
+2
+\bibitem{decomposition}
+Lin, Dan and Rao, Prathima and Bertino, Elisa and Li, Ninghui and
+	Lobo, Jorge,
+Policy decomposition for collaborative access control,
+Proc. 13th ACM Symposium on Access Control Models and Technologies,
+2008,
+103--112
 
 \bibitem{Xengine}
-A.~X. Liu, F.~Chen, J.~Hwang, and T.~Xie.
- Xengine: A fast and scalable {XACML} policy evaluation engine.
- In {\em Proc. International Conference on Measurement and Modeling of
-  Computer Systems}, pages 265--276, 2008.
+Alex X. Liu and Fei Chen and JeeHyun Hwang and Tao Xie,
+XEngine: A Fast and Scalable {XACML} Policy Evaluation Engine,
+Proc. International Conference on Measurement and Modeling of Computer
+	Systems,
+2008,
+265--276
 
+\bibitem{clustering}
+Marouf, Said and Shehab, Mohamed and Squicciarini, Anna and Sundareswaran,
+	Smitha,
+Statistics \& clustering based framework for efficient XACML policy
+	evaluation,
+Proc. 10th IEEE International Conference on Policies for Distributed
+	Systems and Networks,
+2009,
+118--125
+\bibitem{request}
+Evan Martin and Tao Xie and Ting Yu,
+Defining and Measuring Policy Coverage in Testing Access Control
+	Policies,
+Proc. 8th International Conference on Information and Communications
+	Security,
+2006,
+139--158
+
+\bibitem{XACMLstructure}
+Miseldine, Philip L.,
+Automated xacml policy reconfiguration for evaluation optimisation,
+Proc. 4th International Workshop on Software Engineering for Secure
+	Systems,
+2008,
+1--8
+\bibitem{models}
+Mouelhi, Tejeddine and Fleurey, Franck and Baudry, Benoit and Traon,
+	Yves,
+A Model-Based Framework for Security Policy Specification, Deployment
+	and Testing,
+Proc. 11th International Conference on Model Driven Engineering Languages
+	and Systems,
+2008,
+537--552
+\bibitem{testcase}
+Mouelhi, Tejeddine and Traon, Yves Le and Baudry, Benoit,
+Transforming and Selecting Functional Test Cases for Security Policy
+	Testing,
+Proc. 2009 International Conference on Software Testing Verification
+	and Validation,
+2009,
+171--180
 \bibitem{acp}
-P.~Samarati and S.~D. C.~d. Vimercati.
- Access control: Policies, models, and mechanisms.
- In {\em Revised versions of lectures given during the IFIP WG 1.7
-  International School on Foundations of Security Analysis and Design on
-  Foundations of Security Analysis and Design: Tutorial Lectures}, pages
-  137--196, 2001.
+Samarati, Pierangela and Vimercati, Sabrina De Capitani di,
+Access Control: Policies, Models, and Mechanisms,
+Revised versions of lectures given during the IFIP WG 1.7 International
+	School on Foundations of Security Analysis and Design on Foundations
+	of Security Analysis and Design: Tutorial Lectures,
+2001,
+137--196
 
+\bibitem{legacy}
+Traon, Yves Le and Mouelhi, Tejeddine and Pretschner, Alexander and
+	Baudry, Benoit,
+Test-Driven Assessment of Access Control in Legacy Applications,
+Proc. the 2008 International Conference on Software Testing, Verification,
+	and Validation,
+2008,
+238--247
 \bibitem{separation}
-R.~Yavatkar, D.~Pendarakis, and R.~Guerin.
- A framework for policy-based admission control.
- RFC Editor, 2000.
+R. Yavatkar and D. Pendarakis and R. Guerin,
+A Framework for Policy-based Admission Control,
+RFC Editor,
+2000
+\bibitem{splitter}
+PolicySplitter Tool,
+http://www.mouelhi.com/policysplitter.html,
+2011
 
-\bibitem{dac}
-B. Lampson,
-    Protection,
-Proceedings of the 5th Princeton Conference on Information Sciences and Systems, 
-1971.
-
-
-\bibitem{mac} 
-Bell, E. D. and La Padula, J. L.,
-Secure computer system: Unified exposition and Multics interpretation,
-Mitre Corporation,
-1976.
+\bibitem{oasis}
+OASIS eXtensible Access Control Markup Language (XACML),
+http://www.oasis-open.org/committees/xacml/,
+2005
 
 
-\bibitem{rbac}
-David F. Ferraiolo and Ravi Sandhu and Serban Gavrila and D. Richard Kuhn and Ramaswamy Chandramouli,
-Proposed NIST Standard for Role-Based Access Control,
-2001.
-
-
-\bibitem{rbac1}
-Ravi Sandhu and Edward Coyne and Hal Feinstein and Charles Youman,
-Role-Based Access Control Models,
-IEEE Computer,
-29,
-2,   
-1996,
-38--4.
-
-\bibitem{orbac}
-Anas Abou El Kalam and
-               Salem Benferhat and
-               Alexandre Mi{\`e}ge and
-               Rania El Baida and
-               Fr{\'e}d{\'e}ric Cuppens and
-               Claire Saurel and
-               Philippe Balbiani and
-               Yves Deswarte and
-               Gilles Trouessin,
-Organization based access contro,
-POLICY,
-2003.
+\bibitem{sunxacml}
+ Sun's XACML implementation,
+http://sunxacml.sourceforge.net,
+2005
 
 \end{thebibliography}
-
 \balancecolumns
 % That's all folks!
 \end{document}
