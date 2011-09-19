@@ -1,13 +1,15 @@
 %\section{Experiment}\label{sec:experiment}
 
+
+
 \section{Empirical results} \label{sec:experiment}
 
 To measure the efficiency of our approach, we conducted two empirical studies. The first takes into consideration the whole system 
-(PEPs and PDPs) and evaluates the performance improvement regarding decision making process. The request processing time, 
+(PEPs and PDPs) and evaluates the performance improvement regarding the decision making process. The request processing time, 
 for each splitting criterion is compared to the processing time of the initial architecture implementing the global policy (the evaluation 
-that considers the global policy, is denoted (IA), the ``Initial Architecture''). The second empirical study focuses only on the PDPs in isolation to measure the gain in performance independently from system's requests. To make 
-such study of PDPs in isolation, we use XEngine \cite{Xengine}. The objective of the second study is to see how our approach can be combined with XEngine and 
-how this impacts the performance.
+that considers the global policy, is denoted (IA), the ``Initial Architecture''). This phase takes into consideration The second empirical study focuses only on the PDPs in isolation to measure the gain in performance
+ independently from system's requests. To make such study of PDPs in isolation, we use XEngine \cite{Xengine}. The objective of the second study is to see how our approach can be combined 
+with XEngine and how this impacts the performance.
 \\
 The first subsection introduces our empirical studies and presents the tool that supports our approach. The remaining two sections present and discuss the results of the two empirical studies.  
 
@@ -23,13 +25,13 @@ on this auction. One of the specificities of this system is that a buyer must ha
 \end{itemize}
 We started by a processing step, in which we have augmented the rules number in the three original policies for these studies, as it would be difficult
  to observe a performance improvement results with systems including few rules. In our evaluations, LMS policy contains 720 rules, VMS has 945 rules while ASMS implements 1760 rules. 
-The rules that we have added do not modify the system behavior as they are conform to the specifications. Our evaluations were carried out on a desktop PC, running Ubuntu 10.04 with Core i5, 2530 Mhz processor, and 4 GB of RAM. 
+The rules that we have added do not modify the system behavior as they are conform to the specifications. Our evaluations were carried out on a desktop PC, 
+running Ubuntu 10.04 with Core i5, 2530 Mhz processor, and 4 GB of RAM. 
 \\
 We have implemented the PolicySplitter tool in Java. PolicySplitter enables splitting policies according to the chosen splitting criteria. 
-It is available for download from \cite{splitter}.
+The tool is available for download from \cite{splitter}.
 The execution time of the tool is not considered as a performance factor as it takes up to few seconds (for very large policies) to perform the splitting 
-according to all SCs. Moreover the refactoring process is executed only once to create a configuration that supports a selected splitting criterion and more importantly
-the splitting is not performed on runtime.
+according to all SCs. Moreover the refactoring process is executed only once to create a configuration that supports a selected splitting criterion.
 
 
 \subsection{Performance Improvement Results}
@@ -106,7 +108,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 
 \begin{table}[h!]
 \small
-\centering
+
 
 \begin{tabular}{|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|}  
 \hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
@@ -147,7 +149,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 
 
 \begin{table}[h!]
-\left
+
 \begin{tabular}{|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|}     
 \hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
 & \scriptsize \bf \textcolor {white}{SAR}
@@ -161,7 +163,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 
 & \scriptsize \bf \textcolor {white}{IA}\\ \hline
 
-\scriptsize  {SUN PDP}
+\scriptsize  {SUN }
 & \scriptsize  {1281}
 & \scriptsize {2640}
 & \scriptsize {3422}
@@ -172,7 +174,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 & \scriptsize {6781}
 & \scriptsize {5766}
   \\ \hline
-\scriptsize  {XEngine}
+\scriptsize  {XEng}
 & \scriptsize  {94}
 & \scriptsize {265}
 & \scriptsize {265}
@@ -185,7 +187,6 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
   \\ \hline
 \end{tabular}
 \caption{Evaluation time in VMS}\end{table}
-
 
 
 \begin{table}[h!]
@@ -201,7 +202,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 & \scriptsize \bf \textcolor  {white}{S} 
 & \scriptsize \bf \textcolor  {white}{A}
 & \scriptsize \bf \textcolor {white}{IA}\\ \hline
-\scriptsize  {SUN PDP}
+\scriptsize  {SUN }
 & \scriptsize  {2280}
 & \scriptsize {2734}
 & \scriptsize {3625}
@@ -212,7 +213,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 & \scriptsize {6859}
 & \scriptsize {7156}
   \\ \hline
-\scriptsize  {XEngine}
+\scriptsize  {XEng}
 & \scriptsize  {100}
 & \scriptsize {125}
 & \scriptsize {265}
