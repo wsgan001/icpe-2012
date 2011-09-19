@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.29)  19 SEP 2011 02:04
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.29)  20 SEP 2011 00:46
 entering extended mode
  %&-line parsing enabled.
 **"ICPE 2012.tex"
@@ -433,25 +433,25 @@ Package caption Info: Unknown document class (or package),
 ) (./ICPE 2012.aux)
 \openout1 = `"ICPE 2012.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 45.
 
 (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    ... okay on input line 45.
 
 (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -469,18 +469,18 @@ LaTeX Font Info:    ... okay on input line 44.
 \c@lstlisting=\count144
 Package caption Info: Begin \AtBeginDocument code.
 Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
-LaTeX Info: Redefining \subref on input line 44.
+LaTeX Info: Redefining \subref on input line 45.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 110.
+LaTeX Font Info:    Try loading font information for U+msa on input line 111.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 110.
+LaTeX Font Info:    Try loading font information for U+msb on input line 111.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 110.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 111.
 
 (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
@@ -512,92 +512,83 @@ Overfull \hbox (4.69386pt too wide) in paragraph at lines 70--71
 <PEPExample.pdf, id=77, 579.16376pt x 380.42125pt>
 File: PEPExample.pdf Graphic file (type pdf)
  <use PEPExample.pdf>
+[4 <./PEPExample.pdf>] <requestevaluation.pdf, id=100, 433.62pt x 433.62pt>
+File: requestevaluation.pdf Graphic file (type pdf)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (11.30214pt too wide) in paragraph at lines 52--52
+<use requestevaluation.pdf>
+Overfull \hbox (11.30214pt too wide) in paragraph at lines 59--59
 []\secfnt Architecture Model Preser-va-tion: PEP-PDP
  []
 
-[4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-<Overall-process.pdf, id=89, 579.16376pt x 524.96124pt>
+<Overall-process.pdf, id=102, 579.16376pt x 524.96124pt>
 File: Overall-process.pdf Graphic file (type pdf)
 
 <use Overall-process.pdf>
-Overfull \hbox (1.85081pt too wide) in paragraph at lines 92--93
+Overfull \hbox (1.85081pt too wide) in paragraph at lines 99--100
  [] 
  []
 
-) (./experiment.tex [5 <./PEPExample.pdf> <./Overall-process.pdf>]
-Overfull \hbox (5.74002pt too wide) in paragraph at lines 20--23
+) (./experiment.tex
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./requestevaluation.pdf>]
+Overfull \hbox (5.74002pt too wide) in paragraph at lines 22--25
 []\T1/aer/m/n/9 ASMS (Auc-tion Sale Man-age-ment Sys-tem): al-lows users
  []
 
-<LMS.pdf, id=121, 290.08376pt x 235.88126pt>
+<LMS.pdf, id=123, 290.08376pt x 235.88126pt>
 File: LMS.pdf Graphic file (type pdf)
  <use LMS.pdf>
-<VMS.pdf, id=123, 290.08376pt x 235.88126pt>
+<VMS.pdf, id=125, 290.08376pt x 235.88126pt>
 File: VMS.pdf Graphic file (type pdf)
  <use VMS.pdf>
-<ASMS.pdf, id=125, 290.08376pt x 235.88126pt>
+<ASMS.pdf, id=127, 290.08376pt x 235.88126pt>
 File: ASMS.pdf Graphic file (type pdf)
  <use ASMS.pdf>
-<pdpnumber.pdf, id=127, 796.9775pt x 597.23125pt>
+<pdpnumber.pdf, id=129, 796.9775pt x 597.23125pt>
 File: pdpnumber.pdf Graphic file (type pdf)
  <use pdpnumber.pdf>
-Overfull \hbox (1.84344pt too wide) in paragraph at lines 73--74
- [][] 
- []
-
-[6 <./pdpnumber.pdf>]
-Overfull \hbox (25.43617pt too wide) in paragraph at lines 111--145
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (11.89119pt too wide) in paragraph at lines 151--187
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (11.89119pt too wide) in paragraph at lines 192--226
+Overfull \hbox (1.84344pt too wide) in paragraph at lines 75--76
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./related.tex [7 <./LMS.pdf> <./VMS.pdf> <./ASMS.pdf>]) (./conclusion.tex
+[6 <./Overall-process.pdf>]
+Overfull \hbox (25.43617pt too wide) in paragraph at lines 113--147
+[][] 
+ []
+
+
+Overfull \hbox (11.89119pt too wide) in paragraph at lines 153--189
+[][] 
+ []
+
+
+Overfull \hbox (11.89119pt too wide) in paragraph at lines 194--228
+ [][] 
+ []
+
+[7 <./LMS.pdf> <./VMS.pdf> <./ASMS.pdf> <./pdpnumber.pdf>]) (./related.tex)
+(./conclusion.tex
 Overfull \hbox (14.82109pt too wide) in paragraph at lines 14--1
 \T1/aer/m/n/9 par-tic-u-larly in [5] on per-for-mance is-sues ad-dressed with X
 ACML
  []
 
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-[9
+) [8] [9
 
 ] (./ICPE 2012.aux) ) 
 Here is how much of TeX's memory you used:
- 5563 strings out of 493848
- 74344 string characters out of 1152823
- 147920 words of memory out of 3000000
- 8700 multiletter control sequences out of 15000+50000
+ 5569 strings out of 493848
+ 74487 string characters out of 1152823
+ 145928 words of memory out of 3000000
+ 8705 multiletter control sequences out of 15000+50000
  59061 words of font info for 86 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,13n,45p,265b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,45p,254b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</us
 r/share/texmf-texlive/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texmf
 -texlive/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-texlive/fon
@@ -614,9 +605,9 @@ share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texli
 ve/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/ur
 w/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on "ICPE 2012.pdf" (9 pages, 663221 bytes).
+Output written on "ICPE 2012.pdf" (9 pages, 704800 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
+ 264 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
