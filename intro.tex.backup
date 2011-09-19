@@ -3,8 +3,8 @@
 
 Access control policies are derived from an access control model like RBAC, MAC, DAC and OrBAC \cite{dac,mac,rbac,orbac} to define authorization strategies which regulate the actions 
 that users could perform on system resources. In the context of a Policy based software systems, access control architectures are often built with respect to a popular architectural 
-concept, which separates a Policy Enforcement Point (PEP) from a Policy Decision Point (PDP) \cite{separation}. More specifically, the PEP is located inside 
-the application (i.e., business logic of the system) and formulates requests.
+concept, which separates a Policy Enforcement Point (PEP) from a Policy Decision Point (PDP) \cite{separation}. More specifically, the PEP is located inside the application (i.e., business logic of the system) and formulates 
+requests.
 The PDP encapsulates the policy. The PDP then receives requests from the PEP and returns evaluation responses (e.g., permit or deny) by evaluating these requests 
 against rules in the policy. This architecture enables to facilitate managing access rights in a fine-grained way since it 
 decouples the business logic from the access control decision logic, which can be standardized. 
@@ -43,6 +43,8 @@ In our previous work \cite{Xengine}, we addressed performance issues in policy e
 a decision engine called XEngine that outperforms Sun PDP implementation~\cite{oasis}. XEngine transforms an original XACML policy
 into its corresponding policy in a tree format by mapping attribute values with numerical values.
 Our contribution in this paper goes in the same research direction as it aims to reduce the request evaluation time by refactoring the policy.
+
+
 Our evaluation results show that evaluation time is reduced up to nine times with split policies if compared to its original global policy 
 and that we have a considerable performance improvement, if the policies resulting from our refactoring process are evaluated
 with XEngine rather than Sun PDP.
@@ -58,7 +60,7 @@ efficiency. Our approach achieves more than 9 times faster than that of the appr
 \end{itemize}
 
 
-The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces flow models for access control policy in XACML.
+The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces flow models for access control policy in XACML, and access policy architecture model.
 Section~\ref{sec:approach} presents our adopted strategy and
 Section~\ref{sec:experiment} presents evaluation results and discusses the effectiveness of our approach. Section~\ref{sec:related} discusses related work.
 Section~\ref{sec:conclusion} concludes this paper and discuses future research directions..

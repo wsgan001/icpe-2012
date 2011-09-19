@@ -106,7 +106,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 
 \begin{table}[h!]
 \small
-
+\centering
 
 \begin{tabular}{|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|}  
 \hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
@@ -147,7 +147,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 
 
 \begin{table}[h!]
-
+\left
 \begin{tabular}{|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|>{\small}l|}     
 \hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
 & \scriptsize \bf \textcolor {white}{SAR}
@@ -161,7 +161,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 
 & \scriptsize \bf \textcolor {white}{IA}\\ \hline
 
-\scriptsize  {SUN }
+\scriptsize  {SUN PDP}
 & \scriptsize  {1281}
 & \scriptsize {2640}
 & \scriptsize {3422}
@@ -172,7 +172,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 & \scriptsize {6781}
 & \scriptsize {5766}
   \\ \hline
-\scriptsize  {XEng}
+\scriptsize  {XEngine}
 & \scriptsize  {94}
 & \scriptsize {265}
 & \scriptsize {265}
@@ -185,6 +185,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
   \\ \hline
 \end{tabular}
 \caption{Evaluation time in VMS}\end{table}
+
 
 
 \begin{table}[h!]
@@ -200,7 +201,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 & \scriptsize \bf \textcolor  {white}{S} 
 & \scriptsize \bf \textcolor  {white}{A}
 & \scriptsize \bf \textcolor {white}{IA}\\ \hline
-\scriptsize  {SUN }
+\scriptsize  {SUN PDP}
 & \scriptsize  {2280}
 & \scriptsize {2734}
 & \scriptsize {3625}
@@ -211,7 +212,7 @@ in \cite{request}. The request time processing is evaluated for LMS, VMS, ASMS. 
 & \scriptsize {6859}
 & \scriptsize {7156}
   \\ \hline
-\scriptsize  {XEng}
+\scriptsize  {XEngine}
 & \scriptsize  {100}
 & \scriptsize {125}
 & \scriptsize {265}

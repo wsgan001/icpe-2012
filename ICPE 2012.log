@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.29)  13 SEP 2011 18:59
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.29)  19 SEP 2011 02:04
 entering extended mode
  %&-line parsing enabled.
 **"ICPE 2012.tex"
@@ -184,67 +184,6 @@ LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 (/usr/share/texmf-texlive/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 )))
-(/usr/share/texmf-texlive/tex/latex/algorithms/algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-
-(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\c@ALC@unique=\count109
-\c@ALC@line=\count110
-\c@ALC@rem=\count111
-\c@ALC@depth=\count112
-\ALC@tlm=\skip44
-\algorithmicindent=\skip45
-)
-(/usr/share/texmf-texlive/tex/latex/algorithms/algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
-
-(/usr/share/texmf-texlive/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count113
-\float@exts=\toks36
-\float@box=\box30
-\@float@everytoks=\toks37
-\@floatcapt=\box31
-)
-\@float@every@algorithm=\toks38
-\c@algorithm=\count114
-)
-(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
-
-(/etc/texmf/tex/latex/config/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-
-(/usr/share/texmf-texlive/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
-
-(/usr/share/texmf-texlive/tex/latex/tools/array.sty
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen123
-\extrarowheight=\dimen124
-\NC@list=\toks39
-\extratabsurround=\skip46
-\backup@length=\skip47
-)
-\everycr=\toks40
-\minrowclearance=\skip48
-)
-\rownum=\count115
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
-Package xcolor Info: Model `RGB' extended on input line 1353.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-)
 (/usr/share/texmf-texlive/tex/latex/subfloat/subfloat.sty
 Package: subfloat 2003/08/21 version 2.14
 
@@ -258,44 +197,290 @@ Package subfloat Warning: Numbers of floats not counted:
 (subfloat)                Please switch on countmax or remove the code using
 (subfloat)                the counter then..
 
+) (/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/latex/tools/multicol.sty
+Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
+\c@tracingmulticols=\count109
+\mult@box=\box30
+\multicol@leftmargin=\dimen123
+\c@unbalance=\count110
+\c@collectmore=\count111
+\doublecol@number=\count112
+\multicoltolerance=\count113
+\multicolpretolerance=\count114
+\full@width=\dimen124
+\page@free=\dimen125
+\premulticols=\dimen126
+\postmulticols=\dimen127
+\multicolsep=\skip44
+\multicolbaselineskip=\skip45
+\partial@page=\box31
+\last@line=\box32
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count115
+\c@finalcolumnbadness=\count116
+\last@try=\dimen128
+\multicolovershoot=\dimen129
+\multicolundershoot=\dimen130
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+)
+(/usr/share/texmf-texlive/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@ALC@unique=\count117
+\c@ALC@line=\count118
+\c@ALC@rem=\count119
+\c@ALC@depth=\count120
+\ALC@tlm=\skip46
+\algorithmicindent=\skip47
+)
+(/usr/share/texmf-texlive/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count121
+\float@exts=\toks36
+\float@box=\box56
+\@float@everytoks=\toks37
+\@floatcapt=\box57
+)
+\@float@every@algorithm=\toks38
+\c@algorithm=\count122
+)
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+\lst@mode=\count123
+\lst@gtempboxa=\box58
+\lst@token=\toks39
+\lst@length=\count124
+\lst@currlwidth=\dimen131
+\lst@column=\count125
+\lst@pos=\count126
+\lst@lostspace=\dimen132
+\lst@width=\dimen133
+\lst@newlines=\count127
+\lst@lineno=\count128
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\lst@maxwidth=\dimen134
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count129
+\lst@skipnumbers=\count130
+\lst@framebox=\box59
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texmf-texlive/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
+
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen135
+\extrarowheight=\dimen136
+\NC@list=\toks40
+\extratabsurround=\skip50
+\backup@length=\skip51
+)
+\everycr=\toks41
+\minrowclearance=\skip52
+)
+\rownum=\count131
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texmf-texlive/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen137
+\captionmargin@=\dimen138
+\captionwidth=\dimen139
+\caption@indent=\dimen140
+\caption@parindent=\dimen141
+\caption@hangindent=\dimen142
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used on input line 1068.
+)
+\c@KVtest=\count132
+\sf@farskip=\skip53
+\sf@captopadj=\dimen143
+\sf@capskip=\skip54
+\sf@nearskip=\skip55
+\c@subfigure=\count133
+\c@subfigure@save=\count134
+\c@lofdepth=\count135
+\c@subtable=\count136
+\c@subtable@save=\count137
+\c@lotdepth=\count138
+\sf@top=\skip56
+\sf@bottom=\skip57
 ) (./ICPE 2012.aux)
 \openout1 = `"ICPE 2012.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
- (/usr/share/texmf/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen125
-\scratchbox=\box32
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen126
-\MPnumerator=\count120
-\everyMPtoPDFconversion=\toks42
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 44.
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 101.
+LaTeX Font Info:    ... okay on input line 44.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count139
+\scratchdimen=\dimen144
+\scratchbox=\box60
+\nofMPsegments=\count140
+\nofMParguments=\count141
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count142
+\MPscratchDim=\dimen145
+\MPnumerator=\count143
+\everyMPtoPDFconversion=\toks43
+)
+\c@lstlisting=\count144
+Package caption Info: Begin \AtBeginDocument code.
+Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
+LaTeX Info: Redefining \subref on input line 44.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 110.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 101.
+LaTeX Font Info:    Try loading font information for U+msb on input line 110.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 101.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 110.
 
 (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
@@ -305,23 +490,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-
-LaTeX Warning: Reference `sec:experiment' on page \thepage  undefined on input 
-line 63.
-
-
-LaTeX Warning: Reference `sec:related' on page \thepage  undefined on input lin
-e 63.
-
-
-LaTeX Warning: Reference `sec:conclusion' on page \thepage  undefined on input 
-line 64.
-
-) (./background.tex <business-logic.pdf, id=9, 651.43375pt x 597.23125pt>
+]) (./background.tex
+<business-logic.pdf, id=9, 651.43375pt x 597.23125pt>
 File: business-logic.pdf Graphic file (type pdf)
-
-<use business-logic.pdf>
+ <use business-logic.pdf>
 Overfull \hbox (16.07596pt too wide) in paragraph at lines 16--17
  [] 
  []
@@ -337,80 +509,114 @@ Overfull \hbox (4.69386pt too wide) in paragraph at lines 70--71
  []
 
 [3 <./model.pdf> <./xacml.pdf>]) (./approach.tex
-Overfull \hbox (11.30214pt too wide) in paragraph at lines 48--48
+<PEPExample.pdf, id=77, 579.16376pt x 380.42125pt>
+File: PEPExample.pdf Graphic file (type pdf)
+ <use PEPExample.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (11.30214pt too wide) in paragraph at lines 52--52
 []\secfnt Architecture Model Preser-va-tion: PEP-PDP
  []
 
-
-LaTeX Warning: Citation `legacy' on page \thepage  undefined on input line 58.
-
-
-Overfull \hbox (113.78409pt too wide) in paragraph at lines 58--61
-\T1/aer/m/n/9 vice that ini-ti-ates the PDP com-po-nent.                       
-                               
- []
-
-
-Overfull \hbox (2.72762pt too wide) in paragraph at lines 69--69
-[] []\T1/aer/bx/n/9 LibrarySecurityModel.BORROWBOOK_METHOD, 
- []
-
 [4]
-
-LaTeX Warning: Reference `decomposition' on page \thepage  undefined on input l
-ine 87.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `synergy' on page \thepage  undefined on input line 89
-.
+<Overall-process.pdf, id=89, 579.16376pt x 524.96124pt>
+File: Overall-process.pdf Graphic file (type pdf)
 
+<use Overall-process.pdf>
+Overfull \hbox (1.85081pt too wide) in paragraph at lines 92--93
+ [] 
+ []
 
-Overfull \hbox (1.34612pt too wide) in paragraph at lines 96--103
-[]\T1/aer/m/n/9 Depending on the sys-tem ar-chi-tec-ture, es-tab-lish-ing this 
-map-
+) (./experiment.tex [5 <./PEPExample.pdf> <./Overall-process.pdf>]
+Overfull \hbox (5.74002pt too wide) in paragraph at lines 20--23
+[]\T1/aer/m/n/9 ASMS (Auc-tion Sale Man-age-ment Sys-tem): al-lows users
+ []
+
+<LMS.pdf, id=121, 290.08376pt x 235.88126pt>
+File: LMS.pdf Graphic file (type pdf)
+ <use LMS.pdf>
+<VMS.pdf, id=123, 290.08376pt x 235.88126pt>
+File: VMS.pdf Graphic file (type pdf)
+ <use VMS.pdf>
+<ASMS.pdf, id=125, 290.08376pt x 235.88126pt>
+File: ASMS.pdf Graphic file (type pdf)
+ <use ASMS.pdf>
+<pdpnumber.pdf, id=127, 796.9775pt x 597.23125pt>
+File: pdpnumber.pdf Graphic file (type pdf)
+ <use pdpnumber.pdf>
+Overfull \hbox (1.84344pt too wide) in paragraph at lines 73--74
+ [][] 
+ []
+
+[6 <./pdpnumber.pdf>]
+Overfull \hbox (25.43617pt too wide) in paragraph at lines 111--145
+[][] 
  []
 
 
-LaTeX Warning: Reference `sec:experiment' on page \thepage  undefined on input 
-line 104.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `overallprocess' on page \thepage  undefined on input 
-line 110.
+Overfull \hbox (11.89119pt too wide) in paragraph at lines 151--187
+[][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (11.89119pt too wide) in paragraph at lines 192--226
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./related.tex [7 <./LMS.pdf> <./VMS.pdf> <./ASMS.pdf>]) (./conclusion.tex
+Overfull \hbox (14.82109pt too wide) in paragraph at lines 14--1
+\T1/aer/m/n/9 par-tic-u-larly in [5] on per-for-mance is-sues ad-dressed with X
+ACML
+ []
 
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-(./ICPE 2012.aux)
+ [8]
+[9
 
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./ICPE 2012.aux) ) 
 Here is how much of TeX's memory you used:
- 3145 strings out of 493848
- 36047 string characters out of 1152823
- 104106 words of memory out of 3000000
- 6339 multiletter control sequences out of 15000+50000
- 55100 words of font info for 79 fonts, out of 3000000 for 9000
+ 5563 strings out of 493848
+ 74344 string characters out of 1152823
+ 147920 words of memory out of 3000000
+ 8700 multiletter control sequences out of 15000+50000
+ 59061 words of font info for 86 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,12n,35p,418b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-mi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb
-></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texm
-f-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/t
-ype1/urw/times/utmb8a.pfb>
-Output written on "ICPE 2012.pdf" (5 pages, 391970 bytes).
+ 41i,13n,45p,265b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</us
+r/share/texmf-texlive/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
+5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
+share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texli
+ve/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/ur
+w/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+
+Output written on "ICPE 2012.pdf" (9 pages, 663221 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
+ 246 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

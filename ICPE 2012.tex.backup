@@ -37,9 +37,11 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \pagenumbering{roman}
-\usepackage{textcomp}
-\usepackage[table]{xcolor}	
-\usepackage[caption=false]{subfig}
+\usepackage[table]{xcolor}	%%%%xcoloer install
+\usepackage{subfig} %%%% subfig install
+
+
+
 
 \begin{document}
 
@@ -107,12 +109,12 @@ L-1359 Luxembourg } \\
  \email{xie@csc.ncsu.edu}
 }
 
-\maketitle
+
 
 \pagestyle{plain} % No headers, just page numbers
 \pagenumbering{arabic} % Roman numerals
 \setcounter{page}{1}
-
+\maketitle
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
@@ -164,13 +166,21 @@ is the one that preserves the initial architectural model in terms of interactio
 %\balancecolumns
 %\appendix
 %Appendix A
+
+
 \input{intro}
 \input{background}
 \input{approach}
 \input{experiment}
 \input{related}
 \input{conclusion}
+
+
+
+
 \begin{thebibliography}{1}
+
+
 \bibitem{policymanagement}
 Junaid Chaudhry and Themis Palpanas and Periklis Andritsos and Antonio
 	Mana,
@@ -180,15 +190,18 @@ Proc. 1st IRSW2008 International Workshop on Tenerife,
 
 \bibitem{codec}
 Fisler, Kathi and Krishnamurthi, Shriram and Meyerovich, Leo A. and
+
 	Tschantz, Michael Carl,
 Verification and change-impact analysis of access-control policies,
 Proc. 27th International Conference on Software Engineering,
-2005, 196--205
+2005,
+196--205
 
 \bibitem{scalabilityaccesscontrol}
 Keromytis, Angelos D. and Smith, Jonathan M.,
 Requirements for scalable access control and security management
-	architectures, ACM Trans. Internet Technol,
+	architectures,
+ACM Trans. Internet Technol,
 2007,
 7,
 May,
@@ -289,58 +302,11 @@ OASIS eXtensible Access Control Markup Language (XACML),
 http://www.oasis-open.org/committees/xacml/,
 2005
 
-\bibitem{mac1}
-Biba, K. J.,
-Integrity Considerations for Secure Computer Systems,
-ESD-TR-76-372,
-MITRE Corp,
-1977
-
-\bibitem{dac}
-B. Lampson,
-Protection,
-Proceedings of the 5th Princeton Conference on Information Sciences and Systems, 
-1971
-
-\bibitem{mac}
-Bell, E. D. and La Padula, J. L.,
-Secure computer system: Unified exposition and Multics interpretation,
-Mitre Corporation,
-1976
-
-\bibitem{rbac}
-David F. Ferraiolo and Ravi Sandhu and Serban Gavrila and D. Richard Kuhn and Ramaswamy Chandramouli,
-Proposed NIST Standard for Role-Based Access Control,
-2001
-
-\bibitem{rbac1}
-Ravi Sandhu and Edward Coyne and Hal Feinstein and Charles Youman,
-Role-Based Access Control Models,
-IEEE Computer,
-29,
-2,  
-1996,
-38--4
 
 \bibitem{sunxacml}
  Sun's XACML implementation,
 http://sunxacml.sourceforge.net,
 2005
-
-\bibitem{orbac}
-Anas Abou El Kalam and
-               Salem Benferhat and
-               Alexandre Mi{\`e}ge and
-               Rania El Baida and
-               Fr{\'e}d{\'e}ric Cuppens and
-               Claire Saurel and
-               Philippe Balbiani and
-               Yves Deswarte and
-               Gilles Trouessin,
-Organization based access contro,
-POLICY,
-2003
-
 
 \end{thebibliography}
 \balancecolumns
