@@ -1,0 +1,230 @@
+Dear Donia, Tejeddine, Yves, JeeHyun and Tao, 
+
+We regret to inform you that your paper entitled 
+
+"Automatic Refactoring of Security-Policy-Based Software Systems for
+Performance Improvement and Architectural Model Preservation"
+
+was not accepted for publication in the proceedings of the ASE'11 conference. 
+
+We had a strong set of candidate papers for the ASE'11 conference: out of 252
+submissions of overall very high quality, the Program Committee selected only
+37 full research papers and 56 short papers/posters. 
+
+We appreciate your submission, encourage you to pursue further your research in
+this field and eventually submit your results to future ASE conferences. We
+hope the reviews will be helpful to you. 
+
+We hope you will be able to attend the conference. 
+
+Please visit 
+
+http://www.continuinged.ku.edu/programs/ase/ 
+
+where we will post information for participants soon. 
+
+Best wishes, 
+
+Corina and John
+
+ASE 2011 Program Chairs 
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=
+
+First reviewer's review:
+
+          >>> Summary of the submission <<<
+
+The paper presents an automatic refactoring of access control architectures by
+splitting the global policy into several subsets of smaller sub-policies. Such
+refactoring is aimed at improving the evaluation time of the service requests
+subject to rules in the policy, thus to provide faster responses (e.g. permit,
+deny). Splitting criteria are defined to select and group the access rules of
+the global policy into sub-policies that share combinations of target elements
+(i.e. Subject, Action, and/or Resource). The approach has been validated by
+comparing the evaluation time of the service requests processed by the smaller
+sub-polices (i.e. the ones obtained by applying the proposed splitting
+criteria) against the global policy.
+
+          >>> Evaluation <<<
+
+The paper is interesting and quite well-structured. However, several points
+introduce some weaknesses in the whole work, as detailed in the following.
+
+It seems that the complexity of the global policy is only moved to the mapping
+tables. Such tables might become the new performance bottleneck of the software
+system, due to the number of the entries that must be evaluated by a single
+dispatcher. In the experimentation authors only consider the execution time of
+the PDPs. What about the interaction between the PEP and the dispatcher? It is
+unclear if the time spent by the dispatcher to find the correct entry in the
+mapping tables is included in the evaluation time of the smaller PDPs. 
+For example, in Figure 10 it is worth to notice that in a software system (i.e.
+ASMS) the refactoring process generates more than 400 PDPs, hence the
+evaluation time of the corresponding mapping table will be much higher in
+comparison to systems in which there are less than 50 PDPs.
+
+The software systems under analysis (i.e. LMS, VMS, ASMS) are not deeply
+analyzed. It is only reported the augmented number of rules the global policy
+contains, but nothing is said about the heterogeneity of policies, if any. How
+many subjects, actions, resources are defined in each system? It can be
+interesting to reason on the efficiency of the different splitting criteria: is
+it possible to rank criteria depending on the features of the global policy?
+What's the best criterion in case of a low/high number of
+subjects/actions/resources?
+
+The integration of the refactoring mechanism with XEngine (introduced in a
+previous work [6]) makes more doubtful the net benefits of this paper approach.
+Authors state that the evaluation time is reduced about 9 times (e.g. from 2703
+to 290 ms in Table II), but this is only due to XEngine role and not to the
+splitting approach. The comparison with the initial architecture (IA) reveals
+that the splitting process makes worse the processing time in cases of S, A, R
+criteria. For example, in Table III requests in initial architecture (IA) are
+evaluated in 5766 msec whereas the R, S, A splitting criteria lead to worse
+evaluation times (i.e. 6078, 5921, 6781 msec).
+
+Workload sensitivity analysis is not considered at all. The processing time of
+requests strongly depends on the workload the software system must cope, hence
+it might be interesting to study how the evaluation time grows while varying
+the number of requests incoming to the systems.
+
+A minor comment: in Figure 9 the "SC" label is wrong and the unit of
+measurement for y axis is not reported.
+
+**********************
+Points in favour: The topic is interesting and it is relevant to have a
+reliable instrument improving access control evaluations.
+Points against: It is unclear the approach scalability/portability because some
+factors seem not to be considered. 
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*
+
+Second reviewer's review:
+
+          >>> Summary of the submission <<<
+
+The paper proposes a way to split access policy specifications into a set of
+smaller policies, to reduce the overhead when deciding if a particular action
+is allowed or not.
+
+          >>> Evaluation <<<
+
+Points in favour:
+ - Interesting subject.
+ - Good overall structure.
+ - The objective is clearly described, and well motivated.
+ - The proposed approach is validated in experiments.
+
+Points against:
+ - The detailed presentation of the contribution (Section III) could be more
+clear.
+ - The technical contribution is not very strong. The paper presents the basic
+rules for correct splitting, and the idea to base splitting on analysis of
+method calls in the application code, but does not present the details of how
+to decide what splitting criteria to use.
+ 
+Detailed comments:
+
+The first sentences in the introduction are strange, and I'm sure it does not
+hold for all IT experts (in that strong form), although probably most would be
+reluctant to apply methods that have dramatic impact on performance.
+
+Section II.B: The definitions of "policy set element" and "policy element" are
+not really clear. Also, there is something wrong in the sentence "The rule
+element of a target, a condition, and an effect." (Changing "element" to
+"consists" makes more sense to me).
+
+Section III: The sentence "Obviously, a PDP that has to check..." can be
+removed (if it is obvious, there is no need to say it. Also, it is probably not
+really true in general, since it depends on how complex the different rules
+are).
+
+Section III.A: The detailed description in unclear, and to some extent
+contradictory. For example, the concept of "splitting criteria" is first used
+to say that a policy is transformed into smaller policies each conforming to a
+splitting criteria (unclear at first if you mean "to one splitting criteria
+each", or "to one common splitting criteria"). Further down, you say it is
+possible to consider two splitting criteria e.g. <Action,Resource>, where my
+understanding is that you mean that it is possible for ONE splitting criterion
+to consider two target elements. Then Table I lists three splitting criteria
+(SC1, SC2 and SC3), but the text refers to SC1=<Subject> as a splitting
+criterion. As I have understood it, I would not call SC1 a splitting criterion
+(you cannot perform the splitting e.g. as described in fig 8 just with SC1).
+Instead, I would consider the seven entities in the second column of Table I to
+be the possible splitting criteria (one of those would be a suitable input to
+the split in fig 8). SC1, SC2 and SC3 would then be just categories of
+splitting critera, based on the number of considered target elements (but I
+don't see quite why these three categories are of particular importance).
+
+Section III.A: The example in the second bullet and figure 5 is too simple to
+be useful. The second bullet explains that rules can be more complex, but fails
+to explain how this impacts the proposed method.
+
+A minor comment to increase readability. Remove the spaces in for example "<
+Subject >". Even better is to use $\langle$ and $\rangle$ instead of < and >.
+
+Section III.B: In the paragraph "An analysis of this code..." is not clear to
+me what "organized by the couple (Action, Resource)" means. The "organization"
+of rules is not discussed elsewhere. It would be good to make this part more
+clear, and to explicitly state what it means in terms of splitting criteria.
+
+Section III.B: The paragraph starting "Figure 7..." would fit better earlier in
+the subsection.
+
+Section III.B: "architectue" -> "architecture"
+
+Section III.B: Figure 8 would also fit better earlier, since it gives a good
+overview of the proposed approach.
+
+Section IV.A: The way in which the number of rules has been increased needs to
+be described in more detail. How many rules were in the original systems? In
+particular, you have to explain why you believe that the experiment results
+would be valid also for non-modified systems (conceptually, it could be that
+you have introduced new rules that for some reason are very efficiently
+split).
+
+Section IV.B: Figures 9 and 10 are in the wrong order (it's a LaTeX problem,
+which is addressed by the fixltx2e package).
+
+Section IV.B: In the last paragraph (under table IV), you say your method gives
+more performance improvement when used with XEngine than with Sun PDP, which is
+not quite consistent with the tables (e.g. for LMS the Sun PDP goes from 2625
+to 485 which gives 81% improvement, but XEngine improves 62% (from 250 to 94).
+
+Section IV.B: Worth pointing out that some splitting criteria actually
+decreased the performance.
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*
+
+Third reviewer's review:
+
+          >>> Summary of the submission <<<
+
+This paper describes an approach to splitting up access control policies and a
+new architecture for policy enforcement code that can improve the overall
+performance of access control policy enforcement.
+
+          >>> Evaluation <<<
+
+The main contribution of this paper seems to be the approach to splitting up
+the access policy specification.  It also proposes a new access control
+architecture to enforce the split-up policy. The proposal seems like a good
+idea, but I do not think there is a strong "automated software engineering"
+component to the work. 
+
+Some comments on the text:
+
+The comments about businesses being unwilling to trade performance for security
+seem overly strong. My bank makes it difficult for me to log in. This is a
+feature I'm willing to wait for.
+
+Please quantify "huge"
+
+What is "the cardinality based property"?  The 1-to-1 mapping from PEP to PDP?
+
+I'm also not sure what the "synergy property" is.
+
+There is too much repetition of the goals and motivation in sections I, II and
+III.
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*
+
