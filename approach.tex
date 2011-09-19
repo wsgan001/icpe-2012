@@ -34,13 +34,6 @@ SUN's XACML. During the evaluation process, the SUN decision engine has to check
 permitted or denied. SUN's XACML implementation permits to load the considered policy in a file which is used during the decision making process, once the applicable policy 
 is selected from this file, the decision engine fetches the policy to retrieve the applicable rules that are applicable to the request
 
-Figure XXX(TODO) compares two evaluation scenarios that takes into account an original policy with an evaluation process that considers resulting policies from he splitting process. 
-The first scenario shows how the single policy is selected from the configuration file and how the rules are processed to retrieve the decision, the second scenario shows how the applicable 
-policy is selected from the configuration file. Sunxacml enbales to select the applicable policy, by verifying the matching between the request's attributes and and the policy set attributes. 
-After the selection of the applicable policy, all its rules which are considered relevant for the decision making are evaluated.
-
-
-
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=7.5cm, height=4cm]{PEPExample}
@@ -48,6 +41,20 @@ After the selection of the applicable policy, all its rules which are considered
 \label{PEP deployment Example}
 \end{center}
 \end{figure}
+Figure \ref{requestevaluation} compares two evaluation scenarios that takes into account an original policy with an evaluation process that considers resulting policies from he splitting process. 
+The first scenario shows how the single policy is selected from the configuration file and how the rules are processed to retrieve the decision, the second scenario shows how the applicable 
+policy is selected from the configuration file. Sun's XACML enbales to select the applicable policy, by verifying the matching between the request's attributes and and the policy set attributes. 
+After the selection of the applicable policy, all its rules which are considered relevant for the decision making are evaluated.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=3in, height=3in]{requestevaluation}
+\caption{Applicable policy selection through target matching testing}
+\label{requestevaluation}
+\end{center}
+\end{figure}
+
+
 
 \subsection{Architecture Model Preservation: PEP-PDP Synergy}
 We consider the different splitting criteria that we have identified in the previous section and we propose to select the splitting criterion that 
