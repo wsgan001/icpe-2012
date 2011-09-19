@@ -1,9 +1,9 @@
 \section{Context/Problem Statement} \label{sec:context}
 
 The present section clarifies the motivation for the work presented in this paper and introduces the synergy requirement that we aim to 
-maintain while reasoning about performance requirements for access control policies.
+maintain 
 
-\subsection{Synergy requirement related to the considered Access Control Architecture}
+\subsection{Synergy's requirements related to the considered Access Control Architecture}
 Most access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component 
 encapsulated in a PDP. Figure \ref{pep-pdp} illustrates the interactions between the PEPs and the PDP: the PEP calls the PDP to 
 retrieve an authorization decision based on the PDP encapsulated policy. This authorization decision is made through the evaluation of rules in the policy. 
@@ -31,18 +31,22 @@ which is enforced by multiple PEPs. Conceptually, the decision is decoupled from
 with one single PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a given PEP. 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[height=4.3cm,width=8cm]{model}
+\includegraphics[height=4.5cm,width=8cm]{model}
 \caption{The Access Control Model}
 \label{model}
 \end{center}
 \end{figure}
 
 Considering a single XACML policy file for each initiating PEP enables to ease policies management and to maintain a simple architecture 
-in which a given PEP is mapped to a fixed PDP at each decision making process. We define the synergy requirement in the access control 
-architecture by specialization of access control policies to be used for a particular PEP before deployment. The goal behind maintaing a single 
-policy related to each PEP in the system is to keep a strong traceability between what has been specified by the policy and the internal 
-security mechanisms enforcing this policy at the business logic level. In such setting, when the access control policy rules are updated or removed, 
-the related PEPs can be easily located and removed and thus the application is updated synchronously with the policy changes. 
+in which a given PEP is mapped to a fixed PDP at each decision making process. The goal behind maintaing a single policy related to each PEP in the system is 
+to keep a strong traceability between what has been specified by the policy and the internal security mechanisms enforcing this policy at the business logic level.
+In such setting, when the access control policy rules are updated or removed, the related PEPs can be easily located and removed and thus the application in harmony 
+with the access control policy is easily maintained.
+
+Therefore, when reasonnig about performance requirements, we propose to preserves this property that s called the synergy betwwen the PEP and the PDP, 
+which holds for the initial architecture. 
+
+
 
 \subsection{XACML Access Control Policies and Performance Issues}
 In this paper, we focus on access control decision making for policies expressed in XACML.
@@ -50,8 +54,7 @@ XACML \cite{sunxacml} is a standard policy specification language that defines a
 In the XACML paradigm, a policy set is a sequence of policies, a combining algorithm and
  a target. A policy element is expressed through a target, a set of rules and a rule combining algorithm. 
 The target defines the set of resources, subjects and actions to which a rule is applicable. The rule element consists of a 
-target, a condition, and an effect. The condition is a boolean expression that specifies restrictions (e.g., time and location restrictions)
- on the elements in the target. It represents 
+target, a condition, and an effect. The condition is a boolean expression that specifies restrictions (e.g., time and location restrictions) on the elements in the target. It represents 
 the environmental context in which the rule applies. Finally, the effect element is either permit or deny. 
 When more than one rule is applicable to a given request, the combining algorithm enables selecting which rule to choose.
 For example, given two rules, which are applicable to the same request and provide different decisions,
@@ -74,7 +77,7 @@ Figure \ref{figur1} shows a simple XACML policy that denies subject Bob to borro
 \end{figure}
 
 The XACML request encapsulates attributes that define which subject is requested to take an action on which protected resource in a system.
-This can be under/not a condition. A request, which satisfies both target and condition in a rule, is evaluated
+It can also include a condition. A request, which satisfies both target and condition in a rule, is evaluated
 to decision specified in the rule's effect element. If the request does not satisfy target and condition elements in any rule, its response yields ``NotApplicable'' decision.
 \\XACML enables administrators to externalize access control policies for the sake of interoperability since access control policies can be designed 
 independently from the underlying programming language or platform. Such flexibility enables to easily update the access control policy to support new requirements.
@@ -88,7 +91,7 @@ independently from the underlying programming language or platform. Such flexibi
 
 However, the increasing complexity of organizations in term of structure, relationships, activities, and access control requirements has impacted 
 access control policy design. This has led to deal with access control policies where the number of rules depicting the associations between resources, 
-users and actions is in continuous increase. Moreover, the policy is usually centralized in a single point PDP, which 
+users and actions is huge. Moreover, the policy is usually centralized in a single point PDP, which 
 has to manage multiple access control requests.
 
 These observations raise performance concerns related to request evaluation time for XACML access control policies. 
