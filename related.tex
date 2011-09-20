@@ -1,5 +1,14 @@
 \section{Related Work} \label{sec:related}
-Some previous contributions have addressed access control policies performance issues, In \cite{clustering}, the authors have proposed an approach for policy evaluation based on a 
+
+Some previous work have focused on performance issues when considering security.
+In \cite{largesystems}, the authors have presented new techniques to reduce the overhead engendered from implementing a security model 
+in IBM's WebSphere Application Server (WAS). Their approach identifies bottlencks through code instrumentation and focuses on two aspects: the temporal redundancy (when security checks are made frequently) and the spatial redundancy
+(using same security techniques on same code execution pathes). For the first aspect, they use caching mechanisms to store checks results, so that the decision is retrieved from the cache.
+For the second aspect they used a technique based on specialization whic consists in replacing an expensive check with a cheaper one for frequent codes pathes.
+At the level of access control security, some contributions have addressed access control policies performance issues. In \cite{MyABDAC}, the authors focus on XACML
+policy verification for database access control. They presented a model which converts attribute-based policies into access control lists that manage databases resources and they give an implementation 
+that supports their approach.
+ In \cite{clustering}, the authors have proposed an approach for policy evaluation based on a 
 clustering algorithm that reorders rules and policies within the policy set so that the access to applicable policies is faster, their categorization is based on
  the subject target element. Their technique requires identifying the rules that are frequently used. Our approach follows a different strategy and does not require knowing which 
 rules are used the most. In addition, the rule reordering is tightly related to specific systems. If the PDP is shared between several
@@ -13,7 +22,12 @@ not provided experimental results to measure the efficiency of their approach wh
 
 While the previous approaches have focused on the PDP component to optimize the request evaluation, The authors in 
 \cite{XACMLstructure}, addressed this problem by analyzing rule location on XACML policy and requests at design level so that the relevant rules for the request are 
-accessed faster on evaluation time. \\
+accessed faster on evaluation time. 
+
+
+
+
+
 The current contribution brings new dimensions to our previous work on access control \cite{Xengine} \cite{testcase} \cite{models}.
 We have focused particularly in \cite{Xengine} on performance issues addressed with XACML policies evaluation and we have proposed an 
 alternative solution to brute force searching based on an XACML policy conversion to a tree structure to minimize the request evaluation time. 
