@@ -18,7 +18,7 @@ In this paper, we tackle perfomance requirements in policy based software system
 the request evaluation time. Reasoning about performance requirements in access control systems is intended to enhance the reliability and the efficency of the overall system 
 and to prevent business losses that can be engendered from slow decision making. In our approach, we consider policy-based software systems, which
 enforce access control policies specified in the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}. XACML is a popularly used XML-based language to specify rules 
-in a policy. A rule specifies which subjects can take which actions on resources in which condition.
+in a policy. A rule specifies which subjects can take which actions on resources in which conditions.
 
 We propose an automated approach for optimizing the process of decision making in XACML request evaluation. 
 Our approach includes two facets: (1) performance optimization criteria to split the PDP into smaller decision points,
@@ -43,7 +43,7 @@ In our previous work \cite{Xengine}, we addressed performance issues in policy e
 a decision engine called XEngine that outperforms Sun PDP implementation~\cite{oasis}. XEngine transforms an original XACML policy
 into its corresponding policy in a tree format by mapping attribute values with numerical values.
 Our contribution in this paper goes in the same research direction as it aims to reduce the request evaluation time by refactoring the policy.
-Our evaluation results show that evaluation time is reduced up to nine times with split policies if compared to its original global policy 
+Our evaluation results show that decision making time is reduced up to nine times with split policies if compared to its original global policy 
 and that we have a considerable performance improvement, if the policies resulting from our refactoring process are evaluated
 with XEngine rather than Sun PDP.
 
@@ -58,8 +58,8 @@ efficiency. Our approach achieves more than 9 times faster than that of the appr
 \end{itemize}
 
 
-The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces flow models for access control policy in XACML.
-Section~\ref{sec:approach} presents our adopted strategy and
+The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces some concepts related to the topic and the reserach problem.
+Section~\ref{sec:approach} presents the overall approach. 
 Section~\ref{sec:experiment} presents evaluation results and discusses the effectiveness of our approach. Section~\ref{sec:related} discusses related work.
-Section~\ref{sec:conclusion} concludes this paper and discuses future research directions..
+Section~\ref{sec:conclusion} concludes this paper and discuses future research directions.
 
