@@ -1,8 +1,10 @@
 
 \section{Introduction} \label{sec:introduction}
 
-Access control policies are derived from an access control model like RBAC, MAC, DAC and OrBAC \cite{dac,mac,rbac,orbac} to define authorization strategies which regulate the actions 
-that users could perform on system resources. In the context of a Policy based software systems, access control architectures are often built with respect to a popular architectural 
+Access control policies are derived from an access control model like RBAC, MAC, DAC and OrBAC \cite{dac,mac,rbac,orbac} to define authorization strategies which regulate the
+ actions 
+that users could perform on system resources. In the context of Policy based software systems, access control architectures are often built with respect to a popular 
+architectural 
 concept, which separates a Policy Enforcement Point (PEP) from a Policy Decision Point (PDP) \cite{separation}. More specifically, the PEP is located inside 
 the application (i.e., business logic of the system) and formulates requests.
 The PDP encapsulates the policy. The PDP then receives requests from the PEP and returns evaluation responses (e.g., permit or deny) by evaluating these requests 
@@ -12,7 +14,8 @@ decouples the business logic from the access control decision logic, which can b
 In this architecture, the policy is centralized in one point, the PDP. Centralization of the PDP offers advantages such as facilitating managing and maintaining the policy, 
 which is encapsulated in a single PDP. However, such centralization can be a pitfall for degrading performance since the PDP manages all of access rights to be evaluated by 
 requests issued by PEPs. Moreover, the dynamic behaviour of organization's business, the complexity of its workflow and the continuous growth of its assets may increase the 
-number of rules in the policy \cite{policymanagement}. This fact may dramatically degrade the decision-making time, lead to performance bottlenecks and impact service availability.
+number of rules in the policy \cite{policymanagement}. This fact may dramatically degrade the decision-making time, lead to performance bottlenecks and impact service 
+availability.
 
 In this paper, we tackle perfomance requirements in policy based software systems and propose a mechanism for refactoring access control policies to reduce
 the request evaluation time. Reasoning about performance requirements in access control systems is intended to enhance the reliability and the efficency of the overall system 
@@ -34,7 +37,8 @@ corresponding sub-policies. Given a set of requests, we then compare evaluation 
 based on the proposed splitting criteria.
 
 The second facet aims at keeping the cardinality based feature between the PEP and the PDP and by selecting the splitting criteria that
-do not alter the initial access control architecture. The best splitting criteria must thus both improve performance and comply to our architecture: the relationship must be maintained,
+do not alter the initial access control architecture. The best splitting criteria must thus both improve performance and comply to our architecture: the relationship must be 
+maintained,
 linking each PEP to a given PDP. When refactoring the system, each PEP in our system can be mapped to a set of rules that will be relevant when evaluating
 requests. We automate this refactoring process and conduct an evaluation to show that our approach enables the decision-making process to be 9 times faster than
 using only a single global access control policy.
@@ -58,8 +62,8 @@ efficiency. Our approach achieves more than 9 times faster than that of the appr
 \end{itemize}
 
 
-The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces flow models for access control policy in XACML.
-Section~\ref{sec:approach} presents our adopted strategy and
+The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces some concepts related to the topic and the reserach problem.
+Section~\ref{sec:approach} presents the overall approach. 
 Section~\ref{sec:experiment} presents evaluation results and discusses the effectiveness of our approach. Section~\ref{sec:related} discusses related work.
-Section~\ref{sec:conclusion} concludes this paper and discuses future research directions..
+Section~\ref{sec:conclusion} concludes this paper and discuses future research directions.
 

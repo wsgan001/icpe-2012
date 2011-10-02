@@ -10,7 +10,7 @@ We propose to split the initial policy into smaller policies based on attribute 
 policies \normalsize $P_{SC_{w}}$ containing less number of rules and conforming to a Splitting Criteria $SC_{w}$. An $SC_{w}$ defines the set of attributes that are considered 
 to classify all the rules into subsets having similar one or more attribute values, $w$ denotes the number of attributes that have to be considered conjointly for aggregating 
 rules based on specific attribute elements selection. A policy can be split into a set of sub-policies where the rules have the same values of attributes of subject, resource, or 
-action. We envision to consider also two attributes like $<Subject, Action>$ or $<Action, Resource>$, in this setting, a policy will be transformed into a set of smaller 
+action. We envision to consider also two attributes like $\langle Subject, Action\rangle$ or $\langle Action, Resource\rangle$, in this setting, a policy will be transformed into a set of smaller 
 policies where rules in the resulting policies have the same couple of attribute elements. We can go further in our grouping strategy by considering a triplet of attributes
 elements: resource, action and subject to split \normalsize $P$. Table I shows all splitting criteria categories according to the attribute elements combination.
 \begin{table}[h!]
@@ -20,9 +20,9 @@ elements: resource, action and subject to split \normalsize $P$. Table I shows a
 \hline  \rowcolor{black} 
 \bf
 \textcolor{white}{Categories}& \bf \textcolor{white}{Splitting Criteria}\\ \hline
-$SC_{1}$& {$<Subject>, <Resource>, <Action>$}\\ \hline
-$SC_{2}$& {$<Subject,Action>, <Subject,Resource>$}\\&{$<Resource,Action>$}\\  \hline
-$SC_{3}$& {$<Subject,Resource,Action>$}\\ \hline
+$SC_{1}$& {$\langle Subject \rangle, \langle Resource\rangle, \langle Action\rangle$}\\ \hline
+$SC_{2}$& {$\langle Subject,Action \rangle, <Subject,Resource\rangle$}\\&{$\langle Resource,Action\rangle$}\\  \hline
+$SC_{3}$& {$\langle Subject,Resource,Action\rangle$}\\ \hline
 \end{tabular}
 \caption{Splitting Criteria}
 \label{table1}\end{table}
@@ -52,25 +52,25 @@ After the selection of the applicable policy, all its rules which are considered
 
 To illustrate our approach, we present some examples that take into consideration the XACML language features:
 \begin{itemize}
-\item The refactoring of the XACML policy $P$ presented in Figure \ref{splitting} according to the splitting criterion $SC_{1}=<Subject>$ consists in splitting $P$ 
+\item The refactoring of the XACML policy $P$ presented in Figure \ref{splitting} according to the splitting criterion $SC_{1}=\langle Subject\rangle$ consists in splitting $P$ 
 into sub-policies $Pa$ and $Pb$ where each sub-policy groups the rules that are relevant to the same subject (Alice and Bob in this case). 
 
 \item
-XACML target elements may have a more intricate structure, if they encapsulate the following elements $<ResourceMatch>$, $<SubjectMatch>$, $<ActionMatch>$.
+XACML target elements may have an intricate structure, if they encapsulate the following elements $\langle Resou\-rceMatch\rangle$, $\langle SubjectMatch\rangle$, $\langle ActionMatch\rangle$.
 These elements define a set of target elements related entities that match at the decision level with the context element in 
 an access control request. In the example, shown in Figure\ref{xacml-match}, subject attribute includes two attributes (one is "role" and the other is "isEq-subjUserId-resUserId"). 
-This subject can match with a request if the request has that at least role is pc-member and isEq-subjUserId-resUserId is true. In this kind of setting, the whole element subject is considered 
-as a single entity that can not be splitted.
+This subject can match with a request if the request has that at least role is pc-member and isEq-subjUserId-resUserId is true. In such configuration, the whole element subject is considered 
+as a single entity that is not splitted by our supporting tool.
 
 \item 
 
-In XACML, policies and requests could be multi-valued. For example, the subject of a request could be a principal who is both a teacher and a student.
-For the sake of simplicity, in this work, we don't consider multi-valued requests.
+In XACML, policies and requests could be multi-valued. For example, the subject in a given request could both be the manager and the employee as a principal.
+For the sake of simplicity, we don't consider multi-valued requests in this work.
 \end{itemize}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=8.5cm, height=7cm]{splitting}
-\caption{Splitting a Policy according to $SC_{1}=<Subject>$}
+\caption{Splitting a Policy according to $SC_{1}=\langle Subject\rangle$}
 \label{splitting}
 \end{center}
 \end{figure} 
@@ -111,13 +111,13 @@ SecurityPolicyService that initiates the PDP component.
 
 An analysis of this code reflects that the PEP presented by the method ServiceUtils.checkSecurity will trigger exclusively all the rules 
 that have the subject user (provided as input parameter in the PEP) and fixed Action and Resource (LibrarySecurityModel.BORROWBOOK\_METHOD), ( LibrarySecurityModel.BOOK\_VIEW).
-Thus the splitting process that will preserve the mapping between the PEPs and the PDP is $SC_{2}=<Resource,Action>$ since the rules in the policy are triggered 
+Thus the splitting process that will preserve the mapping between the PEPs and the PDP is $SC_{2}=\langle Resource,Action\rangle$ since the rules in the policy are triggered 
 by Action, Resource. Depending on the organization of the PEPs in a given application, connecting the rules with their PEPs at the application level may require to identify
  all the enforcements points in the application, and to track the different method calls triggered from these specific enforcement calls to map them to the relevant access control rules.
 
 Our empirical results, presented in section~\ref{sec:experiment}, have shown that adopting a policy refactoring based on system functions, as a refactoring strategy, enables to 
 have the best splitting criterion in term of performance. 
-In this work we consider 3 evaluation studies where the PEPs trigger fixed couples of (action, resource) for variable subjects in the policies, thus the splitting criteria $SC_{2}=<Resource,Action>$ is considered as 
+In this work we consider 3 evaluation studies where the PEPs trigger fixed couples of (action, resource) for variable subjects in the policies, thus the splitting criteria $SC_{2}=\langle Resource,Action\rangle$ is considered as 
 the best splitting criteria that enables to preserve the synergy requirement in the architectural model. Inferring automatically the PEPs from the application enables to identify automatically
  for a given application the best splitting criteria, this can be easily applied using the testing technique presented in \cite{legacy}.
 
@@ -128,7 +128,7 @@ split again in order to be included again in the framework.
 From a point of view of the system administration, maintaining and updating the access control policies is completely a standalone and simple
  process. The input is usually a centralized XACML policy. This input remains the same than before the access control performance issue is tackled.
 Our process is transparent in the sense that it does not impact the existing functional aspects of the access control management system, 
-for system administrators, who have to update the policy fequently and have to manage various dimensions of access control 
+for system administrators, who have to update the policy frequently and have to manage various dimensions of access control 
 systems such the scalability and maintainability.
 \begin{figure}[!h]
 \begin{center}

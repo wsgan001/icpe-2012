@@ -4,12 +4,12 @@ To measure the efficiency of our approach, we conducted two empirical studies. T
 (PEPs and PDPs) to evaluate the performance improvement regarding the decision making process. The request processing time, 
 for each splitting criterion is compared to the processing time of the initial architecture implementing the global policy (the evaluation 
 that considers the global policy, is denoted (IA), the ``Initial Architecture''). The second empirical study focuses only on the PDPs in isolation to measure the gain in performance
- independently from system's requests. To make such study of PDPs in isolation, we use XEngine \cite{Xengine}. The objective of the second study is to see how our approach can be 
+ independently from system. To make such study of PDPs in isolation, we use XEngine \cite{Xengine}. The objective of the second study is to see how our approach can be 
 combined with XEngine and how this impacts the performance. The first subsection introduces our empirical studies and presents the tool that supports our approach. The remaining two 
 sections present and discuss the results of the two empirical studies.  
 
 \subsection{Empirical Studies and PolicySplitter Tool}
-The empirical studies were conducted using the following systems (They are presented in details in \cite{testcase}):
+The empirical studies were conducted using the following systems \cite{testcase}:
 \begin{itemize}	
 \item LMS: The library management system offers services to manage books in a public library.
 \item VMS: The virtual meeting system offers simplified web conference services. The virtual meeting server allows the organization of work meetings on 
@@ -52,9 +52,9 @@ Note that the results are ranked from the largest processing duration to the sma
 \begin{itemize} 
 \item Compared to the initial architecture (IA), the evaluation time is considerably reduced for all splitting criteria. This is consistent with our 
 initial intuition. In fact, splitting the policy into small policies improves the processing duration.
-\item The splitting criteria \normalsize $SC=< Action, Resource>$ enables to have the best evaluation duration. 
+\item The splitting criteria \normalsize $SC=\langle Action, Resource\rangle$ enables to have the best evaluation duration. 
 In fact, the PEPs in the 3 empirical studies are scattered in the applications by a categorization
- that is based on $<Action, Resource>$. This pleads in favor of adopting a
+ that is based on $\langle Action, Resource\rangle$. This pleads in favor of adopting a
  splitting criteria that takes into account the PEP-PDP synergy requirement.
 \end{itemize} 
 \begin{figure*}
@@ -67,7 +67,7 @@ In fact, the PEPs in the 3 empirical studies are scattered in the applications b
 \end{figure*}
 \begin{figure}[!h]
   \centering
-\includegraphics[width=8.5cm, height=6cm]{pdpnumber.pdf}
+\includegraphics[width=8.5cm, height=7.5cm]{pdpnumber.pdf}
 \begin{center}
 \caption{PDP Number According to Splitting Criteria}
 \label{pdpnumber}
@@ -79,7 +79,7 @@ For the 3 XACML studies, we executed the PoliySplitter tool on the 3 initial pol
 As highlighted by Figure \ref{pdpnumber}, we notice that there are three
  categories of results: $SC_{1}$ category leads to a small number of PDPs, $SC_{2}$ category produces a reasonable number of PDPs whereas $SC_{3}$ leads to a huge 
 number of PDPs. $SC_{2}$ category, thus appears as a good tradeoff in terms of performance and number of 
-PDPs generated: In our evaluation studies, $SC=<Action, Resource>$ is the best criterion, both in terms of performances and low number of PDPs.
+PDPs generated: In our evaluation studies, $SC=\langle Action, Resource\rangle$ is the best criterion, both in terms of performances and low number of PDPs.
 
 
 \subsubsection{Performance improvement with XEngine}

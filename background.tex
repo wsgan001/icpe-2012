@@ -1,7 +1,10 @@
-\section{Context/Problem Statement} \label{sec:context}
 
-The present section clarifies the motivation for the work presented in this paper and introduces the synergy requirement that we aim to 
-preserve while reasoning about performance requirements for access control policies.
+
+
+
+\section{Context/Problem Statement} \label{sec:context}
+The present section introduces the synergy requirement that we aim to 
+preserve while reasoning about performance requirements for access control policies and clarifies the motivation for the work presented in this paper.
 
 \subsection{Synergy requirement related to the considered Access Control Architecture}
 Most access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component 
@@ -27,11 +30,12 @@ All these facts make access control architectures very difficult to manage, and 
 simple access control architecture that can easily handle changes in access control systems. 
 Along with the reasoning about performance, we propose to maintain the simplicity of the access control architecture whose model 
 is presented in Figure \ref{model}. In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic 
-which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP interacts 
+which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP 
+interacts 
 with one single PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a given PEP. 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[height=4.3cm,width=8cm]{model}
+\includegraphics[height=5.5cm,width=8.5cm]{model}
 \caption{The Access Control Model}
 \label{model}
 \end{center}
@@ -39,7 +43,7 @@ with one single PDP, thus a single XACML policy is evaluated to provide the suit
 
 Considering a single XACML policy file for each initiating PEP enables to ease policies management and to maintain a simple architecture 
 in which a given PEP is mapped to a fixed PDP at each decision making process. We define the synergy requirement in the access control 
-architecture by specialization of access control policies to be used for a particular PEP before deployment. The goal behind maintaing a single 
+architecture by specializing access control policies to be used for a particular PEP before deployment. The goal behind maintaing a single 
 policy related to each PEP in the system is to keep a strong traceability between what has been specified by the policy and the internal 
 security mechanisms enforcing this policy at the business logic level. In such setting, when the access control policy rules are updated or removed, 
 the related PEPs can be easily located and removed and thus the application is updated synchronously with the policy changes. 
@@ -86,23 +90,19 @@ independently from the underlying programming language or platform. Such flexibi
 %\caption{DREF and SETER: Conceptual and Operational Frameworks for evaluating resilient systems}
 %\end{figure*}
 
-However, the increasing complexity of organizations in term of structure, relationships, activities, and access control requirements has impacted 
+However, the increasing complexity of organizations in terms of structure, relationships, activities, and access control requirements has impacted 
 access control policy design. This has led to deal with access control policies where the number of rules depicting the associations between resources, 
-users and actions is in continuous increase. Moreover, the policy is usually centralized in a single point PDP, which 
-has to manage multiple access control requests.
-
-These observations raise performance concerns related to request evaluation time for XACML access control policies. 
-In fact, performance bottlenecks degrade the system efficiency which slows down the overall business processes. 
-Considering XACML request evaluation, many factors may lead to reducing XACML requests evaluation performance.  
-\\
-Next, we present some of the factors that are causing this performance issue in XACML architecture:
+users and actions is in continuous increase. Moreover, the policy is usually centralized in a single point PDP, which has to manage 
+multiple access control requests. These observations raise performance concerns related to request evaluation time for XACML access control policies and may 
+degrade the system efficiency and slow down the overall business processes. 
+Moreover, considering XACML specifities, some factors may lead to degrade XACML requests evaluation performance: 
 
 \begin{itemize}
 \item An XACML policy may contain several attributes that constitute descriptive information about the target elements, the retrieval of
  varying size of attributes values for each request within XML elements in a request, may increase the evaluation time.
-\item A PolicySet includes a set of policies, the effect of the whole
-PolicySet is determined by combining the effects of the policies according to a combining algorithm, the computation of resulting effect 
-from policies is also considered as a potential evaluation time latency.
+\item A PolicySet includes a set of policies, the effect of the whole PolicySet is determined by combining the effects of 
+the policies according to a combining algorithm, the computation of resulting effect from policies is also considered as a potential evaluation
+ time latency.
 \item Conditions evaluation in XACML rules may slow down the decision making process since these conditions can be complex because they can 
 be built from an arbitrary nesting of non-boolean functions and attributes. 
 \end{itemize}
