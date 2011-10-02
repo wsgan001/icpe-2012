@@ -125,11 +125,10 @@ L-1359 Luxembourg } \\
 \begin{abstract}
 Modern access control architectures tend to separate the business logic from access control policy specification for the sake of easing authorization 
 manageability. Thus, request evaluation is processed by a Policy Decision Point (PDP) that encapsulates the access control policy and interacts with the
- business logic through Policy Enforcement Points (PEPs). Such architectures may engender a performance bottleneck due to the number of rules that have to be 
+ business logic through Policy Enforcement Points (PEPs). Such architectures may engender performance bottleneck due to the number of rules that have to be 
 evaluated by a single PDP at decision making time. In this paper, we propose to optimize the decision-making process by splitting the PDP into smaller decision points. 
-We conducted studies on XACML 
-(eXtensible Access Control Markup Language) to identify the best PDP splitting configuration. Our evaluation results show that the best splitting criterion 
-is the one that preserves the initial architectural model in terms of interaction between the business logic and the decision engine and enables
+We conducted studies on XACML (eXtensible Access Control Markup Language) to identify the best PDP splitting configuration. Our evaluation results show that
+ the best splitting criterion is the one that preserves the initial architectural model in terms of interaction between the business logic and the decision engine and enables
  to reduce the time of request evaluation time by up to 9 times.
 \end{abstract}
 \keywords{Performance, Optimization, Access Control Policies, PEP, PDP, XACML} % NOT required for Proceedings
