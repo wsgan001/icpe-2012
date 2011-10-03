@@ -4,7 +4,7 @@ To measure the efficiency of our approach, we conducted two empirical studies. T
 (PEPs and PDPs) to evaluate the performance improvement regarding the decision making process. The request processing time, 
 for each splitting criterion is compared to the processing time of the initial architecture implementing the global policy (the evaluation 
 that considers the global policy, is denoted (IA), the ``Initial Architecture''). The second empirical study focuses only on the PDPs in isolation to measure the gain in performance
- independently from system. To make such study of PDPs in isolation, we use XEngine \cite{Xengine}. The objective of the second study is to see how our approach can be 
+ independently from the system. To make such study of PDPs in isolation, we use XEngine \cite{Xengine}. The objective of the second study is to see how our approach can be 
 combined with XEngine and how this impacts the performance. The first subsection introduces our empirical studies and presents the tool that supports our approach. The remaining two 
 sections present and discuss the results of the two empirical studies.  
 
@@ -19,11 +19,11 @@ item he wants to sell and a minimum price (with a start date and an ending date 
 on this auction. One of the specificities of this system is that a buyer must have enough money in his account before bidding.
 \end{itemize}
 We started by a processing step, in which we have augmented the rules number in the three original policies for these studies, as it would be difficult
- to observe a performance improvement results with systems including few rules. After adding extra rules to the three systems, LMS policy contains 720 rules, 
+ to observe a performance improvement with systems including few rules. After adding extra rules to the three systems, LMS policy contains 720 rules, 
 VMS has 945 rules while ASMS implements 1760 rules. 
 The rules that we have added do not modify the system behavior as they are conform to the specifications. Our evaluations were carried out on a desktop PC, 
 running Ubuntu 10.04 with Core i5, 2530 Mhz processor, and 4 GB of RAM. 
-We have implemented the PolicySplitter tool in Java. PolicySplitter enables splitting policies according to the chosen splitting criteria. 
+We have implemented the PolicySplitter tool in Java. PolicySplitter enables splitting the policies according to the chosen splitting criteria. 
 The tool is available for download from \cite{splitter}.
 The execution time of the tool is not considered as a performance factor as it takes up to few seconds (for very large policies) to perform the splitting 
 according to all SCs. Moreover the refactoring process is executed only once to create a configuration that supports a selected splitting criterion.
@@ -33,29 +33,27 @@ according to all SCs. Moreover the refactoring process is executed only once to 
 For the 3 evaluation studies, we generated all sets of policies for all the splitting criteria that we have defined in Section III.
 The decision Engine in our three case studies is based on Sun XACML PDP implementation \cite{sunxacml}. We choose to use Sun XACML PDP instead of XEngine in order 
 to prove the effectiveness of our approach when compared to the traditional architecture.
-
-
-
 % To run the experiments, we used a configuartion file that maintains the list of policies used for requests evaluation. 
 % For the initial architecture, the configuration file contains one policy. Sun XACML PDP uses this configuration file to select to XACML files that constitute the policy.
+For each splitting criteria, we have conducted systems tests to generate 
+requests that trigger all the PEPs in the three evaluation studies. The test generation step leads to the execution of all combination of possible requests, 
+all the details related to this step are presented in details in our previous \cite{testcase}.
+  
+The process of tests generation is repeated ten times in order to avoid the impact of randomness.
+We applied this process to each splitting criterion and calculated the average execution time.
 
-For each system, we executed all functional and security tests. This process is repeated ten times in order to reduce randomness.
-These tests enable validating all the system functions and checking all policy rules (more information 
-about the way these tests were created can be found in our previous paper \cite{testcase}).  
-For each splitting criteria, we have conducted functional tests to generate 
-requests that trigger all the PEPs in the three evaluation studies. The test generation step is presented in \cite{testcase} as well.
-We applied this process to each splitting criterion and calculated the average execution time. We only consider the execution time of the PDP and we do not include the executions of the system functions. 
-\\
-The results are shown in Figure \ref{fig:processing time}. They show the execution time for each splitting criterion and for the initial architecture (IA).
-Note that the results are ranked from the largest processing duration to the smallest one. From the Figure \ref{fig:processing time}, we can make two main observations:
+
+% We only consider the execution time of the PDP and we do not include the executions of the system functions. 
+The results are shown in Figure \ref{fig:processing time}. They show the execution time considering the sub-policies resulting from each splitting criterion and the global policy 
+that corresponds to the initial architecture (IA). Note that the results are ranked from the largest processing duration to the smallest one. 
+From the Figure \ref{fig:processing time}, we can make two observations:
 
 \begin{itemize} 
-\item Compared to the initial architecture (IA), the evaluation time is considerably reduced for all splitting criteria. This is consistent with our 
-initial intuition. In fact, splitting the policy into small policies improves the processing duration.
-\item The splitting criteria \normalsize $SC=\langle Action, Resource\rangle$ enables to have the best evaluation duration. 
-In fact, the PEPs in the 3 empirical studies are scattered in the applications by a categorization
- that is based on $\langle Action, Resource\rangle$. This pleads in favor of adopting a
- splitting criteria that takes into account the PEP-PDP synergy requirement.
+\item Compared to the initial architecture (IA), the evaluation time is considerably reduced for all the splitting criteria. This is consistent with our 
+initial intuition. In fact, splitting the policy into small policies improves requests processing duration.
+\item The splitting criteria \normalsize $SC=\langle Action, Resource\rangle$ enables to have the best evaluation time. 
+In fact, the PEPs in the 3 empirical studies are scattered across the applications by a categorization 
+that is based on $\langle Action, Resource\rangle$. This pleads in favor of adopting a splitting criteria that takes into account the PEP-PDP synergy requirement.
 \end{itemize} 
 \begin{figure*}
   \centering
@@ -74,7 +72,7 @@ In fact, the PEPs in the 3 empirical studies are scattered in the applications b
 \end{center}
 \end{figure} 
 
-we have evaluated PDPs number generated by each splitting criterion, to study the impact of the refactoring process on the initial policy. 
+In a second step, we have evaluated PDPs number generated by each splitting criterion, to study the impact of the refactoring process on the initial policy. 
 For the 3 XACML studies, we executed the PoliySplitter tool on the 3 initial policies and we generated the number of resulting policies, in each study. 
 As highlighted by Figure \ref{pdpnumber}, we notice that there are three
  categories of results: $SC_{1}$ category leads to a small number of PDPs, $SC_{2}$ category produces a reasonable number of PDPs whereas $SC_{3}$ leads to a huge 
@@ -226,22 +224,391 @@ This empirical observation pleads in favour of applying our proposed refactoring
 In a second step, we have considered the workload of the software system. We evaluated the request procesing time according to the number of requests incoming to the system. 
 For each policy in the three systems (ASMS, LMS, and VMS), we generate successively 5000, 10000,..,50000 random requests to measure the evaluation time (ms).
 The results are shown in Figure \ref{fig:processing time1}. For the three systems, we notice that the evaluation time increases when the number of requests increases in the system. 
-However we can easily notice that the request evaluation time is considerably improved when using the splitting process compared to the initial architecture.
+Moreover, the request evaluation time is considerably improved when using the splitting process compared to the initial architecture.
 
-\begin{figure*}
-  \centering
-  \subfloat[LMS]{\label{fig:gull}\includegraphics[width=0.33\textwidth]{X-LMS.pdf}}                
-  \subfloat[VMS]{\label{fig:VMS}\includegraphics[width=0.33\textwidth]{X-VMS.pdf}}
-  \subfloat[ASMS]{\label{fig:ASMS}\includegraphics[width=0.33\textwidth]{X-ASMS.pdf}}
-  \caption{Processing Time for the 3 systems LMS, VMS and ASMS Using XEngine}
-  \label{fig:processing time1}
-\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ASMS
+\begin{table*}[t]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{ Requests Number (ASMS)}
+& \scriptsize \bf \textcolor {white}{5000}
+& \scriptsize \bf \textcolor {white}{10000}
+& \scriptsize \bf \textcolor  {white}{15000}
+& \scriptsize \bf \textcolor  {white}{20000}
+& \scriptsize \bf \textcolor  {white}{25000}
+& \scriptsize \bf \textcolor  {white}{30000} 
+& \scriptsize \bf \textcolor  {white}{35000}
+& \scriptsize \bf \textcolor  {white}{40000}
+& \scriptsize \bf \textcolor  {white}{45000}
+& \scriptsize \bf \textcolor {white}{50000}\\ \hline
 
 
+
+\scriptsize  {IA }
+& \scriptsize  {972}
+& \scriptsize {1639}
+& \scriptsize {2390}
+& \scriptsize {2699}
+& \scriptsize {3254}
+& \scriptsize {3781}
+& \scriptsize {4377}
+& \scriptsize {4727}
+& \scriptsize {5293}
+& \scriptsize {5779}
+\\ \hline
+
+
+\scriptsize  {S }
+& \scriptsize  {446}
+& \scriptsize {566}
+& \scriptsize {666}
+& \scriptsize {727}
+& \scriptsize {870}
+& \scriptsize {1107}
+& \scriptsize {1143}
+& \scriptsize {1368}
+& \scriptsize {1436}
+& \scriptsize {1641}
+\\ \hline
+
+\scriptsize  {A}
+& \scriptsize  {189}
+& \scriptsize {262}
+& \scriptsize {255}
+& \scriptsize {337}
+& \scriptsize {507}
+& \scriptsize {487}
+& \scriptsize {531}
+& \scriptsize {616}
+& \scriptsize {705}
+& \scriptsize {762}
+\\ \hline
+
+									
+\scriptsize  {R}
+& \scriptsize  {292}
+& \scriptsize {310}
+& \scriptsize {467}
+& \scriptsize {572}
+& \scriptsize {845}
+& \scriptsize {874}
+& \scriptsize {986}
+& \scriptsize {1127}
+& \scriptsize {1249}
+& \scriptsize {1449}
+\\ \hline
+
+
+\scriptsize  {SA}
+& \scriptsize  {42}
+& \scriptsize {104}
+& \scriptsize {133}
+& \scriptsize {169}
+& \scriptsize {188}
+& \scriptsize {232}
+& \scriptsize {262}
+& \scriptsize {283}
+& \scriptsize {315}
+& \scriptsize {370}
+\\ \hline
+
+\scriptsize  {AR}
+& \scriptsize  {28}
+& \scriptsize {60}
+& \scriptsize {84}
+& \scriptsize {117}
+& \scriptsize {142}
+& \scriptsize {172}
+& \scriptsize {195}
+& \scriptsize {236}
+& \scriptsize {256}
+& \scriptsize {300}
+\\ \hline
+
+\scriptsize  {SR}
+& \scriptsize  {111}
+& \scriptsize {196}
+& \scriptsize {252}
+& \scriptsize {339}
+& \scriptsize {391}
+& \scriptsize {461}
+& \scriptsize {552}
+& \scriptsize {720}
+& \scriptsize {710}
+& \scriptsize {798}
+\\ \hline
+
+\scriptsize  {SAR}
+& \scriptsize {38}
+& \scriptsize {49}
+& \scriptsize {63}
+& \scriptsize {89}
+& \scriptsize {95}
+& \scriptsize {130}
+& \scriptsize {145}
+& \scriptsize {152}
+& \scriptsize {175}
+& \scriptsize {199}
+\\ \hline
+\end{tabular}
+
+\caption{Processing Time for ASMS using XEngine}\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LMS
+\begin{table*}[t]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{ Requests Number (LMS)}
+& \scriptsize \bf \textcolor {white}{5000}
+& \scriptsize \bf \textcolor {white}{10000}
+& \scriptsize \bf \textcolor  {white}{15000}
+& \scriptsize \bf \textcolor  {white}{20000}
+& \scriptsize \bf \textcolor  {white}{25000}
+& \scriptsize \bf \textcolor  {white}{30000} 
+& \scriptsize \bf \textcolor  {white}{35000}
+& \scriptsize \bf \textcolor  {white}{40000}
+& \scriptsize \bf \textcolor  {white}{45000}
+& \scriptsize \bf \textcolor {white}{50000}\\ \hline
+
+
+
+\scriptsize  {IA }
+& \scriptsize  {250}
+& \scriptsize {613}
+& \scriptsize {775}
+& \scriptsize {964}
+& \scriptsize {1373}
+& \scriptsize {1286}
+& \scriptsize {1507}
+& \scriptsize {1752}
+& \scriptsize {1980}
+& \scriptsize {2005}
+\\ \hline
+
+\scriptsize  {S }
+& \scriptsize  {80}
+& \scriptsize {164}
+& \scriptsize {246}
+& \scriptsize {309}
+& \scriptsize {458}
+& \scriptsize {485}
+& \scriptsize {541}
+& \scriptsize {607}
+& \scriptsize {810}
+& \scriptsize {773}
+\\ \hline
+
+\scriptsize  {A}
+& \scriptsize  {61}
+& \scriptsize {120}
+& \scriptsize {185}
+& \scriptsize {236}
+& \scriptsize {336}
+& \scriptsize {377}
+& \scriptsize {563}
+& \scriptsize {484}
+& \scriptsize {521}
+& \scriptsize {616}
+\\ \hline
+
+					
+\scriptsize  {R}
+& \scriptsize  {116}
+& \scriptsize {190}
+& \scriptsize {322}
+& \scriptsize {388}
+& \scriptsize {538}
+& \scriptsize {582}
+& \scriptsize {673}
+& \scriptsize {776}
+& \scriptsize {853}
+& \scriptsize {1045}
+\\ \hline
+
+\scriptsize  {SA}
+& \scriptsize  {45}
+& \scriptsize {67}
+& \scriptsize {93}
+& \scriptsize {131}
+& \scriptsize {158}
+& \scriptsize {175}
+& \scriptsize {191}
+& \scriptsize {221}
+& \scriptsize {256}
+& \scriptsize {298}
+\\ \hline
+
+
+
+\scriptsize  {AR}
+& \scriptsize  {37}
+& \scriptsize {47}
+& \scriptsize {75}
+& \scriptsize {147}
+& \scriptsize {154}
+& \scriptsize {145}
+& \scriptsize {166}
+& \scriptsize {199}
+& \scriptsize {212}
+& \scriptsize {246}
+\\ \hline
+
+\scriptsize  {SR}
+& \scriptsize  {66}
+& \scriptsize {95}
+& \scriptsize {138}
+& \scriptsize {208}
+& \scriptsize {312}
+& \scriptsize {276}
+& \scriptsize {307}
+& \scriptsize {371}
+& \scriptsize {399}
+& \scriptsize {451}
+\\ \hline
+
+\scriptsize  {SAR}
+& \scriptsize {14}
+& \scriptsize {26}
+& \scriptsize {44}
+& \scriptsize {63}
+& \scriptsize {78}
+& \scriptsize {88}
+& \scriptsize {97}
+& \scriptsize {110}
+& \scriptsize {121}
+& \scriptsize {143}
+\\ \hline
+\end{tabular}
+\caption{Processing Time for LMS using XEngine}\end{table*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LMS
+\begin{table*}[t]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{ Requests Number (VMS)}
+& \scriptsize \bf \textcolor {white}{5000}
+& \scriptsize \bf \textcolor {white}{10000}
+& \scriptsize \bf \textcolor  {white}{15000}
+& \scriptsize \bf \textcolor  {white}{20000}
+& \scriptsize \bf \textcolor  {white}{25000}
+& \scriptsize \bf \textcolor  {white}{30000} 
+& \scriptsize \bf \textcolor  {white}{35000}
+& \scriptsize \bf \textcolor  {white}{40000}
+& \scriptsize \bf \textcolor  {white}{45000}
+& \scriptsize \bf \textcolor {white}{50000}\\ \hline
+\scriptsize  {IA }
+& \scriptsize  {508}
+& \scriptsize {858}
+& \scriptsize {1235}
+& \scriptsize {1688}
+& \scriptsize {2117}
+& \scriptsize {2579}
+& \scriptsize {2998}
+& \scriptsize {3348}
+& \scriptsize {3815}
+& \scriptsize {4214}
+
+\\ \hline
+\scriptsize  {S }
+& \scriptsize  {137}
+& \scriptsize {274}
+& \scriptsize {388}
+& \scriptsize {504}
+& \scriptsize {619}
+& \scriptsize {865}
+& \scriptsize {880}
+& \scriptsize {1104}
+& \scriptsize {1103}
+& \scriptsize {1298}
+\\ \hline
+
+\scriptsize  {A}
+& \scriptsize  {105}
+& \scriptsize {149}
+& \scriptsize {262}
+& \scriptsize {299}
+& \scriptsize {361}
+& \scriptsize {452}
+& \scriptsize {517}
+& \scriptsize {575}
+& \scriptsize {640}
+& \scriptsize {745}
+\\ \hline
+
+		
+\scriptsize  {R}
+& \scriptsize  {199}
+& \scriptsize {384}
+& \scriptsize {631}
+& \scriptsize {725}
+& \scriptsize {933}
+& \scriptsize {1077}
+& \scriptsize {1226}
+& \scriptsize {1409}
+& \scriptsize {1585}
+& \scriptsize {1738}
+\\ \hline
+
+
+
+\scriptsize  {SA}
+& \scriptsize  {47}
+& \scriptsize {96}
+& \scriptsize {127}
+& \scriptsize {160}
+& \scriptsize {228}
+& \scriptsize {201}
+& \scriptsize {233}
+& \scriptsize {284}
+& \scriptsize {350}
+& \scriptsize {344}
+\\ \hline
+
+\scriptsize  {AR}
+& \scriptsize  {42}
+& \scriptsize {67}
+& \scriptsize {107}
+& \scriptsize {120}
+& \scriptsize {256}
+& \scriptsize {186}
+& \scriptsize {249}
+& \scriptsize {265}
+& \scriptsize {270}
+& \scriptsize {365}
+\\ \hline
+
+\scriptsize  {SR}
+& \scriptsize  {74}
+& \scriptsize {145}
+& \scriptsize {192}
+& \scriptsize {267}
+& \scriptsize {344}
+& \scriptsize {406}
+& \scriptsize {449}
+& \scriptsize {528}
+& \scriptsize {569}
+& \scriptsize {646}
+\\ \hline
+
+\scriptsize  {SAR}
+& \scriptsize {21}
+& \scriptsize {34}
+& \scriptsize {59}
+& \scriptsize {83}
+& \scriptsize {100}
+& \scriptsize {97}
+& \scriptsize {131}
+& \scriptsize {140}
+& \scriptsize {158}
+& \scriptsize {196}
+\\ \hline
+\end{tabular}
+\caption{Processing Time for VMS using XEngine}\end{table*}
 We have also calculated the pourcentage of the fetching time by considering the global time of request evaluation in LMS system.
 The results are shown in Table 5. This time varies between 0 and 28.6\%.
 
-\begin{table*}[h!]
+\begin{table*}[t]
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}   
 \hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{ Requests Number (LMS)}
@@ -257,97 +624,96 @@ The results are shown in Table 5. This time varies between 0 and 28.6\%.
 & \scriptsize \bf \textcolor {white}{50000}\\ \hline
 
 \scriptsize  {S }
-& \scriptsize  {1.3}
-& \scriptsize {0.6}
-& \scriptsize {1.21}
-& \scriptsize {0.97}
-& \scriptsize {2.4}
-& \scriptsize {1.03}
-& \scriptsize {1.47}
-& \scriptsize {1.81}
-& \scriptsize {0.98}
+& \scriptsize  {1.31}
+& \scriptsize {0.64}
+& \scriptsize {0.91}
+& \scriptsize {1.01}
+& \scriptsize {1.09}
+& \scriptsize {1.14}
 & \scriptsize {1.16}
+& \scriptsize {1.03}
+& \scriptsize {0.07}
+& \scriptsize {1.08}
 \\ \hline
 
 \scriptsize  {A }
-& \scriptsize  {1.6}
-& \scriptsize {1.66}
-& \scriptsize {1.08}
-& \scriptsize {1.27}
-& \scriptsize {2.97}
-& \scriptsize {1.59}
-& \scriptsize {1.24}
-& \scriptsize {0}
-& \scriptsize {1.53}
-& \scriptsize {1.46}
+& \scriptsize  {1.66}
+& \scriptsize {1.70}
+& \scriptsize {1.71}
+& \scriptsize {1.70}
+& \scriptsize {1.36}
+& \scriptsize {1.42}
+& \scriptsize {1.47}
+& \scriptsize {1.50}
+& \scriptsize {1.55}
+& \scriptsize {1.56}
 \\ \hline
+
 
 \scriptsize  {R}
-& \scriptsize  {0.9}
-& \scriptsize {0.52}
-& \scriptsize {0.93}
-& \scriptsize {0.77}
-& \scriptsize {1.85}
-& \scriptsize {8.59}
+& \scriptsize  {1.04}
 & \scriptsize {1.06}
-& \scriptsize {1.28}
+& \scriptsize {1.06}
+& \scriptsize {0.80}
+& \scriptsize {0.86}
+& \scriptsize {0.91}
 & \scriptsize {0.93}
-& \scriptsize {0.76}
+& \scriptsize {0.82}
+& \scriptsize {0.96}
+& \scriptsize {0.87}
 \\ \hline
 
-
 \scriptsize  {SA}
-& \scriptsize  {6.7}
-& \scriptsize {5.97}
-& \scriptsize {1.82}
-& \scriptsize {5.34}
-& \scriptsize {0}
-& \scriptsize {8}
-& \scriptsize {3.14}
-& \scriptsize {4.52}
-& \scriptsize {5.85}
-& \scriptsize {5.7}
+& \scriptsize  {7.40}
+& \scriptsize {7.69}
+& \scriptsize {6.32}
+& \scriptsize {6.60}
+& \scriptsize {6.10}
+& \scriptsize {6.32}
+& \scriptsize {6.48}
+& \scriptsize {6.16}
+& \scriptsize {6.38}
+& \scriptsize {6.31}
 \\ \hline
 
 \scriptsize  {AR}
-& \scriptsize  {8.1}
-& \scriptsize {6.38}
-& \scriptsize {6.66}
-& \scriptsize {4.76}
+& \scriptsize  {8.33}
+& \scriptsize {6.12}
 & \scriptsize {6.94}
-& \scriptsize {6.2}
-& \scriptsize {7.22}
-& \scriptsize {11.05}
-& \scriptsize {7.07}
-& \scriptsize {6.91}
+& \scriptsize {7.29}
+& \scriptsize {7.56}
+& \scriptsize {7.09}
+& \scriptsize {6.74}
+& \scriptsize {6.80}
+& \scriptsize {6.94}
+& \scriptsize {6.66}
 \\ \hline
 
 \scriptsize  {SR}
-& \scriptsize  {1.5}
-& \scriptsize {3.15}
-& \scriptsize {3.62}
-& \scriptsize {2.88}
-& \scriptsize {3.2}
-& \scriptsize {3.62}
-& \scriptsize {3.58}
-& \scriptsize {3.5}
-& \scriptsize {3.75}
-& \scriptsize {3.76}
+& \scriptsize  {2.27}
+& \scriptsize {3.40}
+& \scriptsize {3.81}
+& \scriptsize {3.40}
+& \scriptsize {3.68}
+& \scriptsize {3.83}
+& \scriptsize {3.61}
+& \scriptsize {3.73}
+& \scriptsize {3.79}
+& \scriptsize {3.68}
 \\ \hline
 
 
-
 \scriptsize  {SAR}
-& \scriptsize  {28.6}
+& \scriptsize {14.28}
 & \scriptsize {19.23}
-& \scriptsize {15.9}
-& \scriptsize {6.31}
-& \scriptsize {12.82}
-& \scriptsize {17.04}
-& \scriptsize {17.52}
-& \scriptsize {17.27}
-& \scriptsize {20.66}
-& \scriptsize {17.48}
+& \scriptsize {21.05}
+& \scriptsize {19.23}
+& \scriptsize {17.64}
+& \scriptsize {18.98}
+& \scriptsize {18.08}
+& \scriptsize {18.69}
+& \scriptsize {18.33}
+& \scriptsize {18.97}
 \\ \hline
 \end{tabular}
 

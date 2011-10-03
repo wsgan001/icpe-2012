@@ -3,6 +3,24 @@ This section describes our approach and gives an insight of the process supporti
 reducing the number of access control rules that have to be considered at the evaluation time, through the definition of policy based splitting criteria. 
 Secondly, we explain how to select the splitting criterion that preserves the synergy requirement in the access control architecture.
 \subsection{Definition of Policy based Splitting Criteria}
+As depicted in Figure \ref{overallprocess}, the refactoring process is automated and starts by specifying and creating the XACML file which 
+will be split by our tool according to a specified SC that can be chosen by an access control stakeholder. Afterwards, the policies are included in the 
+framework that supports our approach. For every change in the access control policy, the initial policy is updated and 
+split again in order to be included again in the framework.
+From a point of view of the system administration, maintaining and updating the access control policies is completely a standalone and simple
+ process. The input is usually a centralized XACML policy. This input remains the same than before the access control performance issue is tackled.
+Our process is transparent in the sense that it does not impact the existing functional aspects of the access control management system, 
+for system administrators, who have to update the policy frequently and have to manage various dimensions of access control 
+systems such the scalability and maintainability.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8.5cm, height=8cm]{Overall-process}
+\caption{Overview of the Refactoring Process}
+\label{overallprocess}
+\end{center}
+\end{figure} 
+
+
 Decision engines performing XACML policy evaluation use brute force searching techniques by comparing a given request with all the rules in a policy.
 What happens in a request evaluation process is that for a given access control request, some rules are evaluated in the global policy whereas some of those rules are not
  applicable to the request. Starting from this observation, we propose to evaluate only the relevant rules for a given request in the decision making process. 
@@ -121,19 +139,3 @@ In this work we consider 3 evaluation studies where the PEPs trigger fixed coupl
 the best splitting criteria that enables to preserve the synergy requirement in the architectural model. Inferring automatically the PEPs from the application enables to identify automatically
  for a given application the best splitting criteria, this can be easily applied using the testing technique presented in \cite{legacy}.
 
-As depicted in Figure \ref{overallprocess}, the refactoring process is automated and starts by specifying and creating the XACML file which 
-will be split by our tool according to a specified SC that can be chosen by an access control stakeholder. Afterwards, the policies are included in the 
-framework that supports our approach. For every change in the access control policy, the initial policy is updated and 
-split again in order to be included again in the framework.
-From a point of view of the system administration, maintaining and updating the access control policies is completely a standalone and simple
- process. The input is usually a centralized XACML policy. This input remains the same than before the access control performance issue is tackled.
-Our process is transparent in the sense that it does not impact the existing functional aspects of the access control management system, 
-for system administrators, who have to update the policy frequently and have to manage various dimensions of access control 
-systems such the scalability and maintainability.
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=8.5cm, height=8cm]{Overall-process}
-\caption{Overview of the Refactoring Process}
-\label{overallprocess}
-\end{center}
-\end{figure} 
