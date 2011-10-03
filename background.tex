@@ -7,7 +7,15 @@ The present section introduces the synergy requirement that we aim to
 preserve while reasoning about performance requirements for access control policies and clarifies the motivation for the work presented in this paper.
 
 \subsection{Synergy requirement related to the considered Access Control Architecture}
-Most access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component 
+
+Managing access control policies is one of the most challenging issues faced by organizations. 
+Frequent changes in access control systems may be required to meet business needs. An access control system has to handle some specific 
+requirements like role swap when employees are given temporary assignments, changes in the policies and procedures, 
+new assets, users and job positions in the organization.
+All these facts make access control architectures very difficult to manage, and plead in favor of a 
+simple access control architecture that can easily handle changes in access control systems. 
+
+Today's access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component 
 encapsulated in a PDP. Figure \ref{pep-pdp} illustrates the interactions between the PEPs and the PDP: the PEP calls the PDP to 
 retrieve an authorization decision based on the PDP encapsulated policy. This authorization decision is made through the evaluation of rules in the policy. 
 Subsequently, an authorization decision (permit/deny) is returned to the PEP.
@@ -22,17 +30,10 @@ The separation between the PEP and the PDP in access control systems simplifies 
 \end{center}
 \end{figure}
 
-Managing access control policies is one of the most challenging issues faced by organizations. 
-Frequent changes in access control systems may be required to meet business needs. An access control system has to handle some specific 
-requirements like role swap when employees are given temporary assignments, changes in the policies and procedures, 
-new assets, users and job positions in the organization.
-All these facts make access control architectures very difficult to manage, and plead in favor of a 
-simple access control architecture that can easily handle changes in access control systems. 
 Along with the reasoning about performance, we propose to maintain the simplicity of the access control architecture whose model 
 is presented in Figure \ref{model}. In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic 
 which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP 
-interacts 
-with one single PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a given PEP. 
+interacts with one single PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a given PEP. 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height=5.5cm,width=8.5cm]{model}
@@ -42,10 +43,10 @@ with one single PDP, thus a single XACML policy is evaluated to provide the suit
 \end{figure}
 
 Considering a single XACML policy file for each initiating PEP enables to ease policies management and to maintain a simple architecture 
-in which a given PEP is mapped to a fixed PDP at each decision making process. We define the synergy requirement in the access control 
-architecture by specializing access control policies to be used for a particular PEP before deployment. The goal behind maintaining a single 
+in which a given PEP is mapped to a fixed PDP at each decision making process. In this work, We define the synergy requirement in the access control 
+architecture by the specialization of an access control policy to be used for a particular PEP before deployment. The goal behind maintaining a single 
 policy related to each PEP in the system is to keep a strong traceability between what has been specified by the policy and the internal 
-security mechanisms enforcing this policy at the business logic level. In such setting, when the access control policy rules are updated or removed, 
+security mechanisms enforcing this policy at the business logic level. In such setting, when access control policies are updated or removed, 
 the related PEPs can be easily located and removed and thus the application is updated synchronously with the policy changes. 
 
 \subsection{XACML Access Control Policies and Performance Issues}

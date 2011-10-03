@@ -30,7 +30,7 @@ according to all SCs. Moreover the refactoring process is executed only once to 
 
 
 \subsection{Performance Improvement Results}
-For the 3 evaluation studies, we generated all sets of policies for all the splitting criteria that we have defined in Section III.
+For the 3 evaluation studies, we generated the resulting sub-policies for all the splitting criteria that we have defined in Section III.
 The decision Engine in our three case studies is based on Sun XACML PDP implementation \cite{sunxacml}. We choose to use Sun XACML PDP instead of XEngine in order 
 to prove the effectiveness of our approach when compared to the traditional architecture.
 % To run the experiments, we used a configuartion file that maintains the list of policies used for requests evaluation. 
@@ -65,7 +65,7 @@ that is based on $\langle Action, Resource\rangle$. This pleads in favor of adop
 \end{figure*}
 \begin{figure}[!h]
   \centering
-\includegraphics[width=8.5cm, height=7.5cm]{pdpnumber.pdf}
+\includegraphics[width=8.5cm, height=7.2cm]{pdpnumber.pdf}
 \begin{center}
 \caption{PDP Number According to Splitting Criteria}
 \label{pdpnumber}
@@ -223,7 +223,7 @@ This empirical observation pleads in favour of applying our proposed refactoring
 
 In a second step, we have considered the workload of the software system. We evaluated the request procesing time according to the number of requests incoming to the system. 
 For each policy in the three systems (ASMS, LMS, and VMS), we generate successively 5000, 10000,..,50000 random requests to measure the evaluation time (ms).
-The results are shown in Figure \ref{fig:processing time1}. For the three systems, we notice that the evaluation time increases when the number of requests increases in the system. 
+The results are shown in (reference to tables). For the three systems, we notice that the evaluation time increases when the number of requests increases in the system. 
 Moreover, the request evaluation time is considerably improved when using the splitting process compared to the initial architecture.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ASMS

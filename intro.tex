@@ -3,7 +3,7 @@
 
 Access control policies are derived from an access control model like RBAC, MAC, DAC and OrBAC \cite{dac,mac,rbac,orbac} to define authorization strategies which regulate the
  actions 
-that users could perform on system resources. In the context of Policy based software systems, access control architectures are often built with respect to a popular 
+that users could perform on system resources. In the context of policy based software systems, access control architectures are often built with respect to a popular 
 architectural 
 concept, which separates Policy Enforcement Points (PEP) from Policy Decision Point (PDP) \cite{separation}. More specifically, the PEP is located inside 
 the application (i.e., business logic of the system) and formulates requests.
@@ -13,7 +13,7 @@ decouples the business logic from the access control decision logic, which can b
 
 In this architecture, the policy is centralized in one point, the PDP. Centralization of the PDP offers advantages such as facilitating managing and maintaining the policy, 
 which is encapsulated into a single PDP. However, such centralization can be a pitfall for degrading performance since the PDP manages all of access rights to be evaluated by 
-requests issued by PEPs. Moreover, the dynamic behaviour of organization's business, the complexity of its workflow and the continuous growth of its assets may increase the 
+requests issued by PEPs. Moreover, the dynamic behaviour of organizations, the complexity of its workflow and the continuous growth of its assets may increase the 
 number of rules in the policy \cite{policymanagement}. This fact may dramatically degrade the decision-making time, lead to performance bottlenecks and impact service 
 availability.
 
@@ -21,7 +21,7 @@ In this paper, we tackle perfomance requirements in policy based software system
 the request evaluation time. Reasoning about performance requirements in access control systems is intended to enhance the reliability and the efficency of the overall system 
 and to prevent business losses that can be engendered from slow decision making. In our approach, we consider policy-based software systems, which
 enforce access control policies specified in the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}. XACML is a popularly used XML-based language to specify rules 
-in a policy. A rule specifies which subjects can take which actions on resources in which conditions.
+in a policy. A rule specifies the actions that subjects can take on resources if required conditions are met.
 
 We propose an automated approach for optimizing the process of decision making in XACML request evaluation. 
 Our approach includes two facets: (1) performance optimization criteria to split the PDP into smaller decision points,
@@ -62,7 +62,7 @@ Our approach achieves more than 9 times faster than that of the approach based o
 \end{itemize}
 
 
-The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces some concepts related to the topic and the reserach problem.
+The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces some concepts related to the topic and the research problem.
 Section~\ref{sec:approach} presents the overall approach. 
 Section~\ref{sec:experiment} presents evaluation results and discusses the effectiveness of our approach. Section~\ref{sec:related} discusses related work.
 Section~\ref{sec:conclusion} concludes this paper and discuses future research directions.

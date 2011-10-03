@@ -3,32 +3,17 @@ This section describes our approach and gives an insight of the process supporti
 reducing the number of access control rules that have to be considered at the evaluation time, through the definition of policy based splitting criteria. 
 Secondly, we explain how to select the splitting criterion that preserves the synergy requirement in the access control architecture.
 \subsection{Definition of Policy based Splitting Criteria}
-As depicted in Figure \ref{overallprocess}, the refactoring process is automated and starts by specifying and creating the XACML file which 
-will be split by our tool according to a specified SC that can be chosen by an access control stakeholder. Afterwards, the policies are included in the 
-framework that supports our approach. For every change in the access control policy, the initial policy is updated and 
-split again in order to be included again in the framework.
-From a point of view of the system administration, maintaining and updating the access control policies is completely a standalone and simple
- process. The input is usually a centralized XACML policy. This input remains the same than before the access control performance issue is tackled.
-Our process is transparent in the sense that it does not impact the existing functional aspects of the access control management system, 
-for system administrators, who have to update the policy frequently and have to manage various dimensions of access control 
-systems such the scalability and maintainability.
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=8.5cm, height=8cm]{Overall-process}
-\caption{Overview of the Refactoring Process}
-\label{overallprocess}
-\end{center}
-\end{figure} 
 
 
-Decision engines performing XACML policy evaluation use brute force searching techniques by comparing a given request with all the rules in a policy.
+
+Decision engines performing XACML policy evaluation use brute force searching techniques by comparing a given request with all the rules in a policy. 
 What happens in a request evaluation process is that for a given access control request, some rules are evaluated in the global policy whereas some of those rules are not
  applicable to the request. Starting from this observation, we propose to evaluate only the relevant rules for a given request in the decision making process. 
 We propose to split the initial policy into smaller policies based on attribute values combination. For a given system, we transform the policy \normalsize $P$ into 
 policies \normalsize $P_{SC_{w}}$ containing less number of rules and conforming to a Splitting Criteria $SC_{w}$. An $SC_{w}$ defines the set of attributes that are considered 
 to classify all the rules into subsets having similar one or more attribute values, $w$ denotes the number of attributes that have to be considered conjointly for aggregating 
 rules based on specific attribute elements selection. A policy can be split into a set of sub-policies where the rules have the same values of attributes of subject, resource, or 
-action. We envision to consider also two attributes like $\langle Subject, Action\rangle$ or $\langle Action, Resource\rangle$, in this setting, a policy will be transformed into a set of smaller 
+action. We also consider two attributes like $\langle Subject, Action\rangle$ or $\langle Action, Resource\rangle$ for splitting the policies, in this setting, a policy is transformed into a set of smaller 
 policies where rules in the resulting policies have the same couple of attribute elements. We can go further in our grouping strategy by considering a triplet of attributes
 elements: resource, action and subject to split \normalsize $P$. Table I shows all splitting criteria categories according to the attribute elements combination.
 \begin{table}[h!]
@@ -50,13 +35,13 @@ Once the splitting process is performed, the access control architecture will in
 We use SUN's XACML implementation \cite{sunxacml} as a decision engine framework that evaluates the policies against requests.
 During the evaluation process, SUN's XACML decision engine checks the request against the policy and determines whether the request is 
 permitted or denied. SUN's XACML implementation permits to load the considered policy in a file which is used during the decision making process, once the applicable policy 
-is selected from this file, the decision engine fetches the policy to retrieve the applicable rules that are applicable to the request
+is selected from this file, the decision engine fetches the policy to retrieve the applicable rules that are applicable to the request.
 
 
 Figure \ref{requestevaluation} presents an evaluation process that considers resulting policies from the splitting process. 
 During the evaluation process the applicable 
-policy is selected from the configuration file. Sun's XACML enbales to select the applicable policy, by verifying the matching between the request's attributes
- and and the policy set attributes. 
+policy is selected from the configuration file. Sun's XACML enables to select the applicable policy, by verifying the matching between the request's attributes
+ and the policy set attributes. 
 After the selection of the applicable policy, all its rules which are considered relevant for the decision making are evaluated.
 
 \begin{figure}[!h]
@@ -67,6 +52,22 @@ After the selection of the applicable policy, all its rules which are considered
 \end{center}
 \end{figure}
 
+As depicted in Figure \ref{overallprocess}, the refactoring process is automated and starts by specifying and creating the XACML file which 
+will be split by our tool according to a specified SC that can be chosen by an access control stakeholder. Afterwards, the policies are included in the 
+framework that supports our approach. For every change in the access control policy, the initial policy is updated and 
+split again in order to be included again in the framework.
+From a point of view of the system administration, maintaining and updating the access control policies is completely a standalone and simple
+ process. The input is usually a centralized XACML policy. This input remains the same than before the access control performance issue is tackled.
+Our process is transparent in the sense that it does not impact the existing functional aspects of the access control management system, 
+for system administrators, who have to update the policy frequently and have to manage various dimensions of access control 
+systems such the scalability and maintainability.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8.5cm, height=8cm]{Overall-process}
+\caption{Overview of the Refactoring Process}
+\label{overallprocess}
+\end{center}
+\end{figure} 
 
 To illustrate our approach, we present some examples that take into consideration the XACML language features:
 \begin{itemize}
