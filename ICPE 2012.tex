@@ -41,6 +41,15 @@
 \usepackage[table]{xcolor}	
 \usepackage[caption=false]{subfig}
 
+
+%-------------start additional comments from JeeHyun------------
+%\newcommand{\FixJeeHyun}[1]{}
+%\newcommand{\CommentJeeHyun}[1]{}
+\newcommand{\Comment}[1]{}
+\newcommand{\FixJeeHyun}[1]{{\large\textbf{FIXJeeHyun}}\color{red}{#1}\color{black}{}{\large\textbf{FIXJeeHyun}}}
+\newcommand{\CommentJeeHyun}[1]{{\large\textbf{COMMENTJeeHyun}}#1{\large\textbf{COMMENTJeeHyun}}}
+%-------------end comments from JeeHyun------------
+
 \begin{document}
 
 \title{Refactoring access control policies for performance improvement}
@@ -77,6 +86,24 @@
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
+
+%\numberofauthors{2}
+%\author{
+%\alignauthor Donia El Kateb, Tejeddine Mouelhi, Yves Le Traon \\
+% \affaddr{University of Luxembourg} \\
+% \affaddr{6 rue Coudenhove-Kalergi 
+%L-1359 Luxembourg } \\
+% \email{\{donia.elkateb, tejeddine.mouelh, yves.letraon\}@uni.lu}
+%\and
+%\alignauthor JeeHyun Hwang, Tao Xie\\
+%\affaddr{Dept. of Computer Science, 
+%} \\
+%\affaddr{North Carolina State University} \\
+% \affaddr {Raleigh, NC 27695, U.S.A} \\
+% \email{jhwang4@ncsu.edu, xie@csc.ncsu.edu}
+%}
+
+ 
 \numberofauthors{5}
 \author{
 \alignauthor Donia El Kateb \\
@@ -108,7 +135,7 @@ L-1359 Luxembourg } \\
  \affaddr {Raleigh, NC 27695, U.S.A} \\
  \email{xie@csc.ncsu.edu}
 }
-
+ 
 \maketitle
 
 
@@ -122,7 +149,29 @@ L-1359 Luxembourg } \\
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
 
+
 \begin{abstract}
+
+In order to facilitate manage authorization, access control architectures are designed to separate the business logic from an access control policy. An access control policy consists of rules which specifies who can access to resources.
+A request is formulated from a component, called Policy Enforcement Points (PEPs). 
+Given a request, a Policy Decision Point (PDP) evaluates request against an access control policy and
+returns its access decision (i.e., Permit or Deny) to the PEPs.
+With the growth of sensitive information for protection in an application,
+an access control policy consists of larger number of rules, which often cause a performance bottleneck.
+%Such architectures engender a performance bottleneck due to a large number of rules in a policy, where
+%a single PDP evaluates a request against each rule in turn.
+In order to address this issue, we propose to refactor access control policies for performance improvement
+by splitting an access control policy (handled by single PDP) into its corresponding multiple access
+control policies with smaller number of rules (handled by multiple PDPs).
+We define seven attribute-set based splitting criteria to facilitate
+split an access control policy.
+We have conducted an evaluation on three subjects of real-life JAVA program, each of which interact
+with access control policies. Our evaluation results show that our proposed approach
+preserves the initial architectural model of the subjects in terms of interaction between the business logic and its corresponding
+rules in the policy. Our evaluation results show that our approach
+is efficient in terms of reducing request evaluation time by up to nine times. 
+ 
+\Comment{
 Modern access control architectures tend to separate the business logic from access control policy specification for the sake of easing authorization 
 manageability. Thus, request evaluation is processed by a Policy Decision Point (PDP) that encapsulates the access control policy and interacts with the
  business logic through Policy Enforcement Points (PEPs). Such architectures may engender a performance bottleneck due to the number of rules that have to be 
@@ -131,8 +180,14 @@ In this paper, we propose to optimize the decision-making process by splitting t
 (eXtensible Access Control Markup Language) to identify the best PDP splitting configuration. Our evaluation results show that the best splitting criterion 
 is the one that preserves the initial architectural model in terms of interaction between the business logic and the decision engine and enables
  to reduce the time of request evaluation time by up to 9 times.
+ }
 \end{abstract}
+
+\keywords{Access Control, Performance, Refactoring,  Policy Enforcement Point, Policy Decision Point, eXtensible Access Control Markup Language}
+
+\Comment{
 \keywords{Performance, Optimization, Access Control Policies, PEP, PDP, XACML} % NOT required for Proceedings
+}
 
 
 % A category with the (minimum) three required fields
@@ -164,7 +219,8 @@ is the one that preserves the initial architectural model in terms of interactio
 %\balancecolumns
 %\appendix
 %Appendix A
-\input{intro}
+
+%\input{intro}
 \input{background}
 \input{approach}
 \input{experiment}

@@ -1,41 +1,46 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.29)  21 SEP 2011 01:44
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.6.28)  4 OCT 2011 11:21
 entering extended mode
- %&-line parsing enabled.
-**"ICPE 2012.tex"
-(./ICPE 2012.tex
+**C:/Users/JeeHyun/Desktop/Working*Papers/ICPE/icpe-2012-revision2/ICPE*2012.te
+x
+
+("C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/ICPE 2012.te
+x"
 LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
-(./acm_proc_article-sp.cls
-(/usr/share/texmf-texlive/tex/latex/graphics/epsfig.sty
+Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\acm_proc_art
+icle-sp.cls" ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/01/28 v0.05d Graphics/color for pdfTeX
 \Gread@gobject=\count79
 ))
 \Gin@req@height=\dimen102
@@ -44,10 +49,10 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \epsfxsize=\dimen104
 \epsfysize=\dimen105
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
@@ -55,24 +60,24 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip41
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen106
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen107
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count80
@@ -140,7 +145,7 @@ Excerpts were taken from (Journal Style) 'esub2acm.cls'.
 \titleboxnoteflag=\count100
 Document Class: acm_proc_article-sp 2009/04/22 - V3.2SP - based on esub2acm.sty
  <23 April 96>
-(/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
@@ -172,19 +177,19 @@ LaTeX Info: Redefining \cite on input line 1236.
 \acmcopyr=\toks33
 \boilerplate=\toks34
 \copyrightetc=\toks35
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 )
 LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 
-(/usr/share/texmf-texlive/tex/latex/ae/t1aer.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aer.fd"
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 )))
-(/usr/share/texmf-texlive/tex/latex/subfloat/subfloat.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\subfloat\subfloat.sty
 Package: subfloat 2003/08/21 version 2.14
 
 Package `subfloat', Version 2.14 of 2003/08/21.
@@ -197,11 +202,11 @@ Package subfloat Warning: Numbers of floats not counted:
 (subfloat)                Please switch on countmax or remove the code using
 (subfloat)                the counter then..
 
-) (/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2010/01/28 v2.1 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode detected.
 )
-(/usr/share/texmf-texlive/tex/latex/tools/multicol.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 \c@tracingmulticols=\count109
 \mult@box=\box30
@@ -248,10 +253,10 @@ Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 \mult@nat@firstbox=\box54
 \colbreak@box=\box55
 )
-(/usr/share/texmf-texlive/tex/latex/algorithms/algorithmic.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithmic.s
+ty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-
-(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@ALC@unique=\count117
@@ -261,11 +266,10 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \ALC@tlm=\skip46
 \algorithmicindent=\skip47
 )
-(/usr/share/texmf-texlive/tex/latex/algorithms/algorithm.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
-
-(/usr/share/texmf-texlive/tex/latex/float/float.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count121
 \float@exts=\toks36
@@ -276,7 +280,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@every@algorithm=\toks38
 \c@algorithm=\count122
 )
-(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -291,7 +295,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -343,7 +347,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
 )
-(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
 \lst@mode=\count123
 \lst@gtempboxa=\box58
 \lst@token=\toks39
@@ -359,29 +363,29 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
 \belowcaptionskip=\skip49
 \lst@maxwidth=\dimen134
 
-(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count129
 \lst@skipnumbers=\count130
 \lst@framebox=\box59
 )
-(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
 File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(/etc/texmf/tex/latex/config/color.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-(/usr/share/texmf-texlive/tex/latex/colortbl/colortbl.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\colortbl\colortbl.sty
 Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
 
-(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen135
 \extrarowheight=\dimen136
@@ -403,11 +407,11 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/share/texmf-texlive/tex/latex/subfig/subfig.sty
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
-Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
 \captionmargin=\dimen137
 \captionmargin@=\dimen138
 \captionwidth=\dimen139
@@ -415,7 +419,7 @@ Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
 \caption@parindent=\dimen141
 \caption@hangindent=\dimen142
 Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used on input line 1068.
+(caption)             standard defaults will be used on input line 1084.
 )
 \c@KVtest=\count132
 \sf@farskip=\skip53
@@ -430,30 +434,29 @@ Package caption Info: Unknown document class (or package),
 \c@lotdepth=\count138
 \sf@top=\skip56
 \sf@bottom=\skip57
-) (./ICPE 2012.aux)
-\openout1 = `"ICPE 2012.aux"'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 44.
-
-(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+)
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\ICPE 2012.au
+x")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 53.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    ... okay on input line 53.
 
-(/usr/share/texmf/tex/context/base/supp-pdf.mkii
+(C:\Users\JeeHyun\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count139
 \scratchdimen=\dimen144
@@ -464,144 +467,209 @@ LaTeX Font Info:    ... okay on input line 44.
 \MPscratchCnt=\count142
 \MPscratchDim=\dimen145
 \MPnumerator=\count143
+\makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks43
 )
-\c@lstlisting=\count144
+\c@lstlisting=\count145
 Package caption Info: Begin \AtBeginDocument code.
 Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
-LaTeX Info: Redefining \subref on input line 44.
+LaTeX Info: Redefining \subref on input line 53.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 112.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 139.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 112.
+LaTeX Font Info:    Try loading font information for U+msb on input line 139.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 112.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 139.
 
-(/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) (./intro.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]) (./background.tex
-<business-logic.pdf, id=9, 651.43375pt x 597.23125pt>
+)
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\background.t
+ex" <business-logic.pdf, id=1, 651.43375pt x 597.23125pt>
 File: business-logic.pdf Graphic file (type pdf)
- <use business-logic.pdf>
-Overfull \hbox (16.07596pt too wide) in paragraph at lines 16--17
+
+<use business-logic.pdf>
+Overfull \hbox (16.07596pt too wide) in paragraph at lines 29--30
  [] 
  []
 
-<model.pdf, id=11, 580.1675pt x 286.06876pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<model.pdf, id=2, 796.9775pt x 597.23125pt>
 File: model.pdf Graphic file (type pdf)
- <use model.pdf> [2 <./business-logic.pdf>] <xacml.pdf, id=43, 1011.78pt x 886.
-31125pt>
+ <use model.pdf>
+Overfull \hbox (1.84344pt too wide) in paragraph at lines 41--42
+ [] 
+ []
+
+[1{C:/Users/JeeHyun/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+<xacml.pdf, id=11, 1011.78pt x 886.31125pt>
 File: xacml.pdf Graphic file (type pdf)
  <use xacml.pdf>
-Overfull \hbox (4.69386pt too wide) in paragraph at lines 70--71
+Overfull \hbox (4.69386pt too wide) in paragraph at lines 77--78
  [] 
  []
 
-[3 <./model.pdf> <./xacml.pdf>]) (./approach.tex
-<PEPExample.pdf, id=77, 579.16376pt x 380.42125pt>
-File: PEPExample.pdf Graphic file (type pdf)
- <use PEPExample.pdf>
-[4 <./PEPExample.pdf>] <requestevaluation.pdf, id=100, 433.62pt x 433.62pt>
+[2 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/business-l
+ogic.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/mod
+el.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/xacml
+.pdf>])
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\approach.tex
+" <requestevaluation.pdf, id=76, 433.62pt x 433.62pt>
 File: requestevaluation.pdf Graphic file (type pdf)
 
 <use requestevaluation.pdf>
-Overfull \hbox (11.30214pt too wide) in paragraph at lines 59--59
-[]\secfnt Architecture Model Preser-va-tion: PEP-PDP
- []
 
-<Overall-process.pdf, id=102, 579.16376pt x 524.96124pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Overall-process.pdf, id=77, 579.16376pt x 524.96124pt>
 File: Overall-process.pdf Graphic file (type pdf)
 
 <use Overall-process.pdf>
-Overfull \hbox (1.85081pt too wide) in paragraph at lines 99--100
+Overfull \hbox (1.85081pt too wide) in paragraph at lines 66--67
  [] 
  []
 
-) (./experiment.tex
+[3]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./requestevaluation.pdf>]
-Overfull \hbox (5.74002pt too wide) in paragraph at lines 22--25
+
+Overfull \hbox (1.57167pt too wide) in paragraph at lines 78--83
+\T1/aer/m/n/9 ture, if they en-cap-su-late the fol-low-ing el-e-ments $\OMS/cms
+y/m/n/9 h\OML/cmm/m/it/9 Resou\T1/aer/m/n/9 -
+ []
+
+
+Overfull \hbox (3.4907pt too wide) in paragraph at lines 86--88
+[]\T1/aer/m/n/9 In XACML, poli-cies and re-quests could be multi-valued.
+ []
+
+<splitting.pdf, id=89, 723.70375pt x 669.50125pt>
+File: splitting.pdf Graphic file (type pdf)
+ <use splitting.pdf>
+Overfull \hbox (1.84871pt too wide) in paragraph at lines 91--92
+ [] 
+ []
+
+<xacml-match.pdf, id=90, 758.835pt x 289.08pt>
+File: xacml-match.pdf Graphic file (type pdf)
+ <use xacml-match.pdf>
+Overfull \hbox (16.0784pt too wide) in paragraph at lines 100--101
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (11.30214pt too wide) in paragraph at lines 108--108
+[]\secfnt Architecture Model Preser-va-tion: PEP-PDP
+ []
+
+[4 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/requesteva
+luation.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/
+Overall-process.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-re
+vision2/splitting.pdf>] <PEPExample.pdf, id=142, 579.16376pt x 380.42125pt>
+File: PEPExample.pdf Graphic file (type pdf)
+
+<use PEPExample.pdf>)
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\experiment.t
+ex"
+Overfull \hbox (5.74002pt too wide) in paragraph at lines 17--20
 []\T1/aer/m/n/9 ASMS (Auc-tion Sale Man-age-ment Sys-tem): al-lows users
  []
 
-<LMS.pdf, id=123, 290.08376pt x 235.88126pt>
+[5 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/xacml-matc
+h.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/PEPExa
+mple.pdf>] <LMS.pdf, id=163, 290.08376pt x 235.88126pt>
 File: LMS.pdf Graphic file (type pdf)
  <use LMS.pdf>
-<VMS.pdf, id=125, 290.08376pt x 235.88126pt>
+<VMS.pdf, id=164, 290.08376pt x 235.88126pt>
 File: VMS.pdf Graphic file (type pdf)
  <use VMS.pdf>
-<ASMS.pdf, id=127, 290.08376pt x 235.88126pt>
+<ASMS.pdf, id=165, 290.08376pt x 235.88126pt>
 File: ASMS.pdf Graphic file (type pdf)
  <use ASMS.pdf>
-<pdpnumber.pdf, id=129, 796.9775pt x 597.23125pt>
+<pdpnumber.pdf, id=166, 796.9775pt x 597.23125pt>
 File: pdpnumber.pdf Graphic file (type pdf)
  <use pdpnumber.pdf>
-Overfull \hbox (1.84344pt too wide) in paragraph at lines 75--76
+Overfull \hbox (1.84344pt too wide) in paragraph at lines 68--69
+ [][] 
+ []
+
+[6 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/pdpnumber.
+pdf>]
+Overfull \hbox (8.67848pt too wide) in paragraph at lines 104--138
  [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[6 <./Overall-process.pdf>]
-Overfull \hbox (25.43617pt too wide) in paragraph at lines 113--147
-[][] 
- []
-
-
-Overfull \hbox (11.89119pt too wide) in paragraph at lines 153--189
-[][] 
- []
-
-
-Overfull \hbox (11.89119pt too wide) in paragraph at lines 194--228
+Overfull \hbox (11.12827pt too wide) in paragraph at lines 144--180
  [][] 
  []
 
-[7 <./LMS.pdf> <./VMS.pdf> <./ASMS.pdf> <./pdpnumber.pdf>]) (./related.tex)
-(./conclusion.tex) (./ICPE 2012.bbl [8]) [9
 
-] (./ICPE 2012.aux) ) 
+Overfull \hbox (11.12827pt too wide) in paragraph at lines 184--218
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
+
+ []
+
+) ("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\related.te
+x" [7 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/LMS.pdf
+> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/VMS.pdf> <C
+:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/ASMS.pdf>])
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\conclusion.t
+ex")
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\ICPE 2012.bb
+l" [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+) [9]
+("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\ICPE 2012.au
+x") ) 
 Here is how much of TeX's memory you used:
- 5573 strings out of 493848
- 74519 string characters out of 1152823
- 145916 words of memory out of 3000000
- 8703 multiletter control sequences out of 15000+50000
+ 5650 strings out of 494053
+ 77785 string characters out of 3148597
+ 172739 words of memory out of 3000000
+ 8794 multiletter control sequences out of 15000+200000
  61544 words of font info for 89 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 41i,13n,45p,266b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</us
-r/share/texmf-texlive/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
-5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-
-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/typ
-e1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb
-8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "ICPE 2012.pdf" (9 pages, 724062 bytes).
+ 715 hyphenation exceptions out of 8191
+ 41i,13n,45p,330b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Users/Jee
+Hyun/AppData/Roaming/MiKTeX/2.9/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhv
+b8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "ICPE 2012.pdf" (9 pages, 823686 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
+ 291 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

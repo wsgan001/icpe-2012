@@ -28,10 +28,11 @@ J.~Chaudhry, T.~Palpanas, P.~Andritsos, and A.~Mana.
 \newblock Entity lifecycle management for okkam.
 \newblock In {\em Proc. 1st IRSW2008 International Workshop on Tenerife}, 2008.
 
-\bibitem{rbac}
-D.~F. Ferraiolo, R.~Sandhu, S.~Gavrila, D.~R. Kuhn, and R.~Chandramouli.
-\newblock Proposed nist standard for role-based access control.
-\newblock 2001.
+\bibitem{ferraiolo:rbac}
+D.~F. Ferraiolo, R.~S. Sandhu, S.~I. Gavrila, D.~R. Kuhn, and R.~Chandramouli.
+\newblock Proposed {NIST} standard for role-based access control.
+\newblock {\em ACM Transactions on Information and System Security},
+  4(3):224--274, 2001.
 
 \bibitem{MyABDAC}
 S.~Jahid, C.~A. Gunter, I.~Hoque, and H.~Okhravi.
