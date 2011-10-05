@@ -6,7 +6,7 @@
 This section presents (1) requirements that we aim to 
 preserve while refactoring access control policies, and (2) motivation for our proposed approach presented in this paper.
 
-\subsection{Synergy requirement for Access Control Architecture}
+\subsection{Synergy Requirement for Access Control Architecture}
 
 Managing access control policies is an one of challenging tasks faced by organizations. 
 For example, in policy-based systems, policy authors handle specific 
@@ -65,9 +65,9 @@ independently from the underlying programming language or platform. Such flexibi
 
 An XACML is constructed as follows.
 A \CodeIn{policy set} element consists of a sequence of \CodeIn{policy elements}, a combining algorithm, and
-a \CodeIn{target element}. A \CodeIn{policy element} is expressed through a target, a set of \CodeIn{rules}, and a rule combining algorithm. 
-A \CodeIn{target element} consists of the set of resources, subjects, and actions to which a rule is applicable. A \CodeIn{rule} consists of a 
-\CodeIn{target element}, a \CodeIn{condition element}, and an \CodeIn{effect}. A \CodeIn{condition element} is a boolean expression that specifies 
+a \CodeIn{target} element. A \CodeIn{policy element} is expressed through a target, a set of \CodeIn{rules}, and a rule combining algorithm. 
+A \CodeIn{target} element consists of the set of resources, subjects, and actions to which a rule is applicable. A \CodeIn{rule} consists of a 
+\CodeIn{target} element, a \CodeIn{condition} element, and an \CodeIn{effect}. A \CodeIn{condition} element is a boolean expression that specifies 
 environmental context (e.g., time and location restrictions) in which the rule applies.
 Finally, an \CodeIn{effect} is rule's authorization decision, which is either permit or deny.
 

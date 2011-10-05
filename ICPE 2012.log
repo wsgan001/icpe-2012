@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.6.28)  5 OCT 2011 05:25
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.6.28)  5 OCT 2011 11:12
 entering extended mode
 **C:/Users/JeeHyun/Desktop/Working*Papers/ICPE/icpe-2012-revision2/ICPE*2012.te
 x
@@ -633,71 +633,62 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
 <requestevaluation.pdf, id=81, 433.62pt x 433.62pt>
 File: requestevaluation.pdf Graphic file (type pdf)
 
-<use requestevaluation.pdf>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Overall-process.pdf, id=82, 579.16376pt x 524.96124pt>
+<use requestevaluation.pdf> [4 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/ic
+pe-2012-revision2/requestevaluation.pdf>]
+<Overall-process.pdf, id=106, 579.16376pt x 524.96124pt>
 File: Overall-process.pdf Graphic file (type pdf)
 
 <use Overall-process.pdf>
-Overfull \hbox (1.85081pt too wide) in paragraph at lines 87--88
+Overfull \hbox (1.85081pt too wide) in paragraph at lines 88--89
+ [] 
+ []
+
+
+Overfull \hbox (6.04292pt too wide) in paragraph at lines 99--102
+\T1/pcr/m/n/8 ture \T1/ptm/m/n/9 for "role" and "isEq-subjUserId-resUserId", re
+-spec-tively.
+ []
+
+<splitting.pdf, id=107, 723.70375pt x 669.50125pt>
+File: splitting.pdf Graphic file (type pdf)
+ <use splitting.pdf>
+Overfull \hbox (1.84871pt too wide) in paragraph at lines 110--111
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
-Overfull \hbox (1.30037pt too wide) in paragraph at lines 99--104
-\T1/ptm/m/n/9 they en-cap-su-late the fol-low-ing el-e-ments $\OMS/cmsy/m/n/9 h
-\OML/cmm/m/it/9 Resou\T1/ptm/m/n/9 -\OML/cmm/m/it/9 rceMatch\OMS/cmsy/m/n/9 i$\
-T1/ptm/m/n/9 ,
- []
-
-<splitting.pdf, id=92, 723.70375pt x 669.50125pt>
-File: splitting.pdf Graphic file (type pdf)
- <use splitting.pdf>
-Overfull \hbox (1.84871pt too wide) in paragraph at lines 112--113
- [] 
- []
-
-<xacml-match.pdf, id=93, 758.835pt x 289.08pt>
+<xacml-match.pdf, id=108, 758.835pt x 289.08pt>
 File: xacml-match.pdf Graphic file (type pdf)
  <use xacml-match.pdf>
-Overfull \hbox (16.0784pt too wide) in paragraph at lines 121--122
+Overfull \hbox (16.0784pt too wide) in paragraph at lines 119--120
  [] 
  []
 
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <8> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 120.
 
-Overfull \hbox (11.30214pt too wide) in paragraph at lines 129--129
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (11.30214pt too wide) in paragraph at lines 127--127
 []\secfnt Architecture Model Preser-va-tion: PEP-PDP
  []
 
-[5 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/requesteva
-luation.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/
-Overall-process.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-re
-vision2/splitting.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-
-revision2/xacml-match.pdf>]
-<PEPExample.pdf, id=151, 579.16376pt x 380.42125pt>
+
+Underfull \vbox (badness 1454) has occurred while \output is active []
+
+ [5 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/Overall-p
+rocess.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/s
+plitting.pdf> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2
+/xacml-match.pdf>] <PEPExample.pdf, id=152, 579.16376pt x 380.42125pt>
 File: PEPExample.pdf Graphic file (type pdf)
- <use PEPExample.pdf>
-Overfull \hbox (88.902pt too wide) in paragraph at lines 152--157
-\T1/ptm/m/n/9 PEP) and fixed Ac-tion and Re-source (Li-brary-Se-cu-ri-ty-Model.
-BORROWBOOK_METHOD),
- []
 
-
-Overfull \hbox (1.23363pt too wide) in paragraph at lines 158--163
-[]\T1/ptm/m/n/9 Our em-pir-i-cal re-sults, pre-sented in sec-tion 4[], have sho
-wn that adopt-
- []
-
-
-Overfull \hbox (25.81296pt too wide) in paragraph at lines 158--163
-\T1/ptm/m/n/9 jects in the poli-cies, thus the split-ting cri-te-ria $\OML/cmm/
-m/it/9 SC[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 h\OML/cmm/m/it/9 Resource; Action\
-OMS/cmsy/m/n/9 i$
+<use PEPExample.pdf>
+Overfull \hbox (6.04665pt too wide) in paragraph at lines 158--161
+[]\T1/ptm/m/n/9 The PEP pre-sented by the method \T1/pcr/m/n/8 ServiceUtils.che
+ckSecurity
  []
 
 )
@@ -708,23 +699,27 @@ Overfull \hbox (1.41348pt too wide) in paragraph at lines 14--15
 -
  []
 
-[6 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/PEPExample
-.pdf>] <LMS.pdf, id=166, 290.08376pt x 235.88126pt>
+<LMS.pdf, id=153, 290.08376pt x 235.88126pt>
 File: LMS.pdf Graphic file (type pdf)
  <use LMS.pdf>
-<VMS.pdf, id=167, 290.08376pt x 235.88126pt>
+<VMS.pdf, id=154, 290.08376pt x 235.88126pt>
 File: VMS.pdf Graphic file (type pdf)
  <use VMS.pdf>
-<ASMS.pdf, id=168, 290.08376pt x 235.88126pt>
+<ASMS.pdf, id=155, 290.08376pt x 235.88126pt>
 File: ASMS.pdf Graphic file (type pdf)
  <use ASMS.pdf>
-<pdpnumber.pdf, id=169, 796.9775pt x 597.23125pt>
+<pdpnumber.pdf, id=156, 796.9775pt x 597.23125pt>
 File: pdpnumber.pdf Graphic file (type pdf)
  <use pdpnumber.pdf>
 Overfull \hbox (1.84344pt too wide) in paragraph at lines 68--69
  [][] 
  []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/PEPExample
+.pdf>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 105.
 
@@ -732,35 +727,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
  []
 
-[7 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/pdpnumber.
-pdf>])
+[7 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/LMS.pdf> <
+C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/VMS.pdf> <C:/U
+sers/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/ASMS.pdf> <C:/User
+s/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/pdpnumber.pdf>])
 ("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\related.tex"
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--34
+
+ []
+
 )
 ("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\conclusion.t
-ex") [8 <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/LMS.p
-df> <C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/VMS.pdf> 
-<C:/Users/JeeHyun/Desktop/Working Papers/ICPE/icpe-2012-revision2/ASMS.pdf>]
+ex")
 ("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\ICPE 2012.bb
-l")
+l" [8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-Overfull \vbox (250.05559pt too high) has occurred while \output is active []
-
-
-[10
-
-]
+) [9]
+[10]
 ("C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\ICPE 2012.au
 x") ) 
 Here is how much of TeX's memory you used:
- 6084 strings out of 494053
- 83715 string characters out of 3148597
- 173207 words of memory out of 3000000
- 9212 multiletter control sequences out of 15000+200000
- 61138 words of font info for 75 fonts, out of 3000000 for 9000
+ 6089 strings out of 494053
+ 83778 string characters out of 3148597
+ 175217 words of memory out of 3000000
+ 9215 multiletter control sequences out of 15000+200000
+ 61759 words of font info for 77 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 41i,12n,45p,499b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,45p,663b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Users/Jee
 Hyun/AppData/Roaming/MiKTeX/2.9/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program File
@@ -770,14 +765,15 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX
 blic/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "ICPE 2012.pdf" (10 pages, 763573 bytes).
+:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
+elvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "ICPE 2012.pdf" (10 pages, 769305 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
+ 282 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

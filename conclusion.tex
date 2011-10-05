@@ -1,22 +1,29 @@
 \section{Conclusion and Future Work} \label{sec:conclusion}
 
-In this paper, we have tackled the performance issue in access control decision making mechanism 
-and we have proposed an
+In this paper, we have tackled the performance issue in access control decision making mechanism.
+We have proposed an
  automated refactoring  process  
-that enables to reduce access control policies evaluation time up to 9 times.
-Our approach has been applied to XACML policies and it can be generalized to policies in other policy specification
-languages (such as EPAL). 
-To support and automate the refactoring process, we have designed and implemented the ``PolicySplitter'' tool,
-which transforms a given policy into small ones,
-according to a chosen splitting criterion.
-The obtained results have shown a significant gain in evaluation time when using any of the splitting criteria.
- The best gain in performance is reached by
-the criterion that respects the synergy property. This plead in favor of a refactoring process that takes into
- account, the way PEPs are scattered inside the system business logic. 
-In this work, we have easily identified the different PEPs since we know exactly how our system functions are
- implemented and thus how PEPs are organized inside the system.
+that enables to reduce request evaluation time.
+Our approach has been applied on three JAVA projects interacting with XACML policies.
+To support and automate the refactoring process, we have designed and implemented a tool, called PolicySplitter,
+which transforms a given policy into multiple policies according to a chosen splitting criterion.
 
-As a future work, we propose to automatically identify the different PEPs of a given application. 
-This technique is an important step that is complementary to this paper approach, since it enables
- knowing how PEPs are organized in the system and thus allows to select the most 
-suitable splitting criterion for a given application. 
+Our evaluation results have shown that our approach gain a significant performance improvement
+in terms of request evaluation time.
+Our evaluation results have shown that our proposed approach
+preserves the initial architectural model of the subjects in terms of interaction between the business logic and its corresponding
+rules in the policy. Our evaluation results have shown that our approach
+is efficient in terms of reducing request evaluation time by up to nine times. 
+
+% The best gain in performance is reached by
+%the criterion that respects the synergy property. This plead in favor of a refactoring process that takes into
+% account, the way PEPs are scattered inside the system business logic. 
+%In this work, we have easily identified the different PEPs since we know exactly how our system functions are
+% implemented and thus how PEPs are organized inside the system.
+
+%In our future work, we plan to develop an approach to automatically identify PEPs. 
+%This technique is an important step that is complementary to this paper approach, since it enables
+% knowing how PEPs are organized in the system and thus allows to select the most 
+%suitable splitting criterion for a given application. 
+% and it can be generalized to policies in other policy specification
+%languages (such as EPAL). 

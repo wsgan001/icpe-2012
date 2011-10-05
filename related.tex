@@ -1,34 +1,50 @@
 \section{Related Work} \label{sec:related}
 
-Some previous work have focused on performance issues when considering security.
-In \cite{largesystems}, the authors have presented new techniques to reduce the overhead engendered from implementing a security model 
+There are several previous work about performance issues in security mechanisms.
+Ammons et al. have presented techniques\cite{largesystems} to reduce the overhead engendered from implementing a security model 
 in IBM's WebSphere Application Server (WAS). Their approach identifies bottlencks through code instrumentation and focuses on two aspects: the temporal redundancy (when security checks are made frequently) and the spatial redundancy
-(using same security techniques on same code execution pathes). For the first aspect, they use caching mechanisms to store checks results, so that the decision is retrieved from the cache.
-For the second aspect they used a technique based on specialization whic consists in replacing an expensive check with a cheaper one for frequent codes pathes.
-At the level of access control security, some contributions have addressed access control policies performance issues. In \cite{MyABDAC}, the authors focus on XACML
-policy verification for database access control. They presented a model which converts attribute-based policies into access control lists that manage databases resources and they give an implementation 
-that supports their approach.
- In \cite{clustering}, the authors have proposed an approach for policy evaluation based on a 
+(using same security techniques on same code execution paths).
+For the first aspect, they use caching mechanisms to store checks results, so that the decision is retrieved from the cache.
+For the second aspect they used a technique based on specialization, which consists in replacing an expensive check with a cheaper one for frequent codes paths.
+While this previous approach focus on bottlencks in program code, in this paper, we propose a new
+approach to refactor access control policies by reducing the number of rules in each split policy.
+
+%relies on classi?cation rules, in this paper, we propose a new
+%approach to mine likely properties based on implication relations (via association
+%rule mining) and our evaluation shows that our new approach performs better
+%than this previous approach.
+
+
+Various techniques have been proposed to addressed performance issues in systems interacting with access control policies
+\cite{MyABDAC, clustering, decomposition}.
+%fault localization of software programs in software engineering and
+%programming language communities [1, 2, 4]. These techniques aim to help a developer ?nd faulty code locations in
+%a program quickly
+Jahid et al. focus on XACML
+policy verification for database access control \cite{MyABDAC}. They presented a model, which converts attribute-based policies into access control lists. They implemented their approach, called MyABDAC.
+While they measure performance on MyABDAC in terms of request evaluation, however, they does not show how much MyABDAC
+gain improvement over an existing PDP.
+
+
+Marouf et al. have proposed an approach \cite{clustering} for policy evaluation based on a 
 clustering algorithm that reorders rules and policies within the policy set so that the access to applicable policies is faster, their categorization is based on
  the subject target element. Their technique requires identifying the rules that are frequently used. Our approach follows a different strategy and does not require knowing which 
 rules are used the most. In addition, the rule reordering is tightly related to specific systems. If the PDP is shared between several
  systems, their approach could not be applicable since the most ``used'' rules may vary between systems. \\
-In \cite{decomposition}, 
-the authors decomposed the global XACML policy into local policies related to collaborating parties, the local policies 
-are sent to corresponding PDPs. The request evaluation is based on local policies by considering the relationships among local
+
+
+Lin et al. decomposed the global XACML policy into local policies related to collaborating parties, the local policies 
+are sent to corresponding PDPs \cite{decomposition}. The request evaluation is based on local policies by considering the relationships among local
  policies. In their approach, the optimization is based on storing the effect of each rule and each local policy for 
 a given request. Caching decisions results are then used to optimize evaluation time for an incoming request. However the authors have 
 not provided experimental results to measure the efficiency of their approach when compared to the traditional architecture.  
-
-While the previous approaches have focused on the PDP component to optimize the request evaluation, The authors in 
-\cite{XACMLstructure}, addressed this problem by analyzing rule location on XACML policy and requests at design level so that the relevant rules for the request are 
-accessed faster on evaluation time. 
+While the previous approaches have focused on the PDP component to optimize the request evaluation, 
 
 
+Miseldine et al. addressed this problem by analyzing rule location on XACML policy and requests at design level so that the relevant rules for the request are accessed faster on evaluation time \cite{XACMLstructure}. 
 
 
-
-The current contribution brings new dimensions to our previous work on access control \cite{Xengine} \cite{testcase} \cite{models}.
+The current contribution brings new dimensions over our previous work on access control \cite{Xengine} \cite{testcase} \cite{models}.
 We have focused particularly in \cite{Xengine} on performance issues addressed with XACML policies evaluation and we have proposed an 
 alternative solution to brute force searching based on an XACML policy conversion to a tree structure to minimize the request evaluation time. 
 Our previous approach involves a refactoring process that transforms the global policy into a decision diagram converted into 
