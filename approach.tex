@@ -1,21 +1,40 @@
 \section{XACML Policy Refactoring Process} \label{sec:approach}
-This section describes our approach and gives an insight of the process supporting it. In the first step, we show how performance improvement can be achieved by
-reducing the number of access control rules that have to be considered at the evaluation time, through the definition of policy based splitting criteria. 
-Secondly, we explain how to select the splitting criterion that preserves the synergy requirement in the access control architecture.
+This section describes our approach of refactoring access control policies to improve performance by reducing the number of policy rules. 
+For refactoring policies in a systematic way, we propose seven policy splitting criteria
+based on attribute set. Moreover, we explain how to select the splitting criterion, which preserves the synergy requirement in the access control architecture. 
+
+ 
+
+
 \subsection{Definition of Policy based Splitting Criteria}
 
 
+Given a request, a PDP adopts brute force searching to find its decision
+by evaluating the request against policy rules one by one until the PDP finds an evaluation decision.
+For request evaluation processing, not of all the rules are applicable to the request.
+In order words, only part of the rules (i.e., relevant rules) are applicable to the request and can contribute
+to determine a final authorization decision.
+We propose an approach to evaluate a request against only the relevant rules for a given request by refactoring
+access control policies.
+  
+%Our approach is to split a single global policy into multiple policies based on attributes combination. 
+Our approach refactors a policy into a set of sub-policies where the rules have the same values of attributes of subject, resource, or 
+action.
+Formally, our approach refactors an policy \normalsize $P$ into 
+multiple policies \normalsize $P_{SC_{w}}$ based on Splitting Criteria $SC_{w}$.
+These multiple policies contain less number of rules (compared to the number of rules in \normalsize $P$) and conforms to a Splitting Criteria $SC_{w}$. An $SC_{w}$ defines the set of attributes, which classify all of policy rules into subsets with the same attribute values for
+selected attributes.
+$w$ denotes the number of attributes that have to be considered conjointly for aggregating 
+rules based on selected attributes. 
 
-Decision engines performing XACML policy evaluation use brute force searching techniques by comparing a given request with all the rules in a policy. 
-What happens in a request evaluation process is that for a given access control request, some rules are evaluated in the global policy whereas some of those rules are not
- applicable to the request. Starting from this observation, we propose to evaluate only the relevant rules for a given request in the decision making process. 
-We propose to split the initial policy into smaller policies based on attribute values combination. For a given system, we transform the policy \normalsize $P$ into 
-policies \normalsize $P_{SC_{w}}$ containing less number of rules and conforming to a Splitting Criteria $SC_{w}$. An $SC_{w}$ defines the set of attributes that are considered 
-to classify all the rules into subsets having similar one or more attribute values, $w$ denotes the number of attributes that have to be considered conjointly for aggregating 
-rules based on specific attribute elements selection. A policy can be split into a set of sub-policies where the rules have the same values of attributes of subject, resource, or 
-action. We also consider two attributes like $\langle Subject, Action\rangle$ or $\langle Action, Resource\rangle$ for splitting the policies, in this setting, a policy is transformed into a set of smaller 
-policies where rules in the resulting policies have the same couple of attribute elements. We can go further in our grouping strategy by considering a triplet of attributes
-elements: resource, action and subject to split \normalsize $P$. Table I shows all splitting criteria categories according to the attribute elements combination.
+
+ 
+We first consider two attributes (e.g., $\langle Subject, Action\rangle$ or $\langle Action$, $Resource\rangle$) for Splitting Criteria. In such a setting, our approach refactors a policy into a set of 
+policies each of which rules include the same couple of attribute elements. For example, $\langle Subject, Action\rangle$ criterion
+classifies rules with same subjects and actions into sub-policies.
+We also extend our Splitting Criteria by considering three attributes such as resource, action, and subject.
+Table~\ref{table1} shows our proposed splitting criteria categories according to the attribute elements combination.
+
 \begin{table}[h!]
 \centering
 \setlength{\extrarowheight}{6 pt}
@@ -24,17 +43,19 @@ elements: resource, action and subject to split \normalsize $P$. Table I shows a
 \bf
 \textcolor{white}{Categories}& \bf \textcolor{white}{Splitting Criteria}\\ \hline
 $SC_{1}$& {$\langle Subject \rangle, \langle Resource\rangle, \langle Action\rangle$}\\ \hline
-$SC_{2}$& {$\langle Subject,Action \rangle, <Subject,Resource\rangle$}\\&{$\langle Resource,Action\rangle$}\\  \hline
+$SC_{2}$& {$\langle Subject,Action \rangle, \langle Subject,Resource\rangle$}\\&{$\langle Resource,Action\rangle$}\\  \hline
 $SC_{3}$& {$\langle Subject,Resource,Action\rangle$}\\ \hline
 \end{tabular}
 \caption{Splitting Criteria}
 \label{table1}\end{table}
 
 
+
 Once the splitting process is performed, the access control architecture will include one or more (PDPs) that comply with a certain splitting criterion.
-We use SUN's XACML implementation \cite{sunxacml} as a decision engine framework that evaluates the policies against requests.
-During the evaluation process, SUN's XACML decision engine checks the request against the policy and determines whether the request is 
-permitted or denied. SUN's XACML implementation permits to load the considered policy in a file which is used during the decision making process, once the applicable policy 
+We use SUN PDP \cite{sunxacml} as a decision engine framework that evaluates requests against the policies specified in XACML.
+During the evaluation process, SUN PDP checks the request against the policy and determines whether its authorization
+decision is 
+permit or deny. SUN PDP permits to load the considered policy in a file which is used during the decision making process, once the applicable policy 
 is selected from this file, the decision engine fetches the policy to retrieve the applicable rules that are applicable to the request.
 
 
@@ -102,7 +123,7 @@ For the sake of simplicity, we don't consider multi-valued requests in this work
 \label{xacml-match}
 \end{center}
 \end{figure}
-
+ 
 
 
 \subsection{Architecture Model Preservation: PEP-PDP Synergy}
