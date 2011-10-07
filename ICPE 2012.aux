@@ -4,6 +4,7 @@
 \citation{dac}
 \citation{orbac}
 \citation{sunxacml}
+\citation{epal}
 \citation{separation}
 \citation{policymanagement}
 \citation{Xengine}
@@ -11,64 +12,62 @@
 \newlabel{sec:introduction}{{1}{1}}
 \citation{oasis}
 \citation{Xengine}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Access Control Request Processing}}{2}}
-\newlabel{pep-pdp}{{1}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Context/Problem Statement}{2}}
 \newlabel{sec:context}{{2}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Synergy Requirement for Access Control Architecture}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Centralization of Access Control Architectures}{2}}
+\citation{clustering}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Access Control Request Processing}}{3}}
+\newlabel{pep-pdp}{{1}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Centralization: A Threat for performances}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Centralization allows a good synergy between PEPs and PDP}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Tradeoff for refactoring a centralized architecture into a decentralized one}{3}}
 \citation{sunxacml}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Access Control Model}}{3}}
-\newlabel{model}{{2}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}XACML Access Control Policies and Performance Issues}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces XACML Policy Example}}{3}}
-\newlabel{figur1}{{3}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The Access Control Model}}{4}}
+\newlabel{model}{{2}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}XACML Access Control Policies and Performance Issues}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces XACML Policy Example}}{4}}
+\newlabel{figur1}{{3}{4}}
 \citation{sunxacml}
-\@writefile{toc}{\contentsline {section}{\numberline {3}XACML Policy Refactoring Process}{4}}
-\newlabel{sec:approach}{{3}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Definition of Policy based Splitting Criteria}{4}}
-\newlabel{subsec:SplittingCriteria}{{3.1}{4}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Splitting Criteria}}{4}}
-\newlabel{table1}{{1}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Applicable policy Selection}}{4}}
-\newlabel{requestevaluation}{{4}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}XACML Policy Refactoring Process}{5}}
+\newlabel{sec:approach}{{3}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Definition of Policy based Splitting Criteria}{5}}
+\newlabel{subsec:SplittingCriteria}{{3.1}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Splitting Criteria}}{5}}
+\newlabel{table1}{{1}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces XACML policy refactoring according to $SC_{1}=\delimiter "426830A Subject\delimiter "526930B $}}{5}}
+\newlabel{splitting}{{4}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Multi-attributes values in {\relax \fontsize  {8}{9pt}\selectfont  \abovedisplayskip 7.6pt plus 3pt minus 4pt\belowdisplayskip \abovedisplayskip \abovedisplayshortskip \z@ plus2pt\belowdisplayshortskip 3.6pt plus2pt minus 2pt \def \leftmargin \leftmargini \parsep 3.6pt plus 2pt minus 1pt\topsep 7.2pt plus 2pt minus 4pt\itemsep 3.6pt plus 2pt minus 1pt{\leftmargin \leftmargini \topsep 4pt plus 2pt minus 2pt\parsep 2pt plus 1pt minus 1pt \itemsep \parsep }\texttt  {target}} element}}{5}}
+\newlabel{xacml-match}{{5}{5}}
 \citation{legacy}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Overview of the Refactoring Process}}{5}}
-\newlabel{overallprocess}{{5}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Architecture Model Preservation: PEP-PDP Synergy}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Refactoring a policy according to $SC_{1}=\delimiter "426830A Subject\delimiter "526930B $}}{5}}
-\newlabel{splitting}{{6}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Multi-attributes values in {\relax \fontsize  {8}{9pt}\selectfont  \abovedisplayskip 7.6pt plus 3pt minus 4pt\belowdisplayskip \abovedisplayskip \abovedisplayshortskip \z@ plus2pt\belowdisplayshortskip 3.6pt plus2pt minus 2pt \def \leftmargin \leftmargini \parsep 3.6pt plus 2pt minus 1pt\topsep 7.2pt plus 2pt minus 4pt\itemsep 3.6pt plus 2pt minus 1pt{\leftmargin \leftmargini \topsep 4pt plus 2pt minus 2pt\parsep 2pt plus 1pt minus 1pt \itemsep \parsep }\texttt  {target}} element}}{5}}
-\newlabel{xacml-match}{{7}{5}}
-\citation{Xengine}
-\citation{testcase}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Policy Splitting Algorithm}}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Applicable policy Selection}}{6}}
+\newlabel{requestevaluation}{{6}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Overview of the Refactoring Process}}{6}}
+\newlabel{overallprocess}{{7}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Architecture Model Preservation: PEP-PDP Synergy}{6}}
 \citation{splitter}
-\citation{sunxacml}
-\citation{testcase}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces PEP deployment Example}}{6}}
-\newlabel{PEP deployment Example}{{8}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Empirical results}{6}}
-\newlabel{sec:experiment}{{4}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Empirical Studies and PolicySplitter Tool}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Performance Improvement Results}{6}}
 \citation{Xengine}
+\citation{testcase}
+\citation{sunxacml}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Synergic vs Non synergic System}}{7}}
+\newlabel{Synergic vs Non synergic System}{{8}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces PEP deployment Example}}{7}}
+\newlabel{PEP deployment Example}{{9}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Evaluation}{7}}
+\newlabel{sec:experiment}{{4}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Subjects}{7}}
+\citation{Xengine}
+\citation{testcase}
 \citation{request}
-\newlabel{fig:gull}{{9a}{7}}
-\newlabel{sub@fig:gull}{{(a)}{a}}
-\newlabel{fig:VMS}{{9b}{7}}
-\newlabel{sub@fig:VMS}{{(b)}{b}}
-\newlabel{fig:ASMS}{{9c}{7}}
-\newlabel{sub@fig:ASMS}{{(c)}{c}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Processing Time for our 3 systems LMS, VMS and ASMS}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {LMS}}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {VMS}}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {ASMS}}}{7}}
-\newlabel{fig:processing time}{{9}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces PDP Number According to Splitting Criteria}}{7}}
-\newlabel{pdpnumber}{{10}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Performance improvement with XEngine}{7}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Evaluation time in LMS}}{7}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Evaluation time in VMS}}{7}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Evaluation time in ASMS}}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Objectives and Measures}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Performance Improvement Results}{8}}
+\newlabel{subsec:performanceimprovement}{{4.3}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Evaluation time in LMS}}{8}}
+\newlabel{table:LMSeval}{{2}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Evaluation time in VMS}}{8}}
+\newlabel{table:VMSeval}{{3}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Evaluation time in ASMS}}{8}}
+\newlabel{table:ASMSeval}{{4}{8}}
 \citation{largesystems}
 \citation{MyABDAC,clustering,decomposition}
 \citation{MyABDAC}
@@ -79,6 +78,21 @@
 \citation{testcase}
 \citation{models}
 \citation{Xengine}
+\newlabel{fig:gull}{{10a}{9}}
+\newlabel{sub@fig:gull}{{(a)}{a}}
+\newlabel{fig:VMS}{{10b}{9}}
+\newlabel{sub@fig:VMS}{{(b)}{b}}
+\newlabel{fig:ASMS}{{10c}{9}}
+\newlabel{sub@fig:ASMS}{{(c)}{c}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Request Processing Time for our subjects LMS, VMS and ASMS}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {LMS}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {VMS}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {ASMS}}}{9}}
+\newlabel{fig:processing time}{{10}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces PDP Number According to Splitting Criteria}}{9}}
+\newlabel{pdpnumber}{{11}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Related Work}{9}}
+\newlabel{sec:related}{{5}{9}}
 \bibstyle{abbrv}
 \bibdata{sigproc}
 \bibcite{oasis}{1}
@@ -88,24 +102,30 @@
 \bibcite{mac}{5}
 \bibcite{policymanagement}{6}
 \bibcite{ferraiolo:rbac}{7}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Related Work}{8}}
-\newlabel{sec:related}{{5}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion and Future Work}{8}}
-\newlabel{sec:conclusion}{{6}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}References}{8}}
 \bibcite{MyABDAC}{8}
-\bibcite{orbac}{9}
-\bibcite{dac}{10}
-\bibcite{decomposition}{11}
-\bibcite{Xengine}{12}
-\bibcite{clustering}{13}
-\bibcite{request}{14}
-\bibcite{XACMLstructure}{15}
-\bibcite{models}{16}
-\bibcite{testcase}{17}
-\bibcite{legacy}{18}
-\bibcite{separation}{19}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Processing Time for ASMS using XEngine}}{9}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Processing Time for LMS using XEngine}}{9}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Processing Time for VMS using XEngine}}{10}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Percentage of Fetching Time}}{10}}
+\bibcite{dac}{9}
+\bibcite{decomposition}{10}
+\newlabel{fig:gull}{{12a}{10}}
+\newlabel{sub@fig:gull}{{(a)}{a}}
+\newlabel{fig:VMS}{{12b}{10}}
+\newlabel{sub@fig:VMS}{{(b)}{b}}
+\newlabel{fig:ASMS}{{12c}{10}}
+\newlabel{sub@fig:ASMS}{{(c)}{c}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Processing Time for our subjects, LMS, VMS and ASMS depending on the requests Number}}{10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {LMS}}}{10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {VMS}}}{10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {ASMS}}}{10}}
+\newlabel{fig:processing time}{{12}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Percentage of Fetching Time}}{10}}
+\newlabel{Fetching Time}{{13}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion and Future Work}{10}}
+\newlabel{sec:conclusion}{{6}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}References}{10}}
+\bibcite{Xengine}{11}
+\bibcite{clustering}{12}
+\bibcite{request}{13}
+\bibcite{XACMLstructure}{14}
+\bibcite{models}{15}
+\bibcite{testcase}{16}
+\bibcite{legacy}{17}
+\bibcite{separation}{18}

@@ -1,10 +1,12 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision2\ICPE 2012.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\Users\JeeHyun\Desktop\Working Papers\ICPE\icpe-2012-revision7\ICPE 2012.aux
 The style file: abbrv.bst
 Database file #1: sigproc.bib
-Repeated entry---line 185 of file sigproc.bib
+Repeated entry---line 179 of file sigproc.bib
  : @inproceedings{legacy
  :                      ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "orbac"
+Warning--I didn't find a database entry for "epal"
 Warning--to sort, need author or key in sunxacml
 Warning--to sort, need author or key in oasis
 Warning--to sort, need author or key in splitter

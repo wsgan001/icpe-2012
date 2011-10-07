@@ -15,7 +15,8 @@
 \bibitem{largesystems}
 G.~Ammons, J.~deok Choi, M.~Gupta, and N.~Swamy.
 \newblock Finding and removing performance bottlenecks in large systems.
-\newblock In {\em In Proceedings of ECOOP}. Springer, 2004.
+\newblock In {\em Proc. 18th European Conference on Object-Oriented
+  Programming}, pages 170--194, 2004.
 
 \bibitem{mac}
 E.~D. Bell and J.~L. La~Padula.
@@ -25,8 +26,8 @@ E.~D. Bell and J.~L. La~Padula.
 
 \bibitem{policymanagement}
 J.~Chaudhry, T.~Palpanas, P.~Andritsos, and A.~Mana.
-\newblock Entity lifecycle management for okkam.
-\newblock In {\em Proc. 1st IRSW2008 International Workshop on Tenerife}, 2008.
+\newblock Entity lifecycle management for {OKKAM}.
+\newblock In {\em Proc. 1st International Workshop on Tenerife}, 2008.
 
 \bibitem{ferraiolo:rbac}
 D.~F. Ferraiolo, R.~S. Sandhu, S.~I. Gavrila, D.~R. Kuhn, and R.~Chandramouli.
@@ -36,16 +37,10 @@ D.~F. Ferraiolo, R.~S. Sandhu, S.~I. Gavrila, D.~R. Kuhn, and R.~Chandramouli.
 
 \bibitem{MyABDAC}
 S.~Jahid, C.~A. Gunter, I.~Hoque, and H.~Okhravi.
-\newblock Myabdac: compiling xacml policies for attribute-based database access
-  control.
-\newblock In {\em Proceedings of the first ACM conference on Data and
-  application security and privacy}, CODASPY '11, pages 97--108, 2011.
-
-\bibitem{orbac}
-A.~A.~E. Kalam, S.~Benferhat, A.~Mi{\`e}ge, R.~E. Baida, F.~Cuppens, C.~Saurel,
-  P.~Balbiani, Y.~Deswarte, and G.~Trouessin.
-\newblock Organization based access contro.
-\newblock In {\em POLICY}, 2003.
+\newblock {MyABDAC}: compiling xacml policies for attribute-based database
+  access control.
+\newblock In {\em Proc. 1st Conference on Data and Application Security and
+  Privacy}, pages 97--108, 2011.
 
 \bibitem{dac}
 B.~Lampson.

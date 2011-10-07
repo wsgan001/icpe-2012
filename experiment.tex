@@ -1,4 +1,307 @@
 %\section{Experiment}\label{sec:experiment}
+\section{Evaluation} \label{sec:experiment}
+
+We carried out our evaluation on a desktop PC, running Ubuntu 10.04 with Core i5, 2530 Mhz processor, and 4 GB of RAM. 
+We have implemented a tool, called \CodeIn{PolicySplitter} to split the policies according to given splitting criteria automatically.
+The tool is implemented in Java and is available for download from \cite{splitter}.
+To measure the efficiency of our approach, we conducted evaluation as follows. 
+We compared request processing time with a single global policy (handled by a single PDP) and policies splitted by each splitting criterion.
+We first conduct an evaluation on subjects (including PEPs and SUN PDPs) to evaluate the performance improvement in terms of decision making processing. \CodeIn{IA} denotes an ``Initial Architecture'', which uses the single global policy for request processing time.
+We next conduct an evaluation on modified subjects, which replace SUN PDPs with a novel request evaluation engine, XEngine \cite{Xengine}. The objective of this evaluation is to investigate how our approach impacts performance for subjects combined with XEngine.
+
+
+%and how this impacts the performance. The first subsection introduces our empirical studies and presents the tool that supports our approach. The remaining two 
+%sections present and discuss the results of the two empirical studies.
+%---
+% We choose to use Sun XACML PDP instead of XEngine in order 
+%to prove the effectiveness of our approach when compared to the traditional architecture.
+%The execution time of the tool is not considered as a performance factor as it takes up to few seconds (for very large policies) to perform the splitting 
+%according to all SCs. Moreover the refactoring process is executed only once to create a configuration that supports a selected splitting criterion.
+%---
+
+  
+
+\subsection{Subjects}
+The subjects include three real-life Java programs each which
+interact with access control policies \cite{testcase}. We next describe
+our three subjects.
+\begin{itemize}	
+\item Library Management System (LMS) provides web services to manage books in a public library.
+\item Virtual Meeting System (VMS) provides web conference services. VMS allows users to organize
+online meetings in a distributed platform.
+\item Auction Sale Management System (ASMS) allows users to buy or sell items on line. A seller initiates an auction by submitting a description of an item she wants to sell with its expected minimum price. Users then participate in bidding process by
+bidding the item. For the bidding on the item, users have enough money in her account before bidding.
+\end{itemize}
+
+Our subjects are initially equipped with Sun PDP \cite{sunxacml}, which is
+a popularly used PDP to evaluate requests.
+Policies in LMS,VMS, and ASMS contain a total of 720, 945, and 1760 rules, respectively.
+%These rules include both explicit and implicit rules. Explicit rules are described
+%explicitly in rules as shown at the first rule in Figure~\ref{figur1}.
+%Implicit rules are not described explicitly, however can be inferred from existing explicit
+%rules. 
+Moreover, to compare performance improvement over existing PDPs,
+we adopt XEngine (instead of Sun PDP) in our subjects to evaluate requests.
+XEngine is a novel policy evaluation engine, which transforms the hierarchical tree structure of the XACML policy to a flat structure
+to improve request processing time. XEngine also handles various combining algorithms supported by XACML.
+ 
+
+
+\subsection{Objectives and Measures}
+In the evaluation, we intend to answer the following
+research questions:
+\begin{enumerate}
+	\item RQ1: Can our approach preserve policy behaviors of original subjects after refactoring?
+This question helps to show that our
+approach does not alter policy behaviors after refactoring based on splitting criteria.
+
+	\item RQ2: How faster request processing time of multiple Sun PDPs with policies splitted by our approach compared
+to an existing single Sun PDP? This question helps to show that our
+approach can improve performance in terms of request processing time. Moreover, we
+compare request processing time for different splitting criteria.
+
+	\item RQ3:  How faster request processing time of XEngine compared
+to that of Sun PDP for both a single policy and policies splitted by our approach.
+This question helps to show that our approach can improve performance in terms of request processing time
+for other policy evaluation engines such as XEngine.
+\end{enumerate}
+In our evaluation, we measure request processing time by evaluating randomly
+generated requests developed by our previous work~\cite{Xengine}.
+In particular, for multiple PDPs, our approach fetches a PEP with a corresponding
+PDP for a given request at run time. Therefore, request processing time includes
+both fetching time and request evaluation time.
+
+
+\begin{figure*}[h!]
+  \centering
+  \subfloat[LMS]{\label{fig:gull}\includegraphics[width=0.33\textwidth]{LMS.pdf}}                
+  \subfloat[VMS]{\label{fig:VMS}\includegraphics[width=0.33\textwidth]{VMS.pdf}}
+  \subfloat[ASMS]{\label{fig:ASMS}\includegraphics[width=0.33\textwidth]{ASMS.pdf}}
+  \caption{Request Processing Time for our subjects LMS, VMS and ASMS}
+  \label{fig:processing time}
+\end{figure*}
+
+\subsection{Performance Improvement Results}\label{subsec:performanceimprovement}
+
+We generated the resulting sub-policies for all the splitting criteria defined in Section~\ref{subsec:SplittingCriteria}.
+For each splitting criteria, we have conducted systems tests to generate requests that trigger all the PEPs in the evaluation. 
+The test generation step leads to the execution of all combination of possible requests described in our previous work \cite{testcase}.  
+The process of tests generation is repeated for ten times in order to avoid the impact of randomness.
+We applied this process to each splitting criterion and calculated evaluation time on average of a system under tests.
+
+
+% We only consider the execution time of the PDP and we do not include the executions of the system functions. 
+Figure \ref{fig:processing time} shows our evaluation results. Our results show that evaluation time for policies splitted based on each splitting criterion and the global policy of subjects.
+In order to answer RQ1, we compared decisions against the PDP in \CodeIn{IA} and multiple PDPs with splitted policies.
+consistent with our expected results.
+
+In order to answer RQ2, from the results in Figure \ref{fig:processing time}, 
+we observed the followings:
+
+\begin{itemize} 
+
+\item Compared to evaluation time of \CodeIn{IA}, our approach improves performance for all of splitting criteria
+in terms of evaluation time. This observation is consistent with our expected results; evaluation time against
+policies with smaller number of rules (compared with the number of rules in \CodeIn{IA}) is faster than that against
+policies in \CodeIn{IA}.
+
+%initial intuition. 
+%In fact, splitting the policy into small policies improves requests processing duration.
+
+\item The splitting criteria \normalsize $SC=\langle Action, Resource\rangle$ enables to show the lowest evaluation time. 
+Recall that the PEPs in the evaluation are scattered across different methods in a subject by a categorization 
+that is based on $SC_{2}=\langle Resource,Action\rangle$. This observation pleads in favor of applying a splitting criteria 
+that takes into account the PEP-PDP synergy and show the best performance.
+%This splitting preserves the initial architecture by keeping a strong mapping between the PEPS and the PDP and enables 
+%to have the best results in terms of performance.
+
+
+
+\end{itemize} 
+
+\begin{figure}[!h]
+  \centering
+\includegraphics[width=8.5cm, height=7.2cm]{pdpnumber.pdf}
+\begin{center}
+\caption{PDP Number According to Splitting Criteria}
+\label{pdpnumber}
+\end{center}
+\end{figure}
+Figure \ref{pdpnumber} shows the number of policies splitted by our approach. 
+We observed the number of policies based on our proposed three categories: (1) $SC_{1}$ category leads to the smallest number $N_1$ of PDPs, (2) $SC_{2}$ category produces a reasonable number $N_2$ ($N_1$<$N_2$<$N_3$) of PDPs, and (3) $SC_{3}$ leads to the largest number $N_3$ of PDPs.
+While $SC_{1}$ category leads to the smallest number of PDPs, each PDP encapsulates a relatively high number of rules in a policy (compared
+with that of $SC_{2}$ and $SC_{3}$, which leads to performance degrade. We observed that $SC_{3}$ category leads to the largest number of PDPs, which takes higher fetching time (compared with that of $SC_{1}$ and $SC_{2}$). 
+We observed that, in our evaluation, $SC=\langle Action, Resource\rangle$ is the best criterion, both in terms of performances and relatively low number of PDPs.
+
+
+%\subsubsection{Performance improvement with XEngine}
+
+
+\begin{table}[t]
+\centering
+\begin{tabular}{|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
+& \scriptsize \bf \textcolor {white}{SAR}
+& \scriptsize \bf \textcolor {white}{AR}
+& \scriptsize \bf \textcolor  {white}{SA}
+& \scriptsize \bf \textcolor  {white}{SR}
+& \scriptsize \bf \textcolor  {white}{R}
+
+& \scriptsize \bf \textcolor  {white}{S} 
+& \scriptsize \bf \textcolor  {white}{A}
+& \scriptsize \bf \textcolor {white}{IA}\\ \hline
+\scriptsize  {SUN }
+&\scriptsize  {485}
+& \scriptsize {922}
+& \scriptsize {1453}
+& \scriptsize {1875}
+& \scriptsize {2578}
+
+& \scriptsize {2703}
+& \scriptsize {2703}
+& \scriptsize {2625}
+  \\ \hline
+\scriptsize  {XEn}
+&\scriptsize  {26}
+& \scriptsize {47}
+& \scriptsize {67}
+& \scriptsize {95}
+& \scriptsize {190}
+
+& \scriptsize {164}
+& \scriptsize {120}
+& \scriptsize {613}
+  \\ \hline
+\end{tabular}
+
+\caption{Evaluation time in LMS}
+\label{table:LMSeval}
+\vspace{5 mm}
+%\end{table}
+%\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
+& \scriptsize \bf \textcolor {white}{SAR}
+& \scriptsize \bf \textcolor {white}{AR}
+& \scriptsize \bf \textcolor  {white}{SA}
+& \scriptsize \bf \textcolor  {white}{SR}
+& \scriptsize \bf \textcolor  {white}{R}
+
+& \scriptsize \bf \textcolor  {white}{S} 
+& \scriptsize \bf \textcolor  {white}{A}
+
+& \scriptsize \bf \textcolor {white}{IA}\\ \hline
+
+\scriptsize  {SUN }
+& \scriptsize  {1281}
+& \scriptsize {2640}
+& \scriptsize {3422}
+& \scriptsize {3734}
+& \scriptsize {6078}
+
+& \scriptsize {5921}
+& \scriptsize {6781}
+& \scriptsize {5766}
+  \\ \hline
+\scriptsize  {XEn}
+& \scriptsize  {34}
+& \scriptsize {67}
+& \scriptsize {96}
+& \scriptsize {145}
+& \scriptsize {384}
+
+& \scriptsize {274}
+& \scriptsize {149}
+& \scriptsize {265}
+  \\ \hline
+\end{tabular}
+
+\caption{Evaluation time in VMS}
+\label{table:VMSeval}
+\vspace{5 mm}
+%\end{table}
+%
+%\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
+& \scriptsize \bf \textcolor {white}{SAR}
+& \scriptsize \bf \textcolor {white}{AR}
+& \scriptsize \bf \textcolor  {white}{SA}
+& \scriptsize \bf \textcolor  {white}{SR}
+& \scriptsize \bf \textcolor  {white}{R}
+
+& \scriptsize \bf \textcolor  {white}{S} 
+& \scriptsize \bf \textcolor  {white}{A}
+& \scriptsize \bf \textcolor {white}{IA}\\ \hline
+\scriptsize  {SUN }
+& \scriptsize  {2280}
+& \scriptsize {2734}
+& \scriptsize {3625}
+& \scriptsize {8297}
+& \scriptsize {7750}
+
+& \scriptsize {8188}
+& \scriptsize {6859}
+& \scriptsize {7156}
+  \\ \hline
+\scriptsize  {XEn}
+& \scriptsize  {49}
+& \scriptsize {60}
+& \scriptsize {104}
+& \scriptsize {196}
+& \scriptsize {310}
+
+& \scriptsize {566}
+& \scriptsize {262}
+& \scriptsize {1639}
+  \\ \hline
+\end{tabular}
+
+\caption{Evaluation time in ASMS}
+\label{table:ASMSeval}
+\end{table}
+
+In order to answer RQ3, we measurer request processing time of XEngine compared with that of Sun PDP
+for policies splitted by our approach.
+We generated 10,000 random requests proposed in our previous work \cite{request} and measured request processing time (in ms).
+Tables~\ref{table:LMSeval},~\ref{table:VMSeval}, and~\ref{table:ASMSeval} show our evaluation results.
+We observed that, in cases where our subjects equipped with XEngine instead of Sun PDP, our proposed approach 
+improves performance (compared that of Sun PDP). This observation pleads in favour of applying our proposed refactoring process with XEngine as a decision instead of Sun PDP.\\
+
+%- Evaluation with XEngine: Taking into consideration the system load
+We next evaluated request processing time according to the number of requests incoming to the system. 
+For each policy in the three systems (ASMS, LMS, and VMS), we generated 5000, 10000, .., 50000 random requests to measure the evaluation time (ms).
+The results are shown in (reference to tables). For the three systems, we notice that the evaluation time increases when the number of requests increases in the system. 
+Moreover, the request evaluation time is considerably improved when using the splitting process compared to the initial architecture.
+
+\begin{figure*}
+  \centering
+  \subfloat[LMS]{\label{fig:gull}\includegraphics[width=0.33\textwidth]{X-LMS.pdf}}                
+  \subfloat[VMS]{\label{fig:VMS}\includegraphics[width=0.33\textwidth]{X-VMS.pdf}}
+  \subfloat[ASMS]{\label{fig:ASMS}\includegraphics[width=0.33\textwidth]{X-ASMS.pdf}}
+  \caption{Processing Time for our subjects, LMS, VMS and ASMS depending on the requests Number}
+  \label{fig:processing time}
+\end{figure*}
+
+Figure \ref{Fetching Time} shows percentage of fetching time over overall evaluation time for request evaluation in LMS. Our
+results show that feting time is relatively small in comparison with a total evaluation time.
+  
+
+\begin{figure}[!h]
+  \centering
+\includegraphics[width=8.5cm, height=7.2cm]{fetching.pdf}
+\begin{center}
+\caption{Percentage of Fetching Time}
+\label{Fetching Time}
+\end{center}
+\end{figure} 
+
+
+%--------------------------------------Comment Out---------------------------------------
+\Comment{
+%\section{Experiment}\label{sec:experiment}
 \section{Empirical results} \label{sec:experiment}
 To measure the efficiency of our approach, we conducted two empirical studies. The first one takes into consideration the whole system 
 (PEPs and PDPs) to evaluate the performance improvement regarding the decision making process. The request processing time, 
@@ -323,4 +626,5 @@ global time of request evaluation in LMS system is presented in Figure \ref{Fetc
 \caption{Percentage of Fetching Time}
 \label{Fetching Time}
 \end{center}
-\end{figure} 
+\end{figure}
+} 
