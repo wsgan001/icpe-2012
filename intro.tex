@@ -3,15 +3,31 @@
 Access control mechanisms regulate which users
 could perform which actions on what system resources based on access control policies.
 Access control policies (i.e., policies in short) are based on various access control models such as Role-Based Access Control (RBAC)~\cite{ferraiolo:rbac}, Mandatory Access Control (MAC)~\cite{mac}, Discretionary Access Control (DAC)~\cite{dac}, and Organization-Based Access Control (OrBAC)~\cite{orbac}.
-In this paper, we consider access control policies specified in 
-the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}. XACML is a popularly used XML-based language to specify rules 
-in a policy. A rule specifies actions (e.g., read) that subjects (e.g., students) can take on resources (e.g., grades) if required conditions are met.
+Access control policies are specified in various policy specification languages such
+as the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}
+and Enterprise Privacy Authorization Language (EPAL) \cite{epal}.
+%In this paper, we consider access control policies specified in 
+%the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}.
+In a policy, a rule specifies actions (e.g., read) that subjects (e.g., students) can take on resources (e.g., grades) if required conditions are met.
 
-In the context of policy-based systems, access control architectures are often designed with respect to a popular
+
+ 
+\FixJeeHyun{A policy-based system is a system that interacts with user-specified policies
+to determine users' access on resources. A policy-based systems allows policy authors to define rules in a policy.}
+In the context of policy-based systems,
+access control architectures are often designed with respect to a popular
 architectural concept that separates Policy Enforcement Points (PEPs) from a Policy Decision Point (PDP) \cite{separation}. More specifically, a PEP is located inside an application's code (i.e., business logic of the system).
+\FixJeeHyun{Business logic describes functional algorithms to govern information exchange between access control decision logic and a user interface (i.e., presentation).}
+
 Given requests (e.g., student $A$ requests to read her grade resource $B$) formulated by the PEP, the PDP evaluates the requests and returns their responses (e.g., permit or deny) by evaluating these requests 
-against rules in a policy. An important benefit of this architecture is to facilitate managing access rights in a fine-grained way by 
-decoupling the business logic from the access control decision logic, which can be standardized. 
+against rules in a policy. 
+\FixJeeHyun{
+We define policy behaviors as request/response behaviors (i.e., which responses are evaluated in terms of requests) observed from external behaviors of access control decision logic.
+}
+An important benefit of the architecture is to facilitate managing access rights in a fine-grained way by 
+decoupling the business logic from the access control decision logic, which can be standardized.
+
+ 
 
 However, this architecture may cause performance degrade
 especially when policy authors maintain a single policy with a large number of rules to regulate a whole system's resources.
@@ -43,13 +59,14 @@ corresponding sub-policies, each of which consists of a smaller number of rules.
 This refactoring involves grouping rules in the global policy  into several subsets based on the splitting criterion.
 More specifically, we propose a set of splitting criteria to
 refactor the global policy into smaller policies.
-A splitting criterion selects and groups the access rules of the overall PDP into specific PDPs.
+A splitting criterion selects and groups the rules of the overall PDP into specific PDPs.
 Each criterion-specific PDP encapsulates a sub-policy that represents a set of rules that share a combination
 of attribute elements (Subject, Action, and/or Resource).
 
-In the second technique, our approach aims at preserving the architectural property where a single PDP is triggered by a given PEP at a time.
-Our approach refacors PEPs according to multiple PDPs loaded with sub-policies while complying behaviors of the initial architectures in policy-based systems. More specifically, each PEP should be mapped to a PDP with a set of relevant rules for given requests issued by the PEP.
-Therefore, our refactoring maintains behaviors of the initial architectures in policy-based systems.
+In the second technique, our approach aims at preserving the architectural property, which represents that only single PDP is triggered by a given PEP at a time.
+Our approach refacors PEPs according to multiple PDPs loaded with sub-policies while complying policy behaviors of the centralized architectures 
+and preserving the architectural property. \FixJeeHyun{More specifically, given a request, each PEP should be mapped to a PDP loaded with a policy, which includes a set of rules to be applicable for the request.}
+Therefore, our refactoring maintains architectural property of the centralized architectures in policy-based systems.
  
 
 
@@ -66,15 +83,34 @@ Therefore, our refactoring maintains behaviors of the initial architectures in p
 %based on the proposed splitting criteria.
 
 We collect three subjects of real-life Java programs, each of which interacts
-with access control policies. 
+with access control policies.
+\FixJeeHyun{
+The policies consist of a large number of rules. The largest one has 1760 rules, which
+lead performance degrade during evaluation.
+The policies are specified in XACML.
+%Theses three polices consist of comparatively large number of rules 720, 945, 1760 rules, respectively, which
+%is comparatively large number of rules.
+XACML become an XML-based policy specification language popularly used for web-based applications and services.
+While our subjects are based on XACML policies,
+our approach could be
+applicable to any program, which interact policies specified in other
+policy specification languages for the following reason: 
+As a large number of rules is performance bottleneck for request evaluation
+against given policies (specified in other policy
+specification languages),
+our approach could 
+reduce the number of
+rules in a systemic way for request evaluation against the policies to improve performance as well.
+}
+
+ 
 We conduct an evaluation to show performance of our approach in terms of request evaluation time.
 We leverage two PDPs to measure request evaluation time. The first one is the
 Sun PDP implementation~\cite{oasis}, which is a popular open source PDP and the second one is 
 XEngine \cite{Xengine}, which transforms an original policy
 into its corresponding policy in a tree format by mapping attribute values with numerical values.
 Our evaluation results also show that our approach
-preserves the initial architectural model of the subjects in terms of interaction between the business logic and its corresponding
-rules in the policy. Our evaluation results show that our approach
+preserves the policy behaviors of the centralized architecture and the architectural property. Our evaluation results show that our approach
 is efficient in terms of reducing request evaluation time by up to nine times. 
 
 
@@ -87,15 +123,15 @@ This paper makes the following three main contributions:
 \begin{itemize}
 \item We propose an automated approach that refactors a single global policy into policies each with a smaller number of rules. This
 refactoring helps improve performance of request evaluation time.
-\item We propose a set of splitting criteria to help refactor a policy in a systematic way. Our proposed splitting criteria do not alter behaviors of initial access control architectures.
+\item We propose a set of splitting criteria to help refactor a policy in a systematic way. Our proposed splitting criteria do not alter policy behaviors of the centralized architectures.
 \item We conduct an evaluation on three Java programs interacting with XACML policies. We measure performance in terms
 of request evaluation time. 
 %We compare our approach with an approach based on the global policy in terms of efficiency. 
-Our evaluation results show that our approach achieves more than nine times faster than that of the initial access control architectures in terms of request evaluation time.
+Our evaluation results show that our approach achieves more than nine times faster than that of the centralized access control architectures in terms of request evaluation time.
 \end{itemize}
 
 
-The remainder of this paper is organized as follows: Section~\ref{sec:context} introduces concepts related to our research problem addressed in this paper.
+The remainder of this paper is organized as follows. Section~\ref{sec:context} introduces concepts related to our research problem addressed in this paper.
 Section~\ref{sec:approach} presents the overall approach. 
 Section~\ref{sec:experiment} presents evaluation results and discusses the effectiveness of our approach. Section~\ref{sec:related} discusses related work.
 Section~\ref{sec:conclusion} concludes this paper and discuses future research directions.
