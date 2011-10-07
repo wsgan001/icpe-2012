@@ -82,6 +82,76 @@ number of PDPs. $SC_{2}$ category, is a good tradeoff in terms of performance an
 PDPs generated: In our evaluation studies, $SC=\langle Action, Resource\rangle$ is the best criterion, both in terms of performances and low number of PDPs.
 
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|}   
+\hline  \rowcolor{black} \scriptsize \bf \textcolor {white}{}
+& \scriptsize \bf \textcolor {white}{S}
+& \scriptsize \bf \textcolor {white}{A}
+& \scriptsize \bf \textcolor  {white}{R}
+& \scriptsize \bf \textcolor  {white}{SA}
+& \scriptsize \bf \textcolor  {white}{SR}
+& \scriptsize \bf \textcolor  {white}{AR} 
+& \scriptsize \bf \textcolor  {white}{SAR}
+& \scriptsize \bf \textcolor {white}{IA}\\ \hline
+
+
+\scriptsize  {LMS}
+&\scriptsize  {120}
+& \scriptsize {72}
+& \scriptsize {240}
+& \scriptsize {12}
+& \scriptsize {40}
+& \scriptsize {24}
+& \scriptsize {4}
+& \scriptsize {720}
+  \\ \hline
+
+
+\scriptsize  {VMS}
+&\scriptsize  {135}
+& \scriptsize {63}
+& \scriptsize {315}
+& \scriptsize {9}
+& \scriptsize {45}
+& \scriptsize {21}
+& \scriptsize {3}
+& \scriptsize {945}
+  \\ \hline
+\scriptsize  {ASMS}
+&\scriptsize  {220}
+& \scriptsize {160}
+& \scriptsize {352}
+& \scriptsize {20}
+& \scriptsize {44}
+& \scriptsize {32}
+& \scriptsize {4}
+& \scriptsize {1760}
+  \\ \hline
+\scriptsize  {Synergic}
+&\scriptsize  {}
+& \scriptsize {x}
+& \scriptsize {x}
+& \scriptsize {}
+& \scriptsize {}
+& \scriptsize {x}
+& \scriptsize {}
+& \scriptsize {x}
+  \\ \hline
+
+\scriptsize  {Not Synergic}
+&\scriptsize  {x}
+& \scriptsize {}
+& \scriptsize {}
+& \scriptsize {x}
+& \scriptsize {x}
+& \scriptsize {}
+& \scriptsize {x}
+& \scriptsize {}
+  \\ \hline
+\end{tabular}
+\caption{Average of rules number/PDP in the 3 systems}\end{table}
+
 \subsubsection{Performance improvement with XEngine}
 The goal of this empirical study is to show the impact of combining XEngine as a decision engine rather than Sun XACML PDP implementation with our approach. 
 In this step, we show the effectiveness of the refactoring process independently from the appication code.
