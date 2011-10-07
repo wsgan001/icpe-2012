@@ -1,27 +1,16 @@
 
-
-
-
-
 \section{Context/Problem Statement} \label{sec:context}
-The present section introduces the synergy requirement that we aim to 
-preserve while reasoning about performance requirements for access control policies and clarifies the motivation for the work presented in this paper.
-
-\subsection{Synergy Requirement related to the considered Access Control Architecture}
-
-Managing access control policies is one of the most challenging issues faced by organizations. 
-Frequent changes in access control systems may be required to meet business needs. An access control system has to handle some specific 
-requirements like role swapping when employees are given temporary assignments, changes in the policies and procedures, 
+This section further details the centralized access control architecture as well as its desirable feature (synergy, reconfigurability) and its weakest ones (performance bottlenecks). 
+Managing access control policies is one of the most challenging issues faced by organizations. Frequent changes in policy-based systems may be required to meet business needs. 
+A policy-based system has to handle some specific requirements like role swapping when employees are given temporary assignments, changes in the policies and procedures, 
 new assets, users and job positions in the organization.
-All these facts make access control architectures very difficult to manage, and plead in favor of a simple access control architecture that can easily 
-handle changes in access control systems. 
 
-Today's access control scenarios involve an access control policy which is modeled, analyzed and implemented as a separate component 
-encapsulated in a PDP. Figure \ref{pep-pdp} illustrates the interactions between the PEPs and the PDP: the PEP calls the PDP to 
-retrieve an authorization decision based on the PDP encapsulated policy. This authorization decision is made through the evaluation of rules in the policy. 
-Subsequently, an authorization decision (permit/deny) is returned to the PEP.
-The separation between the PEP and the PDP in access control systems simplifies policy management across many heterogeneous systems and enables to avoid
- potential risks arising from incorrect policy implementation, when the policy is hardcoded inside the business logic.
+\subsection{Centralization of Access Control Architectures}
+To enable high reconfigurability, the access control policy is traditionally modeled, analyzed and implemented as a separate component 
+encapsulated in a PDP. This leads to the centralized architecture presented in Figure \ref{pep-pdp}, in which one PDP is responsible for granting/denying the accesses that are requested. 
+This centralized architecture is a simple solution to easily handle changes in policy-based systems by having an immediate translation from the policy author to the PDP. Reconfiguration consists of modifying the PDP accordingly to 
+the changes in the access control policy. The separation between the PEP and the PDP simplifies policy management across many heterogeneous systems and limits
+potential risks arising from incorrect policy implementation, when the policy is hardcoded inside the business logic.
 
 \begin{figure}[!h]
 \begin{center}
@@ -31,10 +20,62 @@ The separation between the PEP and the PDP in access control systems simplifies 
 \end{center}
 \end{figure}
 
-Along with the reasoning about performance, we propose to maintain the simplicity of the access control architecture whose model 
-is presented in Figure \ref{model}. In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic 
+\subsection{Centralization: A Threat for performances}
+In such a system (Figure \ref{pep-pdp}), when the service execution requires an access control, the PEP calls the PDP to 
+retrieve an authorization decision based on the PDP encapsulated policy. This authorization decision is made through the evaluation of rules in the policy. 
+Subsequently, an authorization decision (permit/deny) is returned to the PEP. When a huge number of access requests are sent to the PDP, two bottlenecks cause a degradation of performances:
+\begin{itemize}
+ \item 1) all the access requests have to be managed through the same input channel of the PDP. 
+ \item 2) the centralized PDP computes an access request by searching which rule is applicable among all the rules it contains.
+\end{itemize}
+
+The execution time for the treatment of a request is thus strongly related to:
+\begin{itemize} 
+\item the number of access rules the PDP contains as well as to the ordering of the rules into a PDP \cite{clustering}.
+\item the workload (number of requests).
+\end{itemize}
+The execution time to treat one request depends on the size (number of rules) the PDP contains. For a given PDP size, the execution time  to treat requests increases linearly with the workload (number of requests). 
+Our hypothesis is: the more rules a PDP contains, the higher the slope gradient of the execution time submitted to an increasing workload. 
+ \textit{Hypothesis 1} validity is studied in section \ref{sec:experiment}.
+As a consequence, one possibility to increase performances consists in splitting the centralized PDP into PDPs of smaller sizes. 
+
+
+\subsection{Centralization allows a good synergy between PEPs and PDP}
+Centralization offers a desirable feature by simplifying the routing of requests to the right PDP. 
+Figure \ref{model} illustrates the model of the access control architecture. In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic 
 which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP 
-interacts with one single PDP, thus a single XACML policy is evaluated to provide the suitable response for an access control request provided by a given PEP. 
+interacts with one single PDP. The keypoint concerns the cardinality linking PEPs to the PDP. While a PDP is potentially linked to many PEPs, any PEP is strictly linked to exactly one 
+PDP (which is unique in the centralized model). 
+Since there is only one PDP, the requests are all routed to this unique PDP. This means that no particular treatment is required to map a given PEP in the business logic to 
+the corresponding PDP, embedding the requested access rule. Another advantage of this many-to-one association is the clear traceability between what has been specified by the 
+policy at the decision level and the internal security mechanisms enforcing this policy at the business logic level. In such setting, 
+when access control policies are updated or removed, the related PEPs can be easily located and removed. Thus the application is updated synchronously 
+with the policy changes. We call this desirable property \textit{synergy} of the access control architecture: an access control architecture is said to be \textit{synergic} if any PEP always sends its requests  to the same PDP. 
+As a consequence, splitting the centralized PDP into PDPs of smaller sizes may break this "synergy". In the following, we will consider various ways to split a centralized PDP into smaller PDPs. 
+The related \textit{hypothesis 2} is: with comparable PDP sizes, the overall system will be more performant when the architecture is synergic. This hypothesis is questioned in 
+section \ref{sec:experiment}.
+
+\subsection{Tradeoff for refactoring a centralized architecture into a decentralized one}
+
+As a synthesis for this section, the following facts are taken into account:
+\begin{itemize}
+ \item Access control architectures are centralized with a unique PDP
+\item Centralization eases reconfiguration of access control policy
+\item Centralization threatens performances
+\item Direct mapping from any PEP to only one PDP makes the access control architecture "synergic"
+\item A synergic system facilitates PEPs request routing and eases access control policy updates
+
+\end{itemize}
+
+The goal of this paper is to propose systematic ways to improve performance by refactoring the centralized model into a decentralized version, with multiple PDPs. The resulting
+ architecture must be functionally equivalent and should not impact the desirable properties of the centralized model, namely reconfigurability and synergy.
+Automating the transformation from a centralized to a decentralized architecture is required to preserve reconfigurability. With automation, we can still reconfigure the centralized policy, 
+and then automatically refactor the architecture. Automated refactoring is thus a viable solution for having high reconfigurability.  
+However, refactoring the architecture by splitting the centralized PDP into smaller one may break the initial synergy. This phenomenon is studied in the empirical study of section 
+\ref{sec:experiment} together with \textit{hypothesis 2}. 
+We describe the XACML Language since it is the standard language used to implement a PDP.
+
+
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height=5.5cm,width=8.5cm]{model}
@@ -43,18 +84,9 @@ interacts with one single PDP, thus a single XACML policy is evaluated to provid
 \end{center}
 \end{figure}
 
-Considering a single XACML policy file for each initiating PEP enables to ease policies management and to maintain a simple architecture 
-in which a given PEP is mapped to a fixed PDP at each decision making process. In this work, We define the synergy requirement in the access control 
-architecture by the strict mapping that exists between the enforcement of access control at the code level and the PDP. In others words, a system is synergic if 
-its PEPs are predefined to be used for a particular policy in the system before deployment. 
-The goal behind maintaining a single policy related to each PEP in the system is to keep a strong traceability between what has been specified by the 
-policy at the decision level and the internal security mechanisms enforcing this policy at the business logic level. In such setting, 
-when access control policies are updated or removed, the related PEPs can be easily located and removed and thus the application is updated synchronously 
-with the policy changes. 
-
 \subsection{XACML Access Control Policies and Performance Issues}
 
-In this paper, we focus on access control policies specified in the eXtensible Access Control Modeling Language (XACML)~\cite{sunxacml}.
+In this paper, we focus on access control policies specified in the eXtensible Access Control Modeling Language (XACML) \cite{sunxacml}.
 XACML is an XML-based standard policy specification language that defines a syntax of access control policies and
 request/response. \\XACML enables policy authors to externalize access control policies for the sake of interoperability since access control policies can be designed 
 independently from the underlying programming language or platform. Such flexibility enables to easily update access control policies to comply with new requirements.
@@ -151,6 +183,7 @@ We present following three main factors, that may cause to degrade XACML request
 attribute values in the \CodeIn{target} elements for request evaluation may increase the evaluation time.
 \item A \CodeIn{policy set} consists of a set of policies. Given a request, a PDP determines the final authorization decision (i.e., effect) of the whole \CodeIn{policy set} after combining all the applicable rules' decisions according to the request.
 Computing and combining applicable rules' decisions contributes to increase the evaluation time.
-\item \CodeIn{Condition} elements in rules can be complex because these elements are built from an arbitrary nesting of non-boolean functions and attributes. In such a situation, evaluating \CodeIn{condition} elements may slow down request evaluation time.
+\item \CodeIn{Condition} elements in rules can be complex because these elements are built from an arbitrary nesting of non-boolean functions and attributes. 
+In such a situation, evaluating \CodeIn{condi-\\tion} elements may slow down request evaluation time.
 \end{itemize}
 
