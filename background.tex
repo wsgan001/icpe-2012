@@ -8,39 +8,39 @@ new assets, users and job positions in the organization.
 \subsection{Centralization of Access Control Architectures}
 To enable high reconfigurability, the access control policy is traditionally modeled, analyzed and implemented as a separate component 
 encapsulated in a PDP. This leads to the centralized architecture presented in Figure \ref{pep-pdp}, in which one PDP is responsible for granting/denying the accesses that are requested. 
-This centralized architecture is a simple solution to easily handle changes in policy-based systems by having an immediate translation from the policy author to the PDP. Reconfiguration consists of modifying the PDP accordingly to 
+This centralized architecture is a simple solution to easily handle changes in policy-based systems by having an immediate translation from the policy author to the PDP. Reconfiguration consists in modifying the PDP accordingly to 
 the changes in the access control policy. The separation between the PEP and the PDP simplifies policy management across many heterogeneous systems and limits
 potential risks arising from incorrect policy implementation, when the policy is hardcoded inside the business logic.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm, height=8cm]{business-logic}
-\caption{Access Control Request Processing}
+\caption{Access Control Request Evaluation}
 \label{pep-pdp}
 \end{center}
 \end{figure}
 
-\subsection{Centralization: A Threat for performances}
-In such a system (Figure \ref{pep-pdp}), when the service execution requires an access control, the PEP calls the PDP to 
+\subsection{Centralization: A Threat for Performance}
+In such a centralized system, when a service regulated by an access control policy, requires an access to some resources in the system, the PEP calls the PDP to 
 retrieve an authorization decision based on the PDP encapsulated policy. This authorization decision is made through the evaluation of rules in the policy. 
-Subsequently, an authorization decision (permit/deny) is returned to the PEP. When a huge number of access requests are sent to the PDP, two bottlenecks cause a degradation of performances:
+Subsequently, an authorization decision (permit/deny) is returned to the PEP. When a huge number of access requests are sent to the PDP, two bottlenecks cause a degradation of performance:
 \begin{itemize}
- \item 1) all the access requests have to be managed through the same input channel of the PDP. 
- \item 2) the centralized PDP computes an access request by searching which rule is applicable among all the rules it contains.
+ \item all the access requests have to be managed through the same input channel of the PDP. 
+ \item the centralized PDP computes an access request by searching which rule is applicable among all the rules it contains.
 \end{itemize}
 
 The execution time for the treatment of a request is thus strongly related to:
 \begin{itemize} 
-\item the number of access rules the PDP contains as well as to the ordering of the rules into a PDP \cite{clustering}.
-\item the workload (number of requests).
+\item the number of access rules that the PDP contains as well as to the ordering of the rules into a PDP \cite{clustering}.
+\item the workload (number of requests that have to be managed by the system).
 \end{itemize}
-The execution time to treat one request depends on the size (number of rules) the PDP contains. For a given PDP size, the execution time  to treat requests increases linearly with the workload (number of requests). 
-Our hypothesis is: the more rules a PDP contains, the higher the slope gradient of the execution time submitted to an increasing workload. 
- \textit{Hypothesis 1} validity is studied in section \ref{sec:experiment}.
-As a consequence, one possibility to increase performances consists in splitting the centralized PDP into PDPs of smaller sizes. 
+The execution time to treat one request depends on the size (number of rules) that the PDP contains. For a given PDP size, the execution time  to treat requests increases linearly with the workload (number of requests). 
+Our hypothesis 1 is: the more rules a PDP contains, the higher the slope of the execution time submitted to an increasing workload. 
+ \textit{Hypothesis 1} validity is discussed in section \ref{sec:experiment}.
+As a consequence, one possibility to increase performance consists in splitting the centralized PDP into PDPs of smaller sizes. 
 
 
-\subsection{Centralization allows a good synergy between PEPs and PDP}
+\subsection{Centralization: PEPs and PDP synergy}
 Centralization offers a desirable feature by simplifying the routing of requests to the right PDP. 
 Figure \ref{model} illustrates the model of the access control architecture. In this model, a set of business processes, which comply to users' needs, are encapsulated in a given business logic 
 which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP 
@@ -50,9 +50,10 @@ Since there is only one PDP, the requests are all routed to this unique PDP. Thi
 the corresponding PDP, embedding the requested access rule. Another advantage of this many-to-one association is the clear traceability between what has been specified by the 
 policy at the decision level and the internal security mechanisms enforcing this policy at the business logic level. In such setting, 
 when access control policies are updated or removed, the related PEPs can be easily located and removed. Thus the application is updated synchronously 
-with the policy changes. We call this desirable property \textit{synergy} of the access control architecture: an access control architecture is said to be \textit{synergic} if any PEP always sends its requests  to the same PDP. 
-As a consequence, splitting the centralized PDP into PDPs of smaller sizes may break this "synergy". In the following, we will consider various ways to split a centralized PDP into smaller PDPs. 
-The related \textit{hypothesis 2} is: with comparable PDP sizes, the overall system will be more performant when the architecture is synergic. This hypothesis is questioned in 
+with the policy changes. We call this desirable property \textit{synergy} of the access control architecture: an access control architecture is said to be \textit{synergic} if any PEP always sends 
+its requests  to the same PDP. 
+As a consequence, splitting the centralized PDP into PDPs of smaller sizes may break this "synergy". In this work, we consider various splitting criteria to transform a centralized PDP into smaller PDPs. 
+Our \textit{hypothesis 2} is: with comparable PDP sizes, the overall system will be more performant when the architecture is synergic. This hypothesis is questioned in 
 section \ref{sec:experiment}.
 
 \subsection{Tradeoff for refactoring a centralized architecture into a decentralized one}
@@ -72,8 +73,7 @@ The goal of this paper is to propose systematic ways to improve performance by r
 Automating the transformation from a centralized to a decentralized architecture is required to preserve reconfigurability. With automation, we can still reconfigure the centralized policy, 
 and then automatically refactor the architecture. Automated refactoring is thus a viable solution for having high reconfigurability.  
 However, refactoring the architecture by splitting the centralized PDP into smaller one may break the initial synergy. This phenomenon is studied in the empirical study of section 
-\ref{sec:experiment} together with \textit{hypothesis 2}. 
-We describe the XACML Language since it is the standard language used to implement a PDP.
+\ref{sec:experiment} together with \textit{hypothesis 2}. In the next section, we give an overview of XACML Language since it is the standard language used in this paper to implement a PDP.
 
 
 \begin{figure}[!h]
@@ -84,7 +84,7 @@ We describe the XACML Language since it is the standard language used to impleme
 \end{center}
 \end{figure}
 
-\subsection{XACML Access Control Policies and Performance Issues}
+\subsection{XACML Policies and Performance Issues}
 
 In this paper, we focus on access control policies specified in the eXtensible Access Control Modeling Language (XACML) \cite{sunxacml}.
 XACML is an XML-based standard policy specification language that defines a syntax of access control policies and
@@ -128,47 +128,6 @@ Figure \ref{figur1} shows a simplified XACML policy that denies subject Bob to b
 \label{figur1}
 \end{center}
 \end{figure}
-
- 
-\Comment{ 
-\begin{figure}[!h]%{t}
-%\begin{figure}[firstnumber=100]
-\begin{CodeOut}
-\begin{alltt}
-\small
- 1 <PolicySet PolicyId="\textbf{An Example Policy Set}" PolicyCombAlgId="\textbf{Permit-overrides}">
- 2 <Target/> 
- 3  <Policy PolicyId="\textbf{An Example Policy}" RuleCombAlgId="\textbf{Permit-overrides}">
- 4   <Target/>
- 5    <Rule RuleId="\textbf{1}" Effect="\textbf{Deny}">
- 6      <Target>
- 7        <Subjects><Subject> \textbf{Bob} </Subject></Subjects>
- 8        <Resources><Resource> \textbf{BOOK} </Resource></Resources>
- 9        <Actions><Action> \textbf{BORROW} </Action></Actions>
-10      </Target>
-11	    <Condition>
-12        <AttributeValue> \textbf{DEFAULT} </AttributeValue>
-13      </Condition>
-14    </Rule>
-15      <!-- A final, "fall-through" rule that always Denies -->
-16    <Rule RuleId="\textbf{FinalRule}" Effect="\textbf{Deny}"/>
-17  </policy>
-18 </policySet>
-\end{alltt}
-\end{CodeOut}
-\vspace*{-3.0ex} \caption{An XACML Policy Example}
- \label{figur1}
-\end{figure}
-}
- 
-
-%\centering
-%\figure[DREF metamodel\label{fig:drefMM}]
-%        {\includegraphics[width=0.5\textwidth]{figure/drefMM}}
-%\figure[SETER Process: Security Testing for Resilient Systems 
-%\label{fig:seter}] {\includegraphics[width=0.49\textwidth]{figure/seter}}
-%\caption{DREF and SETER: Conceptual and Operational Frameworks for evaluating resilient systems}
-%\end{figure*}
 
 
 Recently, an XACML policy becomes more complex to handle increasing complexity of organizations in terms of structure, relationships, activities, and access control requirements. In such a situation, the policy often consists of a large number of rules to specify policy behaviors for various resources, users and actions in the organizations.
