@@ -1,7 +1,7 @@
 %\section{Experiment}\label{sec:experiment}
 
 \section{Evaluation} \label{sec:experiment}
-We carried out our evaluation on a desktop PC, running Ubuntu 10.04 with Core i5, 2530 Mhz processor, and 4 GB of RAM. 
+We carried out our evaluation on a desktop PC, running Ubuntu 10.04 with a Core i5, 2530 Mhz processor, and 4 GB of RAM. 
 We have implemented a tool, called \CodeIn{PolicySplitter} to split the policies according to given splitting criteria automatically.
 The tool is implemented in Java and is available for download from \cite{splitter}.
 
@@ -11,7 +11,7 @@ What we want to achieve in the evaluation section is to answer the following res
 \item \textbf{RQ1:} How faster request processing time of multiple Sun PDPs with policies splitted by our approach compared
 to an existing single Sun PDP? This question helps to show that our approach can improve performance in terms of request processing time. 
 Moreover, we compare request processing time for different splitting criteria.
-\item \textbf{RQ2:} This reserach question discusses \textit{Hypothesis 2} (mentioned in section \ref{sec:context}): 
+\item \textbf{RQ2:} This research question discusses \textit{Hypothesis 2} (mentioned in section \ref{sec:context}): 
 With comparable PDP sizes, the overall system will be more performant when the architecture is synergic. 
 Impact of synergy on system performance is discussed in this section.
 \item \textbf{RQ3:} How faster request processing time of XEngine compared
@@ -20,7 +20,7 @@ This question helps to show that our approach can improve performance in terms o
 engines such as XEngine.
 \item \textbf{RQ4:} This research question is related to the effectiveness of the \textit{Hypothesis 1} 
 (mentioned in section \ref{sec:context}): the bigger the PDP, the higher the slope of the execution 
-time submitted to an increasing workload. We aim to study the impact of the number of rules in a given PDP on system response.
+time with an increasing workload. We aim to study the impact of the number of rules in a given PDP on system response.
 \end{enumerate}
 
 To address these research questions, we go through the following empirical protocols based on two different empirical studies:
@@ -57,14 +57,14 @@ to improve request processing time. XEngine also handles various combining algor
 
 \subsection{Performance Improvement: Sun PDP}\label{subsec:performanceimprovement}
 In order to answer \textbf{RQ1}, we generated the resulting sub-policies for all the splitting criteria defined in 
-section~\ref{subsec:SplittingCriteria}.
+section~\ref{subsec:SplittingCriteria}.s
 For each splitting criteria, we have conducted systems tests to generate requests that trigger all the PEPs in the evaluation. 
 The test generation step leads to the execution of all combination of possible requests described in our previous work \cite{testcase}.  
-The process of tests generation is repeated for ten times in order to avoid the impact of randomness.
-We applied this process to each splitting criterion and calculated evaluation time on average of a system under tests.
+The process of test generation is repeated ten times to avoid the impact of randomness.
+We applied this process to each splitting criterion and calculated evaluation time on average of a system under test.
 % We only consider the execution time of the PDP and we do not include the executions of the system functions. 
 Figure \ref{fig:processing time} presents evaluation time for policies split
-based on each splitting criterion and the global policy of subjects. Through the results, we can make two observations:
+based on each splitting criterion and the global policy of subjects. We can make two observations:
 \begin{itemize}
 \item Compared to evaluation time of \CodeIn{IA}, our approach improves performance for all of splitting criteria
 in terms of evaluation time. This observation is consistent with our expected results; evaluation time against
@@ -91,7 +91,7 @@ We observed the number of policies based on our proposed three categories: (1) $
 (2) $SC_{2}$ category produces a reasonable number
  $N_2$ ($N_1$<$N_2$<$N_3$) of PDPs, and (3) $SC_{3}$ leads to the largest number $N_3$ of PDPs.
 While $SC_{1}$ category leads to the smallest number of PDPs, each PDP encapsulates a relatively high number of rules in a policy (compared
-with that of $SC_{2}$ and $SC_{3}$, which leads to performance degrade. 
+with that of $SC_{2}$ and $SC_{3}$, which leads to performance degradation. 
 
 \begin{figure}[!h]
 \centering
@@ -308,12 +308,12 @@ observation pleads in favour of applying our proposed refactoring process with X
 \subsection{Impact of increasing workload}\label{subsec:Systemworkload}
 To investigate \textbf{RQ4}, we evaluated request processing time according to the number of requests incoming to the system. 
 For each policy in the three systems (ASMS, LMS, and VMS), we generated 5000, 10000, .., 50000 random requests to measure the evaluation time (ms).
-The results are shown in \ref{fig:processing time xengine}. For the three systems, we notice that the evaluation time increases when 
+The results are shown in Figure \ref{fig:processing time xengine}. For the three systems, we notice that the evaluation time increases when 
 the number of requests increases in the system. With an increasing system load, the request evaluation time is considerably
  improved when using the splitting process compared to the initial architecture. 
 The results shown in Figure \ref{fig:processing time xengine} are interpreted by the average of PDPs size presented in 
 Figure \ref{average}, which is consistent with \textit{Hypothesis 1} (mentioned in section \ref{sec:context}) 
-which states that the slope of execution time increases with PDPs size in a system submitted to an increasing workload.
+which states that the slope of execution time increases with PDPs size in a system with an increasing workload.
 \begin{figure*}
   \centering
   \subfloat[LMS]{\label{fig:gull}\includegraphics[width=0.34\textwidth]{X-LMS.pdf}}                
@@ -339,10 +339,10 @@ does not impact significantly the decision making time.
 \subsection{Discussion}
 We begin the discussion by summarizing the results of the evaluation section:
 \begin{itemize}
- \item We have proved the effectiveness of the splitting in reducing the decision making time. Our refactoring process is more efficient when 
+ \item We have experimentally shown the effectiveness of the splitting in reducing the decision making time. Our refactoring process is more efficient when 
 it uses XEngine rather than Sun PDP to evaluate requests.
  \item When the size of PDPs are comparable, the splitting criteria that are synergic enable to have the best results in terms of 
 decision making time.
 \end{itemize}
-The effectiveness of the synergy property impact on performance has to be strengthened by conductinng others experiments 
+The effectiveness of the synergy property on performance has to be strengthened by conductinng others experiments 
 on other evaluation studies and by considering different organizations of PEPs at the application level.

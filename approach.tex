@@ -5,24 +5,23 @@ criteria based on attribute sets.
 Moreover, we explain how to select a splitting criterion that preserves the synergy in the access control architecture.
 
 \subsection{Policy Splitting Criteria} \label{subsec:SplittingCriteria}
-Given a request, a PDP typically uses brute force searching to determine a decision, by evaluating the request against all the policy rules 
+Given a request, a PDP typically uses brute force searching to determine a decision by evaluating the request against all the policy rules 
 one by one until the PDP finds a decision.
 
-During the evaluation process, the attributes values in a given request are compared with the attributes in the target's rules. 
-If there is a matching between the request's attributes and target's rules, the rule is then applicable to the request.
-In decision making time, applicable rules contribute
-to build the final authorization decision whereas non applicable rules are not relevant in this process. 
+During the evaluation process, the attribute values in a given request are compared with the attribute in the target of a rule. 
+If there is a match between the request's attribute and target's attribute values, the rule is then applicable to the request.
+In decision making process, applicable rules contribute
+to build the final authorization decision whereas non-applicable rules are not relevant in this process. 
 For request evaluation, not all the rules are applicable to the request. In other words, only part of the rules (i.e, relevant rules) are
- applicable to the request and can contribute to determining a final decision.
+ applicable to the request and can contribute to determining the final decision.
 
 We propose an approach to evaluate a request against only the relevant rules for the given request by refactoring the access control policies. Our approach aims at splitting a single global policy into 
-multiple smaller policies based on attribute combination. For a given policy-based system, we transform the policy \normalsize $P$ into 
-policies \normalsize $P_{SC_{w}}$ containing less number of rules and conforming to a Splitting Criteria $SC_{w}$. 
-An $SC_{w}$ defines the set of attributes that are considered to classify all the rules into subsets having similar attribute values, 
-$w$ denotes 
-the number of attributes that have to be considered conjointly for aggregating rules based on specific attribute elements selection. 
+multiple smaller policies based on attribute combination. For a given policy-based system, we transform its policy \normalsize $P$ into 
+policies \normalsize $P_{SC_{w}}$ containing a less number of rules and conforming to a Splitting Criterion $SC_{w}$. 
+An $SC_{w}$ defines the set of attributes that are considered to classify all the rules into subsets each with the same attribute values and $w$ denotes 
+the number of attributes that have to be considered conjointly for aggregating rules based on specific attribute elements. 
 Table \ref{table1} 
-shows our proposed splitting criteria categories according to attribute elements combination.
+shows our proposed splitting criteria categorized according to attribute element combinations.
 \begin{table}[h!]
 \centering
 \setlength{\extrarowheight}{6 pt}
@@ -37,7 +36,7 @@ $SC_{3}$& {$\langle Subject,Resource,Action\rangle$}\\ \hline
 \caption{Splitting Criteria}
 \label{table1}\end{table}
 
-To illustrate our approach, we present examples that take into consideration the XACML language features:
+To illustrate our approach, we present examples that take into consideration the XACML language features.
 In Figure \ref{splitting}, our approach refactors an XACML policy $P$  according to the splitting criterion $SC_{1}=\langle Subject\rangle$. Our refactoring results 
 in two sub-policies $Pa$ and $Pb$. Each sub-policy consists of relevant rules with regards to the same subject (Alice or Bob in this case). 
 
@@ -50,10 +49,10 @@ in two sub-policies $Pa$ and $Pb$. Each sub-policy consists of relevant rules wi
 \end{figure}
 
 Technically, to split a given policy $P$ according to $SC_{1}=\langle Subject\rangle$, we start by parsing the global policy $P$ 
-and by collecting the overall subjects attributes in the policy. For each collected subject attribute $Sa$, we consider the global policy and we 
-delete the rules that do not contain $Sa$ as subject attribute in the target element attributes, after all the successive deletions, the global 
-policy is refactored to a policy that contains only the rules having $Sa$ in their subject attributes elements.
-The Algorithm 1 gives an insight about the splitting process for $SC_{1}=\langle Subject\rangle$.
+and by collecting the overall subject attributes in the policy. For each collected subject attribute $Sa$, we consider the global policy and we 
+delete the rules that do not contain $Sa$ as the subject attribute in the target element attributes. After all the successive deletions, the global 
+policy is refactored to a policy that contains only the rules with $Sa$ in their subject attribute elements. 
+Algorithm 1 shows the algorithm about the splitting process for $SC_{1}=\langle Subject\rangle$.
 
 \begin{algorithmic}
 \begin{algorithm}[t]
@@ -86,26 +85,24 @@ The Algorithm 1 gives an insight about the splitting process for $SC_{1}=\langle
 \end{algorithmic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Discussion on safety%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Our algorithm is safe in the sense that it does not change the authorization behavior of the policy decision point. 
+Our algorithm is safe in the sense that it does not change the authorization behavior of the PDP. 
 There are two important issues to be considered when reasoning about the safety of the algorithm:
 \begin{itemize}
- \item Can the splitting impact authorization results when there are several policies with different combining algorithms?
- \item When 'AnySubject', 'AnyAction', 'AnyResource' are used as target elements values, does the way the splitting handles
- these values may change the behavior of the PDP?
+ \item Can the splitting impact authorization results when a policy set includes multiple policies with different combining algorithms?
+ \item When 'AnySubject', 'AnyAction', 'AnyResource' is used as target element values, does the the splitting change the behavior of the PDP?
 \end{itemize}
 The first issue is addressed by the way the algorithm operates. The first step of the algorithm goes through all the rules and extracts 
-depending on the splitting criterion the set of target elements (the set of subjects, 
-the set of actions and/or the set of resources). Then, based on the extracted result, the splitting is performed by removing 
-the rules having different splitting criterion value (for instance a subject different from 
+depending on the splitting criterion, the set of target elements (the set of subjects, 
+the set of actions, and/or the set of resources). Then, based on the extracted result, the splitting is performed by removing 
+the rules with different splitting criterion values (such as a subject different from 
 the splitting criterion subject). The rules that are kept are therefore not modified and therefore their behavior is not altered. When there 
-are several policies having different combining algorithms, the rules that are kept do not impact the evaluation behavior 
-because they remain attached to the same combining algorithm and their order and their content is not modified.
+are several policies with different combining algorithms, the rules that are kept do not impact the evaluation behavior 
+because they remain attached to the same combining algorithm and their order and their content are not modified.
 
 
-The second issue is handled by keeping all the rules that involve 'AnySubject', 'AnyAction', 'AnyResource' because by definition during 
-evaluation, these values are taken into consideration for evaluating all possible values of subjects, actions and resources. 
-Therefore it is important to keep them in all split policies because they are used in all evaluations. 
-This way the behavior is not changed because these rules are present in all split policies. 
+The second issue is handled by keeping all the rules that involve 'AnySubject', 'AnyAction' or 'AnyResource' because by definition during 
+evaluation, these values are taken into consideration for evaluating all possible values of subjects, actions, and resources. 
+Therefore, it is important to keep them in all split policies because they are used in all evaluations, this way, the behavior is not changed because these rules are present in all split policies. 
 
 
 %In addition, these rules are taken into account when the splitting criterion value is of different 
@@ -116,33 +113,34 @@ This way the behavior is not changed because these rules are present in all spli
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-It is worth mentioning the following consideration related to the refactoring process:
-XACML supports multi-valued attributes in policies and requests. In XACML policies, \CodeIn{Target} elements define a set of attribute values, which match with the context element in 
+It is worth mentioning this following consideration related to the refactoring process:
+XACML supports multi-valued attributes in policies and requests. In XACML policies, \CodeIn{target} elements define a set of attribute values, which match with 
+the context element in 
 an access control request. In Figure \ref{xacml-match}, the subject attribute includes two attributes (one is ``role'' and the other 
-is ``isEq-subjUserId-resUserId``). In order to match the subject with multi-valued attributes, a request should include at least \CodeIn{pc-member} and \CodeIn{ture} for ''role`` and ''isEq-subjUserId-resUserId``, respectively.
+is ``isEq-subjUserId-resUserId``). In order to match the subject with multi-valued attributes, a request should include at least \CodeIn{pc-member} and \CodeIn{ture} 
+for ''role`` and ''isEq-subjUserId-resUserId``, respectively.
 Our approach considers such a whole subject element as a single entity, which is not split by the policy splitter component.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm, height=3.5cm]{xacml-match}
-\caption{Multi-attributes values in \CodeIn{target} element}
+\caption{Multi-attribute values in \CodeIn{target} element}
 \label{xacml-match}
 \end{center}
 \end{figure}
 
-After the splitting is performed, our approach creates one or more (PDPs) that comply with the splitting criterion.
+After the splitting is performed, our approach creates one or more PDPs that comply with the splitting criterion.
 We use Sun PDP \cite{sunxacml} to evaluate requests against policies specified in XACML.
 During request evaluation, Sun PDP checks the request against the policy and determines whether the
 decision is permit or deny. Given a request, our approach runs Sun PDP loaded with the request's relevant policy,
  which is used during the decision making process. The PDP then retrieves the rules that are applicable to the request.
 Figure \ref{requestevaluation} presents our approach to handling request evaluation with multiple policies. 
-During the evaluation process, given a request, our approach verifies the matching between the request's attributes
-and the policy set's attributes. Our approach then selects only the relevant policy among all the policies for a given request.
+During the evaluation process, given a request, our approach verifies the matching between the request's attribute values, and the policy set's attribute. Our approach then selects only the relevant policy among all the policies for a given request.
 After the selection of the relevant policy, all of its relevant rules for the decision making are evaluated.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=3in, height=3in]{requestevaluation}
-\caption{Applicable policy Selection}
+\caption{Applicable-Policy Selection}
 \label{requestevaluation}
 \end{center}
 \end{figure}
@@ -151,11 +149,10 @@ After the selection of the relevant policy, all of its relevant rules for the de
 Figure \ref{overallprocess} shows an overview of our approach.
 In our approach, the policy splitter component plays a role to refactor access control policies.
 Given a single PDP loaded with the initial global policy, the policy splitter component conducts automated refactoring 
-by creating multiple PDPs loaded with XACML policies, which are split from the initial global policy based on 
-user-specified splitting criterion. 
+by creating multiple PDPs loaded with XACML policies, which are split from the initial global policy based on the user-specified splitting criterion. 
 %Afterwards, the policies are included in the 
 %framework that supports our approach. 
-If the initial global policy is changed, the policy splitter component is required to conduct refactoring of the policy again 
+If the initial global policy is changed, the policy splitter component is required to refactor of the policy again 
 to create PDPs with the most recent relevant policies.
 Our refactoring approach is safe in the sense that the approach does not impact existing security aspects in a given
 system. 
@@ -178,7 +175,7 @@ system.
 
 We propose to preserve the synergy requirement in the access control architecture by mapping a PEP and a PDP loaded
 with the relevant policy for a request dynamically at runtime.
-As shown in section \ref{subsec:SplittingCriteria}, given multiple PDPs after the policy refactoring, we consider 
+As shown in Section \ref{subsec:SplittingCriteria}, given multiple PDPs after the policy refactoring, we consider 
 (1) how PEPs are organized at the application level, and (2) how PEPs are linked to their corresponding PDPs.
 In the worst case, splitting the initial PDP into multi-PDPs may lead to a non-synergic system: a PEP may send its requests to several PDPs. 
 The PDP, which handles a given request is only known at runtime. Such a resulting architecture breaks the PEP-PDP synergy and the conceptual 
@@ -190,7 +187,7 @@ one policy. In this case, our refactoring does not impact the conceptual archite
 
 
 Figure \ref{Synergicvsnonsynergicarchitecture} presents a PDP encapsulating a global policy that has been refactored. The system that is 
-presented in the left is a valid refactoring whereas the one in the right shows a non valid refactoring.
+presented in the left is a synergic refactoring whereas the one in the right shows a non non synergic refactoring.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=8.5cm, height=6cm]{synergic-nonsynergic}
@@ -216,7 +213,7 @@ represented by the method \CodeIn{checkSecurity}, which calls the class
 The PEP represented by the method \CodeIn{ServiceUtils.checkSecurity} may issue requests that have subject ''user`` along fixed action 
 and resource (``LibrarySecurityModel.BORROWBOOK\_METHOD''), (``LibrarySecurityModel.BOOK\_VIEW'').
 Consider that we refactor a policy using $SC_{2}=\langle Resource,Action\rangle$, or $SC_{1}=\langle Action\rangle$, $SC_{1}=\langle Resource\rangle$.
-Give a request issued from the PEP, our approach runs a PDP loaded with a policy containing rules sharing the same action and resource attributes. 
+Given a request issued from the PEP, our approach runs a PDP loaded with a policy containing rules sharing the same action and resource attributes. 
 Thus the splitting process that will preserve the mapping between the PEPs and the PDP is the one that considers the following splitting criteria: 
 $SC_{1}=\langle Action\rangle$, $SC_{1}=\langle Resource\rangle$, $SC_{2}=\langle Resource,Action\rangle$ in this case.
 In the evaluation section, we will investigate the impact of the synergy property on performance.

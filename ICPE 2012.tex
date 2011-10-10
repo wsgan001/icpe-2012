@@ -30,6 +30,7 @@
 \documentclass{acm_proc_article-sp}
 \input{macros}
 \usepackage{subfloat}
+
 \usepackage{ifpdf}
 \usepackage{multicol}
 \usepackage{algorithmic}
@@ -62,6 +63,7 @@
      ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
 \def\l@subsubsubsection{\@dottedtocline{4}{8.8em}
      {4.2em}}
+\hyphenation{X-ACML}
 \begin{document}
 
 \title{Refactoring Access Control Policies for Performance Improvement}
@@ -164,24 +166,24 @@ L-1359 Luxembourg } \\
 
 \begin{abstract}
 
-In order to facilitate managing authorization, access control architectures are designed to separate the business logic from an access control policy. An access control policy consists of 
-rules which specify who have access to resources.
-A request is formulated from a component, called Policy Enforcement Points (PEPs). 
-Given a request, a Policy Decision Point (PDP) evaluates request against an access control policy and
-returns its access decision (i.e., Permit or Deny) to the PEPs.
+In order to facilitate managing authorization, access control architectures are designed to separate the business logic from an access control policy. 
+An access control policy consists of 
+rules that specify who have access to resources.
+A request is formulated from a component, called a Policy Enforcement Point (PEP). 
+Given a request, a Policy Decision Point (PDP) evaluates the request against an access control policy and
+returns its access decision (i.e., Permit or Deny) to the PEP.
 With the growth of sensitive information for protection in an application,
-an access control policy consists of larger number of rules, which often cause a performance bottleneck.
+an access control policy consists of a larger number of rules, which often cause a performance bottleneck.
 %Such architectures engender a performance bottleneck due to a large number of rules in a policy, where
 %a single PDP evaluates a request against each rule in turn.
-In order to address this issue, we propose to refactoring access control policies for performance improvement
-by splitting an access control policy (handled by a single PDP) into its corresponding multiple access
-control policies with smaller number of rules (handled by multiple PDPs).
-We define seven attribute-set based splitting criteria to facilitate
-splitting an access control policy.
+ To address this issue, we propose to refactor access control policies for performance improvement
+by splitting a policy (handled by a single PDP) into its corresponding multiple policies with a smaller number of rules (handled by multiple PDPs).
+We define seven attribute-set-based splitting criteria to facilitate
+splitting a policy.
 We have conducted an evaluation on three subjects of real-life Java programs, each of which interacts
-with access control policies. Our evaluation results show that (1) our proposed approach
+with access control policies. Our evaluation results show that (1) our approach
 preserves the initial architectural model in terms of interaction between the business logic and its corresponding
-rules in the policy, and (2) enables to reduce request evaluation time by up to nine times. 
+rules in the policy, and (2) our approach enables to reduce request evaluation time by up to nine times. 
  \end{abstract}
 
 \Comment{
