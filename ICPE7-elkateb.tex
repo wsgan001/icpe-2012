@@ -1,0 +1,94 @@
+\documentclass{sig-alternate}
+\input{macros}
+\usepackage{subfloat}
+\pagestyle{empty}
+\usepackage{ifpdf}
+\usepackage{multicol}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{graphicx}
+\pagenumbering{roman}
+\usepackage{textcomp}
+\usepackage{fixltx2e}
+\usepackage{listings}
+\usepackage[table]{xcolor}	
+\usepackage[caption=false]{subfig}
+\begin{document}
+\conferenceinfo{ICPE'12,} {April 22-25, 2012, Boston, Massachusetts, USA}
+\CopyrightYear{2012}
+\crdata{978-1-4503-1202-8/12/04}
+\clubpenalty=10000
+\widowpenalty = 10000
+\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX
+Format\titlenote{(Produces the permission block, and
+copyright information). For use with
+SIG-ALTERNATE.CLS. Supported by ACM.}}
+\numberofauthors{5}
+\title{Refactoring Access Control Policies for Performance Improvement}
+\author{
+\alignauthor Donia El Kateb \\
+\affaddr{Laboratory of Advanced Software SYstems (LASSY)}
+ \affaddr{University of Luxembourg} \\
+ \affaddr{Luxembourg } \\
+ \email{donia.elkateb@uni.lu}
+\alignauthor Tejeddine Mouelhi \\
+ \affaddr{Security, Reliability and
+Trust Interdisciplinary
+Research Center, SnT}\\
+ \affaddr{University of Luxembourg} \\
+ \affaddr{Luxembourg } \\
+ \email{tejeddine.mouelhi@uni.lu}
+\alignauthor Yves Le Traon \\
+\affaddr{Laboratory of Advanced Software SYstems (LASSY) \& Security, Reliability and
+Trust Interdisciplinary Research Center, SnT}\\
+ \affaddr{University of Luxembourg} \\
+ \affaddr{Luxembourg} \\
+ \email{yves.letraon@uni.lu}
+\and  
+\alignauthor JeeHyun Hwang \\
+\affaddr{Dept. of Computer Science
+} \\
+\affaddr{North Carolina State University} \\
+ \affaddr {U.S.A} \\
+ \email{jhwang4@ncsu.edu}
+\alignauthor Tao Xie \\
+\affaddr{Dept. of Computer Science
+} \\
+\affaddr{North Carolina State University} \\
+ \affaddr {U.S.A} \\
+ \email{xie@csc.ncsu.edu}
+}
+\maketitle
+\begin{abstract}
+In order to facilitate managing authorization, access control architectures are designed to separate the business logic from an access control policy. 
+An access control policy consists of 
+rules that specify who has access to resources. A request is formulated from a component, called a Policy Enforcement Point (PEP). 
+Given a request, a Policy Decision Point (PDP) evaluates the request against an access control policy and
+returns its access decision (i.e., Permit or Deny) to the PEP.
+With the growth of sensitive information for protection in an application,
+an access control policy consists of a larger number of rules, which often cause a performance bottleneck.
+ To address this issue, we propose to refactor access control policies for performance improvement
+by splitting a policy (handled by a single PDP) into its corresponding multiple policies with a smaller number of rules (handled by multiple PDPs).
+We define seven attribute-set-based splitting criteria to facilitate
+splitting a policy.
+We have conducted an evaluation on three subjects of real-life Java systems, each of which interacts
+with access control policies. Our evaluation results show that (1) our approach
+preserves the initial architectural model in terms of interaction between the business logic and its corresponding
+rules in the policy, and (2) our approach enables to reduce request evaluation time by up to nine times. 
+ \end{abstract}
+\category{C.4}{Performance of systems}{Performance attributes}\\
+\category{D.4.8}{Performance}{Measurements}
+\terms{Performance, Design}
+\keywords{Access Control, Performance, Refactoring,  Policy Enforcement Point, Policy Decision Point, eXtensible Access Control Markup Language} % NOT required for Proceedings
+\input{intro}
+\input{background}
+\input{approach}
+\input{experiment}
+\input{related}
+\input{conclusion}
+\bibliographystyle{abbrv}
+\bibliography{sigproc} 
+\balancecolumns
+\end{document}
