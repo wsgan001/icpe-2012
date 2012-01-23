@@ -1,0 +1,18 @@
+\section{Conclusion and Future Work} \label{sec:conclusion}
+
+In this paper, we have tackled the performance issue in access control decision making mechanism 
+and we have proposed an automated refactoring process that enables to reduce access control policies evaluation time up to 9 times. 
+All the reasonings about performance factors have not included hardware considerations. However, performance improvement at 
+the software/logical level as done by our approach would complement performance improvement at the hardware level to best improve the overall performance. 
+Our approach has been applied to XACML policies and it can be generalized to policies in other policy specification
+languages (such as EPAL). 
+To support and automate the refactoring process, we have designed and implemented the ``PolicySplitter'' tool,
+which transforms a given policy into small ones, according to a chosen splitting criterion.
+The obtained results have shown a significant gain in evaluation time when using any of the splitting criteria.
+ The best gain in performance is reached by the criterion that respects the synergy property. This pleads in favor of a refactoring process that takes into
+ account, the way PEPs are scattered inside the system business logic. 
+In this work, we have easily identified the different PEPs since we know exactly how our system functions are
+ implemented and thus how PEPs are organized inside the system. In a future work, we propose to automatically identify the different PEPs of a given application. 
+This technique is an important step that is complementary to this paper approach, since it enables
+ knowing how PEPs are organized in the system and thus allows to select automatically the most 
+suitable splitting criterion for a given application. 
