@@ -19,9 +19,7 @@ We propose an approach to evaluate a request against only the relevant rules for
 multiple smaller policies based on attribute combination. For a given policy-based system, we transform its policy \normalsize $P$ into 
 policies \normalsize $P_{SC_{w}}$ containing a less number of rules and conforming to a Splitting Criterion $SC_{w}$. 
 An $SC_{w}$ defines the set of attributes that are considered to classify all the rules into subsets each with the same attribute values and $w$ denotes 
-the number of attributes that have to be considered conjointly for aggregating rules based on specific attribute elements. 
-Table \ref{table1} 
-shows our proposed splitting criteria categorized according to attribute element combinations.
+the number of attributes that have to be considered conjointly for aggregating rules based on specific attribute elements. Table \ref{table1} shows our proposed splitting criteria categorized according to attribute element combinations.
 \begin{table}[h!]
 \centering
 \setlength{\extrarowheight}{6 pt}
@@ -36,9 +34,8 @@ $SC_{3}$& {$\langle Subject,Resource,Action\rangle$}\\ \hline
 \caption{Splitting Criteria}
 \label{table1}\end{table}
 
-To illustrate our approach, we present examples that take into consideration the XACML language features.
-In Figure \ref{splitting}, our approach refactors an XACML policy $P$  according to the splitting criterion $SC_{1}=\langle Subject\rangle$. Our refactoring results 
-in two sub-policies $Pa$ and $Pb$. Each sub-policy consists of relevant rules with regards to the same subject (Alice or Bob in this case). 
+To illustrate our approach, we present examples that take into consideration the XACML language features. In Figure \ref{splitting}, our approach refactors an XACML policy $P$  according to the splitting criterion $SC_{1}=\langle Subject\rangle$. Our 
+refactoring results in two sub-policies $Pa$ and $Pb$. Each sub-policy consists of relevant rules with regards to the same subject (Alice or Bob in this case). 
 
 \begin{figure}[!h]
 \begin{center}
@@ -47,12 +44,11 @@ in two sub-policies $Pa$ and $Pb$. Each sub-policy consists of relevant rules wi
 \label{splitting}
 \end{center}
 \end{figure}
-
 Technically, to split a given policy $P$ according to $SC_{1}=\langle Subject\rangle$, we start by parsing the global policy $P$ 
 and by collecting the overall subject attributes in the policy. For each collected subject attribute $Sa$, we consider the global policy and we 
 delete the rules that do not contain $Sa$ as a subject attribute in the target element attributes. After all the successive deletions, the global 
 policy is refactored to a policy that contains only the rules with $Sa$ in their subject attribute elements. 
-Algorithm 1 shows the algorithm about the splitting process for $SC_{1}=\langle Subject\rangle$.
+Algorithm 1 describes the splitting process for $SC_{1}=\langle Subject\rangle$.
 
 \begin{algorithmic}
 \begin{algorithm}[t]
@@ -131,7 +127,6 @@ Figure \ref{requestevaluation} presents our approach to handling request evaluat
 During the evaluation process, given a request, our approach verifies the matching between the request's attribute values, 
 and the policy target elements attributes. Our approach then selects only the relevant policy among all the policies for a given request.
 After the selection of the relevant policy, all of its relevant rules for the decision making are evaluated.
-
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=3in, height=3in]{requestevaluation}
@@ -139,19 +134,14 @@ After the selection of the relevant policy, all of its relevant rules for the de
 \label{requestevaluation}
 \end{center}
 \end{figure}
-
-
 Figure \ref{overallprocess} shows an overview of our approach.
 In our approach, the policy splitter component plays a role to refactor access control policies.
-Given a single PDP loaded with the initial global policy, the policy splitter component conducts automated refactoring 
-by creating multiple PDPs loaded with XACML policies, which are split from the initial global policy based on the user-specified splitting criterion. 
+Given a single PDP loaded with the initial global policy, the policy splitter component conducts automated refactoring by creating multiple PDPs loaded with XACML policies, 
+which are split from the initial global policy based on the user-specified splitting criterion. 
 %Afterwards, the policies are included in the 
 %framework that supports our approach. 
-If the initial global policy is changed, the policy splitter component is required to refactor the policy again to create PDPs with the most recent relevant policies.
-Our refactoring approach is safe in the sense that the approach does not impact existing security aspects in a given
-system. 
-
-
+If the initial global policy is changed, the policy splitter component is required to refactor the policy again to create PDPs with the most recent relevant policies. Our refactoring approach is safe 
+in the sense that the approach does not impact existing security aspects in a given system. 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=8.5cm, height=8cm]{Overall-process}
@@ -159,10 +149,7 @@ system.
 \label{overallprocess}
 \end{center}
 \end{figure}
-
-
 \subsection{Architecture Model Preservation: PEP-PDP Synergy}
-
 We propose to preserve the synergy requirement in the access control architecture by mapping a PEP and a PDP loaded
 with the relevant policy for a request dynamically at runtime. As shown in Section \ref{subsec:SplittingCriteria}, given multiple PDPs after the policy refactoring, we consider 
 (1) how PEPs are organized at the application level, and (2) how PEPs are linked to their corresponding PDPs.
@@ -178,7 +165,7 @@ Figure \ref{Synergicvsnonsynergicarchitecture} presents a PDP encapsulating a gl
 presented on the left is a desirable refactoring whereas the one on the right shows an undesirable refactoring.
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=8.5cm, height=6cm]{synergic-nonsynergic}
+\includegraphics[width=8.5cm, height=7cm]{synergic-nonsynergic}
 \caption{Synergic vs Non synergic System}
 \label{Synergicvsnonsynergicarchitecture}
 \end{center}

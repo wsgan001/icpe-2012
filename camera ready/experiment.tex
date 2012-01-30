@@ -30,16 +30,12 @@ This step allows studying the behavior of splitting criteria that preserve the s
 
 \item Second, we evaluate the performance of PDPs in isolation to compare the splitting criteria independently from the system.
 Recall that in this step, we do not reason about the synergy property since we don't consider the application level.
-We replace Sun PDPs with a request evaluation engine XEngine \cite{Xengine}. 
-The objective of this evaluation is to investigate how our approach impacts performance for subjects combined with XEngine.
+We replace Sun PDPs with a request evaluation engine XEngine \cite{Xengine}. The objective of this evaluation is to investigate how our approach impacts performance for subjects combined with XEngine.
 \end{itemize}
 
 \subsection{Subjects}
 The subjects include three real-life Java systems each of which interacts with access control policies. 
-Full details on our subjects are available in \cite{evaluation}.
-
-
- We next describe our three subjects.
+Full details on our subjects are available in \cite{evaluation}. We next describe our three subjects.
 \begin{itemize}	
 \item Library Management System (LMS) provides web services to manage books in a public library.
 \item Virtual Meeting System (VMS) provides web conference services. VMS allows users to organize
@@ -60,8 +56,7 @@ In order to answer \textbf{RQ1}, we generated the resulting sub-policies for all
 Section~\ref{subsec:SplittingCriteria}.
 For each splitting criterion, we have executed system tests to generate requests that trigger all the PEPs in the evaluation. 
 The test generation step leads to the execution of all combinations of possible requests described in our previous work \cite{testcase}.  
-The process of test generation is repeated ten times to alleviate the impact of randomness. 
-We applied this process to each splitting criterion and calculated evaluation time on average of a system under test.
+The process of test generation is repeated ten times to alleviate the impact of randomness. We applied this process to each splitting criterion and calculated evaluation time on average of a system under test.
 % We only consider the execution time of the PDP and we do not include the executions of the system functions. 
 Figure \ref{fig:processing time} presents evaluation time for policies split
 based on each splitting criterion and the global policy of subjects. We can make two observations:
@@ -160,8 +155,6 @@ be more performant when the architecture is synergic.
 \label{average}
 \end{center}
 \end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Performance Improvement: XEngine}
 In order to answer \textbf{RQ3}, we measure request processing time of XEngine compared with that of Sun PDP
 for policies split by our approach.
@@ -174,26 +167,17 @@ three reasons:
 \item  It relies on a tree structure that minimizes the request
 processing time.
 \end{itemize}
-We propose to use XEngine conjointly with the refactoring
-process presented in this work. We have evaluated our
-approach in two settings:
+We propose to use XEngine conjointly with the refactoring process presented in this work. We have evaluated our approach in two settings:
 \begin{itemize}
-\item  Considering evaluation with a decision engine based
-on Sun PDP with split policies and with the initial policy.
-\item Considering evaluation with a decision engine based
-with split policies and with the initial policy.
+\item Considering evaluation with a decision engine based on Sun PDP with split policies and with the initial policy.
+\item Considering evaluation with a decision engine based on XEngine with split policies and with the initial policy.
 \end{itemize}
-
-In this step, we do not reason about the synergy, since we do not consider the application level for the three systems.
-We measure request processing time by evaluating randomly
-generated set of 10,000 requests as proposed in our previous work \cite{request}.
-The request time processing is evaluated for the three systems. The results
-are presented in Tables \ref{table:LMSeval}, \ref{table:VMSeval} and \ref{table:ASMSeval} and enable to answer \textbf{RQ3}.
+In this step, we do not reason about the synergy, since we do not consider the application level for the three systems. We measure request processing time by evaluating randomly generated set of 10,000 requests as proposed in our previous work \cite{request}.
+The request time processing is evaluated for the three systems. The results bare presented in Tables \ref{table:LMSeval}, \ref{table:VMSeval} and \ref{table:ASMSeval} and enable to answer \textbf{RQ3}.
 We observe that, when our subjects are equipped with XEngine, our proposed approach 
 substantially improves performance (compared to the results with Sun PDP). For the splitting criteria SC=$\langle Action \rangle$,
 in the LMS system, the evaluation time is reduced about 9 times: from 2703 ms to 290 ms with XEngine. This empirical 
 observation pleads in favor of applying our proposed refactoring process with XEngine.
-
 \begin{table}[t]
 \centering
 \begin{tabular}{|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|}   

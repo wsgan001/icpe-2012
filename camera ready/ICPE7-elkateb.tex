@@ -68,20 +68,16 @@ rules that specify who has access to resources. A request is formulated from a c
 Given a request, a Policy Decision Point (PDP) evaluates the request against an access control policy and
 returns its access decision (i.e., Permit or Deny) to the PEP.
 With the growth of sensitive information for protection in an application,
-an access control policy consists of a larger number of rules, which often cause a performance bottleneck.
- To address this issue, we propose to refactor access control policies for performance improvement
-by splitting a policy (handled by a single PDP) into its corresponding multiple policies with a smaller number of rules (handled by multiple PDPs).
-We define seven attribute-set-based splitting criteria to facilitate
-splitting a policy.
-We have conducted an evaluation on three subjects of real-life Java systems, each of which interacts
-with access control policies. Our evaluation results show that (1) our approach
-preserves the initial architectural model in terms of interaction between the business logic and its corresponding
-rules in the policy, and (2) our approach enables to reduce request evaluation time by up to nine times. 
+an access control policy consists of a larger number of rules, which often cause a performance bottleneck. 
+To address this issue, we propose to refactor access control policies for performance improvement by splitting a policy (handled by a single PDP) into its corresponding multiple policies with a smaller number of rules (handled by multiple PDPs).
+We define seven attribute-set-based splitting criteria to facilitate splitting a policy.
+We have conducted an evaluation on three subjects of real-life Java systems, each of which interacts with access control policies. Our evaluation results show that (1) our approach preserves the initial architectural model in terms of 
+interaction between the business logic and its corresponding rules in the policy, and (2) our approach enables to reduce request evaluation time by up to nine times. 
  \end{abstract}
 \category{C.4}{Performance of systems}{Performance attributes}\\
 \category{D.4.8}{Performance}{Measurements}
 \terms{Performance, Design}
-\keywords{Access Control, Performance, Refactoring,  Policy Enforcement Point, Policy Decision Point, eXtensible Access Control Markup Language} % NOT required for Proceedings
+\keywords{Access Control, Performance, Refactoring, Policy Enforcement Point, Policy Decision Point, eXtensible Access Control Markup Language}
 \input{intro}
 \input{background}
 \input{approach}

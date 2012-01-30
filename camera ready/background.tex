@@ -13,7 +13,7 @@ to directly change policies on the single PDP. The separation between the PEP an
 potential risks arising from incorrect policy implementation or maintenance, when the policy is hardcoded inside the business logic.
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=9cm, height=8cm]{business-logic}
+\includegraphics[scale=0.38]{business-logic}
 \caption{Access Control Request Evaluation}
 \label{pep-pdp}
 \end{center}
@@ -33,8 +33,7 @@ The execution time for evaluating a request is thus strongly related to
 \item the workload (the number of requests that have to be managed by the system).
 \end{itemize}
 The execution time to evaluate a request depends on the size (number of rules) of the policy that the PDP encapsulates. For a given policy size, the execution time  to evaluate
- requests increases linearly with the workload the (number of requests). 
-Our hypothesis 1 is that the more rules a policy contains, the higher the slope of the execution time with an increasing workloads. 
+ requests increases linearly with the workload the (number of requests). Our hypothesis 1 is that the more rules a policy contains, the higher the slope of the execution time with an increasing workloads. 
  \textit{Hypothesis 1} validity is discussed in Section \ref{sec:experiment}.
 As a consequence, one possibility to improve performance consists in splitting the centralized PDP into PDPs with smaller policy sizes. 
 It is worth to mention that in this paper, we keep the same input channel in the decentralized architecture. In such setting, we do not need to change the PEP code that is calling 
@@ -59,40 +58,33 @@ In this work, we consider various splitting criteria to transform a centralized 
 Our \textit{hypothesis 2} is with comparable PDP policies sizes, the overall system will be more performant when the architecture is synergic. This hypothesis is investigated in 
 Section \ref{sec:experiment}.
 
-\subsection{Tradeoff for refactoring }
-
+\subsection{Tradeoff for refactoring}
 As a synthesis for this section, the following facts are taken into account:
 \begin{itemize}
- \item Access control architectures are centralized with a unique PDP.
+\item Access control architectures are centralized with a unique PDP.
 \item Centralization eases reconfiguration of an access control policy.
 \item Centralization threatens performance.
 \item Direct mapping from any PEP to only one PDP makes the access control architecture 'synergic'.
 \item A synergic system facilitates PEP request routing and eases policy maintenance.
-
 \end{itemize}
-
-The goal our our work is to propose systematic ways to improve performance by refactoring the centralized model into a decentralized version, with multiple PDPs. The resulting
+The goal of our work is to propose systematic ways to improve performance by refactoring the centralized model into a decentralized version, with multiple PDPs. The resulting
  architecture must have an equivalent behaviour and should not impact the desirable properties of the centralized model, namely reconfigurability and synergy. 
 Automating the transformation from a centralized to a decentralized architecture is required to preserve reconfigurability. With automation, we can still reconfigure the centralized policy, 
 and then automatically refactor the architecture. Automated refactoring is thus a viable solution for providing high reconfigurability.  
 However, refactoring the architecture by splitting the centralized PDP into smaller one may break the initial synergy. This phenomenon is studied in the empirical study of Section 
 \ref{sec:experiment} together with \textit{hypothesis 2}. In the next section, we give an overview of XACML language since it is the standard language used in this paper to implement a PDP.
-
-
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[height=5.5cm,width=8.5cm]{model}
+\includegraphics[scale=0.34]{model}
 \caption{Access Control Model}
 \label{model}
 \end{center}
 \end{figure}
-
 \subsection{XACML Policies and Performance Issues}
-In this paper, we focus on access control policies specified in the eXtensible Access Control Modeling Language (XACML) \cite{sunxacml}.
-XA-CML is an XML-based standard policy specification language that defines a syntax of access control policies and
-requests/responses. \\XACML enables policy authors to externalize access control policies for the sake of interoperability since access control policies can be designed 
-independently from the underlying programming language or platform. Such flexibility enables to easily update access control policies to comply with new requirements.
-An XACML policy is constructed as follows.
+In this paper, we focus on access control policies specified in the eXtensible Access Control Modeling Language (XACML) \cite{sunxacml}. 
+XACML is an XML-based standard policy specification language that defines a syntax of access control policies and requests/responses. \\XACML enables policy authors to externalize access control policies
+ for the sake of interoperability since access control policies can be designed independently from the underlying programming language or platform. 
+Such flexibility enables to easily update access control policies to comply with new requirements. An XACML policy is constructed as follows.
 A \CodeIn{policy set} element consists of a sequence of \CodeIn{policy} elements, a combining algorithm, and
 a \CodeIn{policy target} element. A \CodeIn{policy} element is expressed through a \CodeIn{target}, a set of \CodeIn{rules}, and a rule combining algorithm. 
 A \CodeIn{target} element consists of the set of resources, subjects, and actions to which a rule is applicable. A \CodeIn{rule} consists of a 
@@ -102,8 +94,7 @@ Finally, an \CodeIn{effect} is the rule's authorization decision, which is eithe
 Given a request, a PDP evaluates the request against the \CodeIn{rules} in the policy by matching resources, subjects and actions in the request.
 More specifically, an XACML request encapsulates attributes, that define which subject requests to take action on which resource (e.g., subject Bob requests to borrow a book).
 %This can be under/not a condition.
-Given a request that satisfies \CodeIn{target} and \CodeIn{condition} elements in a rule, the rule's effect
-is taken as the decision.
+Given a request that satisfies \CodeIn{target} and \CodeIn{condition} elements in a rule, the rule's effect is taken as the decision. 
 If the request does not satisfy \CodeIn{target} and \CodeIn{condition} elements in any rule, its response yields the ``NotApplicable'' decision.
 
 When more than one rule is applicable to a request, the combining algorithm helps determine which rule's effect can be finally given as the decision for the request.
@@ -124,7 +115,7 @@ Figure \ref{figur1} shows a simplified XACML policy that denies subject Bob to b
 %\fontsize{5}{5}
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=8.6cm]{xacml}
+\includegraphics[width=9cm]{xacml}
 \caption{XACML Policy Example}
 \label{figur1}
 \end{center}
