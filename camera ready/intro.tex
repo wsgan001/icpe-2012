@@ -8,35 +8,27 @@ as the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}
 and Enterprise Privacy Authorization Language (EPAL) \cite{epal}.
 %In this paper, we consider access control policies specified in
 %the eXtensible Access Control Markup Language (XACML) \cite{sunxacml}.
-In a policy, a rule specifies actions (e.g., read) that subjects (e.g., students) can take on resources (e.g., grades) if required conditions are met. 
-A policy-based system is a system that interacts with user-specified policies
-to control users' access on resources. A policy-based system allows policy authors to define rules in a policy.
+A policy-based system allows policy authors to define rules that specify actions (e.g., read) that subjects (e.g., students) can take on resources (e.g., grades) in a policy. 
 In the context of policy-based systems, an access control architecture is often designed with respect to a popular
 architectural concept that separates Policy Enforcement Points (PEPs) from a Policy Decision Point (PDP) \cite{separation}. More specifically, a PEP is located inside an 
 application's code (i.e., business logic of the system). Business logic describes functional algorithms to govern information exchange between access control decision logic and a user interface (i.e., presentation).
 Given requests (e.g., student $A$ requests to read her grade resource $B$) formulated by the PEP, the PDP evaluates the requests and returns their responses (e.g., permit or deny) by evaluating these requests
-against rules in a policy. An important benefit of the architecture is to facilitate managing access rights in a fine-grained way by
+against rules in a policy. \\\\
+An important benefit of the architecture is to facilitate managing access rights in a fine-grained way by
 decoupling the business logic from the access control decision logic, which can be standardized and separately managed.
-However, this architecture may cause performance degradation especially when policy authors maintain a single policy with a large number of rules to regulate the whole system's resources.
-Various factors such as complex and dynamic behaviors of organizations and the growth of organizations's assets may increase the
-number of rules in the policy \cite{policymanagement}.
+However, this architecture may cause performance degradation especially when policy authors maintain a single policy with a large number of rules to regulate the whole system's resources. 
 Consider that the policy is centralized with \emph{only} one single PDP.
 %With centralization of a single PDP, policy authors
 %Centralization facilitates managing and maintaining the policy,
 %which is encapsulated into a single PDP.
-The PDP evaluates requests (issued by PEPs) against
-the large number of rules in the policy in real-time.
-Such centralization can be a major factor for degrading performance as our previous work \cite{Xengine} showed that a large number of rules is a challenge for efficient request evaluation.
-This performance bottleneck issue may impact service
-availability as well, especially when dealing with a huge number of requests within a short time.
-In order to address this performance bottleneck issue,
-we propose an approach to refactoring policies automatically to significantly reduce
-request evaluation time.
+The PDP evaluates requests (issued by PEPs) against the large number of rules in the policy in real-time. 
+Such centralization can be a major factor for degrading performance as our previous work \cite{Xengine} showed that efficient request evaluation with a large number of rules is challenging task. 
+This performance bottleneck issue may impact service availability as well, especially when dealing with a huge number of requests within a short time.\\\\
+In order to address this performance bottleneck issue, we propose an approach to refactor policies automatically to significantly reduce request evaluation time.
 As manual refactoring is tedious and error-prone, an important benefit of our automated approach is to reduce significant human efforts as well as
 improving performance.
 Our approach includes two techniques: (1) refactoring a policy (handled by single PDP) to its corresponding multiple policies each with a smaller number of rules (handled by multiple PDPs),
-and (2) preserving architectural property that a single PDP is triggered by a given PEP at a time.\\
-
+and (2) preserving architectural property that a single PDP is triggered by a given PEP at a time.\\\\
 In the first technique, our approach takes a splitting criterion and an original global policy (i.e., a policy governing all of access rights in the system) as an input, and returns a set of
 corresponding sub-policies, each of which consists of a smaller number of rules.
 This refactoring involves grouping rules in the global policy into several subsets based on the splitting criterion.
@@ -44,12 +36,10 @@ More specifically, we propose a set of splitting criteria to
 refactor the global policy to smaller policies.
 A splitting criterion selects and groups the rules of the overall PDP into specific PDPs.
 Each criterion-specific PDP encapsulates a sub-policy that represents a set of rules that share the same combination
-of attribute elements (Subject, Action, and/or Resource).
-
-In the second technique, our approach aims at preserving the architectural property, which represents that only single PDP is triggered by a given PEP at a time. 
+of attribute elements (Subject, Action, and/or Resource). In the second technique, our approach aims at preserving the architectural property, which represents that only single PDP is triggered by a given PEP at a time. 
 More specifically, given a request, each PEP should be mapped to a PDP loaded with a policy, 
 which includes a set of rules to be applicable for the request.
-Therefore, our refactoring maintains the architectural property of the centralized architectures in policy-based systems.
+Therefore, our refactoring maintains the architectural property of the centralized architectures in policy-based systems.\\\\
 
 
 
@@ -65,21 +55,15 @@ Therefore, our refactoring maintains the architectural property of the centraliz
 %Given a set of requests, we then compare evaluation time of the requests against the original policy and a set of sub-polices
 %based on the proposed splitting criteria.
 
-We collect three subjects of real-life Java systems, each of which interacts
-with access control policies. The policies consist of a large number of rules. The largest one has 1760 rules, whose corresponding request evaluation faces performance degrade.
-The policies are specified in XACML~\cite{sunxacml}.
+We collect three subjects of real-life Java systems, each of which interacts with access control policies. 
+%The policies consist of a large number of rules. The largest one has 1760 rules, 
+whose corresponding request evaluation faces performance degrade. The policies are specified in XACML~\cite{sunxacml}.
 %Theses three polices consist of comparatively large number of rules 720, 945, 1760 rules, respectively, which
 %is comparatively large number of rules.
 XACML is an XML-based policy specification language popularly used for web-based applications and services.
-While our subjects are based on XACML policies,
-our approach could be
-applicable to any software system that interacts with policies specified in other
-policy specification languages. As a large number of rules are performance bottlenecks for request evaluation
-against given policies, our approach could reduce the number of rules in a systematic way for request evaluation against the policies to improve performance.
 
-
-
-We conduct an evaluation to show performance improvement achie-ved by our approach in terms of request evaluation time.
+While our subjects are based on XACML policies, our approach could be applicable to any software system that interacts with policies specified in other
+policy specification languages. We conduct an evaluation to show performance improvement achie-ved by our approach in terms of request evaluation time.
 We leverage two types of PDPs to measure request evaluation time. The first one is the
 Sun PDP implementation \cite{oasis}, which is a popular open source PDP, and the second one is XEngine \cite{Xengine}, which transforms an original policy
 into its corresponding policy in a tree format by mapping attribute values with numerical values.

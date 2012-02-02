@@ -9,15 +9,14 @@ Our evaluation intends to answer the following research questions:
 \item \textbf{RQ1.} How faster can request processing time of multiple Sun PDPs with policies split by our approach achieve compared
 to an existing single Sun PDP? This question helps show that our approach can improve performance in terms of request processing time. 
 Moreover, we compare request processing time for different splitting criteria.
-\item \textbf{RQ2.} This research question, questioned in Section \ref{sec:context}, investigates \textit{Hypothesis 2}: 
-With comparable PDP policy sizes? Is the system more performant when the architecture is synergic?
+\item \textbf{RQ2.} With comparable PDP policy sizes? Is the system more performant when the architecture is synergic? 
+This research question, questioned in Section \ref{sec:context}, investigates \textit{Hypothesis 2}.
 \item \textbf{RQ3.} How faster does request processing time of XEngine achieve compared
 to that of Sun PDP for both a single policy and policies split by our approach?
 This question helps show that our approach can improve performance in terms of request processing time for other advanced policy evaluation 
 engines such as XEngine.
-\item \textbf{RQ4.} This research question investigates \textit{Hypothesis 1} 
-(mentioned in Section \ref{sec:context}) on the impact of the number of rules in a given PDP on system response: 
-the bigger the PDP policy size, do we observe higher slope of the execution time with an increasing workload? 
+\item \textbf{RQ4.} The bigger the PDP policy size, do we observe higher slope of the execution time with an increasing workload? This research question investigates \textit{Hypothesis 1} 
+(mentioned in Section \ref{sec:context}) on the impact of the number of rules in a given PDP on system response.
 \end{enumerate}
 
 To address these research questions, we go through the following evaluation setup based on two different empirical studies:
@@ -45,11 +44,12 @@ initiates an auction by submitting a description of an item that she wants to se
 price. Users then participate in the bidding process by
 bidding the item. To bid on the item, user must have enough money in her account before bidding.
 \end{itemize}
-Our subjects are initially built upon Sun PDP \cite{sunxacml} as a decision engine, which is a popularly used PDP to evaluate
- requests. Policies in LMS, VMS, and ASMS contain a total of 720, 945 and 1760 rules, respectively.
-Moreover, to compare performance improvement over existing PDPs, we adopt XEngine (instead of Sun PDP) in our subjects to evaluate requests.
-XEngine is an advanced policy evaluation engine, which transforms the hierarchical tree structure of the XACML policy to a flat structure
-to reduce request processing time. XEngine also handles various combining algorithms supported by XACML. 
+Our subjects are initially built upon Sun PDP \cite{sunxacml} as a decision engine, which is a popularly used PDP to evaluate requests. We started by a processing step, in which we have augmented the rules number 
+in the three original policies for these studies, as it would be difficult to observe a performance improvement results with systems including few rules. In our evaluations, LMS policy contains 720 rules, VMS has 
+945 rules while ASMS implements 1760 rules. The rules that we added do not modify the system behavior as 
+they are conform to the specifications. Moreover, to compare performance improvement over existing PDPs, we adopt XEngine (instead of Sun PDP) in our subjects to evaluate requests.
+XEngine is an advanced policy evaluation engine, which transforms the hierarchical tree structure of the XACML policy to a flat structure to reduce request processing time. XEngine 
+also handles various combining algorithms supported by XACML. 
 
 \subsection{Performance Improvement: Sun PDP}\label{subsec:performanceimprovement}
 In order to answer \textbf{RQ1}, we generated the resulting sub-policies for all the splitting criteria defined in 
@@ -87,7 +87,6 @@ We observed the number of policies based on our proposed three categories: (1) t
  $N_2$ ($N_1$<$N_2$<$N_3$) of PDPs, and (3) $SC_{3}$ leads to the largest number $N_3$ of PDPs.
 While the $SC_{1}$ category leads to the smallest number of PDPs, each PDP encapsulates a relatively high number of rules in a policy (compared
 with that of $SC_{2}$ and $SC_{3}$, which leads to performance degradation. 
-
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8.5cm, height=7.2cm]{pdpnumber.pdf}
@@ -96,11 +95,8 @@ with that of $SC_{2}$ and $SC_{3}$, which leads to performance degradation.
 \label{pdpnumber}
 \end{center}
 \end{figure}
-
-We have classified splitting criteria according to their preservation of the synergy property shown in 
-Table \ref{Classification}. $AR$, $A$ and $R$ are synergic splitting criteria since all the PEPs in our three systems 
-are organized as shown in Figure \ref{PEPdeploymentexample}. 
-
+We have classified splitting criteria according to their preservation of the synergy property considering our subjects. The classification is shown in Table \ref{Classification}. 
+$AR$, $A$ and $R$ are synergic splitting criteria since all the PEPs in our considered three systems are organized as shown in Figure \ref{PEPdeploymentexample}. 
 \begin{table}[t]
 \centering
 \begin{tabular}{|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|>{\tiny}c|}   
@@ -142,8 +138,8 @@ To answer \textbf{RQ2}, we have evaluated PDPs in the three systems and for the 
 \ref{average} show the average number of rules in each PDP, for each splitting criterion in the three systems. We can observe that the $AR$ 
 criterion produces comparable size of PDPs with the $SR$ criterion, however, as shown in Figure 
 \ref{fig:processing time}, $AR$ is the best splitting criterion, in term of evaluation time performance. 
-Moreover, the number of PDPs produced with the splitting critera $S$ and $A$ is comparable and the criterion 
-$A$ which is synergic has evaluation time less than the one produced by the splitting criterion $S$ which is not synergic.
+Moreover, the number of PDPs produced with the splitting critera $S$ and $A$ is comparable and the criterion $A$ which is synergic has evaluation 
+time less than the one produced by the splitting criterion $S$ which is not synergic.
 This result supports our hypothesis \textit{Hypothesis 2}, which states that with comparable PDP sizes, the overall system would 
 be more performant when the architecture is synergic.
 
@@ -307,8 +303,7 @@ which states that the slope of execution time increases with PDPs size in a syst
   \label{fig:processing time xengine}
 \end{figure*}
 
-It is worth to mention that, to be able to deploy our technique, we need to fetch the relevant PDP for a given request at runtime. 
-Therefore, request processing time includes both fetching time and request evaluation time.
+To deploy our technique, we need to fetch the relevant PDP for a given request at runtime. Therefore, request processing time includes both fetching time and request evaluation time.
 Figure \ref{Fetching Time} shows percentage of fetching time over the global evaluation time for request evaluation in LMS. 
 The fetching time increases according to the PDP size. The fetching time is relatively small in comparison with the total evaluation time and thus 
 does not impact significantly the decision making time.

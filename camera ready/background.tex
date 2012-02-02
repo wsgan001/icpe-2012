@@ -1,13 +1,11 @@
 
 \section{Context/Problem Statement} \label{sec:context}
-This section further details a centralized architecture as well as its desirable features (synergy, reconfigurability) and its induced penalty (performance bottlenecks). 
-Managing access control policies is one of the most challenging issues faced by organizations. Frequent changes in policy-based systems may be required to meet business needs. 
-A policy-based system has to handle some specific requirements such as role swapping when employees are given temporary assignments, as well as changes in the policies and procedures, 
-new assets, users and job positions in the organization.
-
+This section further details a centralized architecture as its two desirable features such as synergy and reconfigurability and its induced penalty (performance bottlenecks). 
+Managing access control policies is one of the most challenging issues faced by organizations due to frequent changes in a policy. For example, a policy-based system has 
+to handle some specific requirements such as role swapping when employees are given temporary assignments, as well as changes in the policies and procedures, new assets, users and job positions in the organization.
 \subsection{Centralization of Architectures}
-To enable high reconfigurability, an access control policy is traditionally modeled, analyzed, and implemented as a separate component 
-encapsulated in a PDP. This separation leads to the centralized architecture presented in Figure \ref{pep-pdp}, in which one single PDP is responsible for granting/denying the accesses that are requested. 
+To facilitate policy management, an access control policy is traditionally modeled, analyzed, and implemented as a separate component encapsulated in a PDP. This separation leads to the 
+centralized architecture presented in Figure \ref{pep-pdp}, in which one single PDP is responsible for granting/denying the accesses that are requested. 
 This centralized architecture is a simple solution to easily handle changes in policy-based systems by enabling the policy author 
 to directly change policies on the single PDP. The separation between the PEP and the PDP simplifies policy management across many heterogeneous systems and limits
 potential risks arising from incorrect policy implementation or maintenance, when the policy is hardcoded inside the business logic.
@@ -26,36 +24,34 @@ Subsequently, an authorization decision (permit/deny) is returned to the PEP. Wh
  \item all the access requests have to be managed through the same input channel of the PDP. 
  \item the centralized PDP computes an access request by searching which rule is applicable among all the rules that the encapsulated policy contains.
 \end{itemize}
-
 The execution time for evaluating a request is thus strongly related to
 \begin{itemize} 
-\item the number of rules that the PDP contains as well as the order of the rules \cite{clustering}.
-\item the workload (the number of requests that have to be managed by the system).
+\item the number of rules in the policy that the PDP contains \cite{clustering}. 
+\item the workload (i.e., the number of requests) that have to be evaluated by the system.
 \end{itemize}
-The execution time to evaluate a request depends on the size (number of rules) of the policy that the PDP encapsulates. For a given policy size, the execution time  to evaluate
- requests increases linearly with the workload the (number of requests). Our hypothesis 1 is that the more rules a policy contains, the higher the slope of the execution time with an increasing workloads. 
+The execution time to evaluate a request depends on the size (number of rules) of the policy that the PDP encapsulates. For a given policy size, the execution time to evaluate
+ requests increases linearly with the workload (i.e., the number of requests). Our hypothesis 1 is that the more rules a policy contains, the higher the slope of the execution time with an increasing workloads. 
  \textit{Hypothesis 1} validity is discussed in Section \ref{sec:experiment}.
-As a consequence, one possibility to improve performance consists in splitting the centralized PDP into PDPs with smaller policy sizes. 
-It is worth to mention that in this paper, we keep the same input channel in the decentralized architecture. In such setting, we do not need to change the PEP code that is calling 
-the PDP. In fact, to set a specific input channel for each PEP, we need to change the code, so that each PEP calls directly its PDP, however, in this work, we consider the system as
- a black box for sake of simplicity and scalability.  
+As a consequence, one possibility to improve performance consists in splitting the centralized PDP into PDPs with smaller policy sizes.
+We consider keeping the same input channel in the decentralized architecture. Therefore, we do not change the PEP code. 
+Note that if a specific input channel required for each PEP, developers are required to change the PEP code to map each PEP with its corresponding PDP.  
 
 
 \subsection{Centralization: PEPs and PDP Synergy}
-Centralization offers a desirable feature by simplifying the routing of requests to the right PDP. 
-Figure \ref{model} illustrates the model of the access control architecture. In this model, a set of business processes, which comply to users' needs, are encapsulated 
-in a given business logic, which is enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP 
-interacts with one single PDP. The key point concerns the cardinality linking PEPs to the PDP. While a PDP is potentially linked to many PEPs, any PEP is strictly linked to exactly one 
+Centralization offers a desirable feature by simplifying the routing of requests to the right PDP. Figure \ref{model} illustrates the model of 
+the access control architecture. In this model, a set of business processes, which comply to users' needs, is illustrated by the business logic, which is 
+enforced by multiple PEPs. Conceptually, the decision is decoupled from the enforcement and involves a decision making process in which each PEP interacts 
+with one single PDP. The key point concerns the cardinality linking PEPs to the PDP. While a PDP is potentially linked to many PEPs, any PEP is strictly linked to exactly one 
 PDP (which is unique in the centralized model). 
 Since there is only one PDP, the requests are all routed to this unique PDP. No particular treatment is required to map a given PEP in the business logic to 
 the corresponding PDP, embedding the requested rules. Another advantage of this many-to-one association is the clear traceability between what has been specified by the 
-policy at the decision level and the internal security mechanisms enforcing this policy at the business logic level. In such setting, 
+policy and the PEPs enforcing this policy at the business logic level. In such setting, 
 when access control policies are updated or removed, the related PEPs can be easily located, updated and removed. Thus the application is updated synchronously 
 with the policy changes. We call this desirable property \textit{synergy} of the access control architecture: an access control architecture is said to be \textit{synergic} if any PEP always sends 
 its requests to the same PDP. 
 As a consequence, splitting the centralized PDP into PDPs of smaller policies sizes may break this 'synergy' since calls issued by PEPs can be handled by several PDPs. 
 In this work, we consider various splitting criteria to transform a centralized PDP into PDPs with smaller policies size. 
-Our \textit{hypothesis 2} is with comparable PDP policies sizes, the overall system will be more performant when the architecture is synergic. This hypothesis is investigated in 
+Our \textit{hypothesis 2} is with comparable PDP policies sizes, the performance of the overall system will increase when the architecture is synergic. This hypothesis is investigated in 
 Section \ref{sec:experiment}.
 
 \subsection{Tradeoff for refactoring}
@@ -67,12 +63,13 @@ As a synthesis for this section, the following facts are taken into account:
 \item Direct mapping from any PEP to only one PDP makes the access control architecture 'synergic'.
 \item A synergic system facilitates PEP request routing and eases policy maintenance.
 \end{itemize}
-The goal of our work is to propose systematic ways to improve performance by refactoring the centralized model into a decentralized version, with multiple PDPs. The resulting
+The goal of our work is to improve performance by refactoring the centralized model into its corresponding decentralized model, with multiple PDPs. The resulting
  architecture must have an equivalent behaviour and should not impact the desirable properties of the centralized model, namely reconfigurability and synergy. 
 Automating the transformation from a centralized to a decentralized architecture is required to preserve reconfigurability. With automation, we can still reconfigure the centralized policy, 
-and then automatically refactor the architecture. Automated refactoring is thus a viable solution for providing high reconfigurability.  
-However, refactoring the architecture by splitting the centralized PDP into smaller one may break the initial synergy. This phenomenon is studied in the empirical study of Section 
-\ref{sec:experiment} together with \textit{hypothesis 2}. In the next section, we give an overview of XACML language since it is the standard language used in this paper to implement a PDP.
+and then automatically refactor the architecture. We propose automatic refactoring  of a centralized model into its corresponding decentralized model while preserving high 
+reconfigurability. However, refactoring the architecture by splitting the centralized PDP into smaller ones may break the initial synergy. 
+This phenomenon is studied in the empirical study of Section \ref{sec:experiment} together with \textit{hypothesis 2}. In the next section, 
+we give an overview of XACML language since it is the standard language used in this paper to implement a PDP.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.34]{model}

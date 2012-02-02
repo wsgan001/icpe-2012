@@ -5,9 +5,6 @@ criteria based on attribute sets.
 Moreover, we explain how to select a splitting criterion that preserves the synergy in the access control architecture.
 
 \subsection{Policy Splitting Criteria} \label{subsec:SplittingCriteria}
-Given a request, a PDP typically uses brute force searching to determine a decision by evaluating the request against all the policy rules 
-one by one until the PDP finds a decision.
-
 During the evaluation process, the attribute values in a given request are compared with the attribute in the target of a rule. 
 If there is a match between the request's attribute and target's attribute values, the rule is then applicable to the request.
 In decision making process, applicable rules contribute
@@ -91,17 +88,13 @@ The first issue is addressed by the way the algorithm operates. The first step o
 depending on the splitting criterion, the set of target elements (the set of subjects, 
 the set of actions, and/or the set of resources). Then, based on the extracted result, the splitting is performed by removing 
 the rules with different splitting criterion values (such as a subject different from 
-the splitting criterion subject). The rules that are kept are therefore not modified and therefore their behavior is not altered. When there 
+the splitting criterion subject). The rules that are kept are therefore not modified and their behavior is not altered. When there 
 are several policies with different combining algorithms, the rules that are kept do not impact the evaluation behavior 
 because they remain attached to the same combining algorithm. Moreover their order and their content are not modified.
 
 
-The second issue is handled by keeping all the rules that involve 'AnySubject', 'AnyAction' or 'AnyResource' because by definition during 
+The second issue is handled by keeping all the rules that involve 'AnySubject', 'AnyAction' or 'AnyResource' in all sub-policies because by definition during 
 evaluation, these values are taken into consideration for evaluating all possible values of subjects, actions, and resources. 
-Therefore, it is important to keep them in all split policies because they are used in all evaluations, this way, the behavior is not changed because these rules are present in all split policies and 
-their number is negligible compared to those existing in specific targets. 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 It is worth mentioning this following consideration related to the refactoring process:
 XACML supports multi-valued attributes in policies and requests. In XACML policies, \CodeIn{target} elements define a set of attribute values, which match with 
